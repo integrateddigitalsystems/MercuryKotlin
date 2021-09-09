@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:src="@drawable/login_page"
+        android:layout_height="match_parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_70"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/margin_start_end"
+            android:paddingEnd="@dimen/margin_start_end"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/login_logo_height"
+                android:src="@drawable/mercury_new_logo"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/login_logo_margin"/>
+
+            <com.ids.mercury.custom.CustomTextViewLight
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_font"
+                android:text="@string/login_to_your_new_state"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/big_margin"
+                android:gravity="center"/>
+
+
+            <EditText
+                android:background="@drawable/thick_white_border"
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:gravity="center_vertical"
+                android:hint="@string/id_no"
+                android:layout_marginTop="@dimen/big_margin"
+                android:textSize="@dimen/normal_font"
+                android:paddingStart="@dimen/normal_margin"
+                android:paddingEnd="@dimen/normal_margin"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textColorHint="@color/dark_gray" />
+
+            <EditText
+                android:background="@drawable/thick_white_border"
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:gravity="center_vertical"
+                android:hint="@string/password"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:textSize="@dimen/normal_font"
+                android:paddingStart="@dimen/normal_margin"
+                android:paddingEnd="@dimen/normal_margin"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textColorHint="@color/dark_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/small_margin"
+                android:gravity="end">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:id="@+id/btForgetPassword"
+                    android:minHeight="0dp"
+                    android:text="@string/forgot_your_password"
+                    android:background="@color/transparent"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:padding="0dp"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    />
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/edit_text_height"
+                android:background="@color/gray_button"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+            <Button
+                android:layout_marginTop="@dimen/normal_margin"
+                android:id="@+id/btSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:background="@color/gray_button"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/loading_trans"/>
+
+</RelativeLayout>

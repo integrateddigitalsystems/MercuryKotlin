@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimary">#343445</color>
+    <color name="colorPrimaryLight">#302F2E</color>
+    <color name="colorAccent">#007cbe</color>
+    <color name="primary">#000000</color>
+    <color name="secondary">#343445</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blacktrans">#22000000</color>
+
+    <color name="black_60">#96000000</color>
+    <color name="black_70">#B3000000</color>
+
+    <color name="gray_button">#313236</color>
+
+
+    <color name="colorAccentLight">#024775</color>
+    <!--<color name="colorAccent">#CF0A2C</color>-->
+    <color name="membership_row">#CCCF0A2C</color>
+
+    <color name="gray_placeholder">#646464</color>
+    <color name="edit_text_bg">#33CF0A2C</color>
+    <color name="item_color">#E6FFFFFF</color>
+    <color name="hint_color">#80FFFFFF</color>
+    <color name="white_holder">#FFFFFF</color>
+    <color name="black_place_holder">#1A1A1A</color>
+
+    <color name="black_theme">#4D000000</color>
+    <color name="drawer_color">#E6302F2E</color>
+    <color name="child_drawer_color">#F2302F2E</color>
+    <color name="alpha_black">#B3202020</color>
+    <color name="gray_text">#9A9A9A</color>
+
+    <color name="green">#39b54a</color>
+    <color name="red">#ff0000</color>
+    <color name="orange">#f15a24</color>
+    <color name="blue">#007cbe</color>
+    <color name="button_blue">#30469d</color>
+    <color name="black_less">#aa000000</color>
+    <color name="white_60">#96ffffff</color>
+    <color name="blue_light">#cc007cbe</color>
+    <color name="gray">#cccccc</color>
+    <color name="light_gray">#f5f5f5</color>
+    <color name="dark_gray">#929292</color>
+    <color name="v_dark_gray">#5e5e5e</color>
+
+    <color name="black_trans">#ee000000</color>
+    <color name="primaryDark">#70121520</color>
+
+    <color name="event_text_background">#8D424242</color>
+
+    <color name="bg_app_color_dark">#131521</color>
+    <color name="bg_app_color_light">#353445</color>
+    <color name="overlay">#22000000</color>
+    <color name="menu_separator">#44424242</color>
+
+    <color name="gray_border">#5e5e5e</color>
+
+
+</resources>

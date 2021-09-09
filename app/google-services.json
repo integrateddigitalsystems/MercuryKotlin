@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "36729554558",
+    "project_id": "mercuryapp-bb063",
+    "storage_bucket": "mercuryapp-bb063.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36729554558:android:d35d43ed878cb69275ba2f",
+        "android_client_info": {
+          "package_name": "com.mercury.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36729554558-sg9a689cieqdbnvamsit0dm5h7jt2vtv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBblKIfpUqA3eU21EQjXNWZlldabx_9BHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36729554558-sg9a689cieqdbnvamsit0dm5h7jt2vtv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "36729554558-viopr5d734ot19bt0m4behennb77ovgm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mercury.mobile",
+                "app_store_id": "1549531316"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36729554558:android:4192fdae4f50c70e75ba2f",
+        "android_client_info": {
+          "package_name": "com.mercury.mobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36729554558-sg9a689cieqdbnvamsit0dm5h7jt2vtv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBblKIfpUqA3eU21EQjXNWZlldabx_9BHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36729554558-sg9a689cieqdbnvamsit0dm5h7jt2vtv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "36729554558-viopr5d734ot19bt0m4behennb77ovgm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mercury.mobile",
+                "app_store_id": "1549531316"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

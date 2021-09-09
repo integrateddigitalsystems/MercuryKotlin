@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_start_end"
+                android:paddingEnd="@dimen/margin_start_end"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/login_logo_height"
+                    android:layout_marginTop="@dimen/logo_margin_top_reset"
+                    android:layout_gravity="center"
+                    android:src="@drawable/mercury_new_logo"
+                    />
+                <com.ids.mercury.custom.CustomTextViewLight
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title_font"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/big_margin"
+                    android:gravity="center"/>
+
+
+                <EditText
+                    android:background="@drawable/thick_white_border"
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:gravity="center_vertical"
+                    android:hint="@string/first_name"
+                    android:layout_marginTop="@dimen/big_margin"
+                    android:textSize="@dimen/normal_font"
+                    android:paddingStart="@dimen/normal_margin"
+                    android:paddingEnd="@dimen/normal_margin"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_gray" />
+
+                <EditText
+                    android:background="@drawable/thick_white_border"
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:gravity="center_vertical"
+                    android:hint="@string/last_name"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:textSize="@dimen/normal_font"
+                    android:paddingStart="@dimen/normal_margin"
+                    android:paddingEnd="@dimen/normal_margin"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@drawable/thick_white_border"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:id="@+id/linearPhone"
+                    android:paddingStart="@dimen/normal_margin"
+                    android:paddingEnd="@dimen/normal_margin"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    >
+
+                    <com.ids.mercury.custom.CustomTextViewMedium
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+961"
+                        android:id="@+id/tvCountryCode"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_font"/>
+
+                    <com.ids.mercury.custom.CustomTextViewMedium
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:layout_marginStart="@dimen/small_margin"
+                        android:layout_marginEnd="@dimen/small_margin"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_font"/>
+
+                    <EditText
+                        android:background="@color/transparent"
+                        android:id="@+id/etPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:gravity="center_vertical"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+
+                        android:textSize="@dimen/normal_font"
+                        android:paddingStart="@dimen/normal_margin"
+                        android:paddingEnd="@dimen/normal_margin"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/dark_gray" />
+
+                </LinearLayout>
+
+                <com.ids.mercury.custom.CustomTextViewMedium
+                    android:background="@drawable/thick_white_border"
+                    android:id="@+id/tvDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:gravity="center_vertical"
+                    android:hint="@string/dob"
+                    android:layout_marginTop="@dimen/normal_margin"
+
+                    android:textSize="@dimen/normal_font"
+                    android:paddingStart="@dimen/normal_margin"
+                    android:paddingEnd="@dimen/normal_margin"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_gray" />
+
+                <EditText
+                    android:background="@drawable/thick_white_border"
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:gravity="center_vertical"
+                    android:hint="@string/email"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:textSize="@dimen/normal_font"
+                    android:paddingStart="@dimen/normal_margin"
+                    android:paddingEnd="@dimen/normal_margin"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/dark_gray" />
+                <Button
+                    android:id="@+id/btSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:layout_marginTop="@dimen/big_margin"
+                    android:background="@color/button_blue"
+                    android:text="@string/sign_up"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_font" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/loading_trans"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

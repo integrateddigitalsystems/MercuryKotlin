@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      >
+      <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/margin_start_end"
+            android:paddingEnd="@dimen/margin_start_end"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/login_logo_height"
+                android:layout_marginTop="@dimen/logo_margin_top_reset"
+                android:layout_gravity="center"
+                android:src="@drawable/mercury_new_logo"
+                />
+            <com.ids.mercury.custom.CustomTextViewLight
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_font"
+                android:text="@string/verification_code"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/big_margin"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="@dimen/verification_img"
+                android:layout_height="@dimen/verification_img"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/big_margin"
+                android:id="@+id/ivCode"
+                android:src="@drawable/verification"/>
+
+
+            <com.chaos.view.PinView
+                android:id="@+id/pvCode"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:cursorVisible="true"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:inputType="number"
+                android:itemBackground="@drawable/pin_view_item"
+                android:padding="@dimen/mini_margin"
+                android:textColor="@color/white"
+                android:textSize="@dimen/big_font"
+                android:textStyle="bold"
+                app:cursorColor="@color/white_holder"
+                app:cursorWidth="1dp"
+                app:itemCount="4"
+                app:itemHeight="48dp"
+                app:itemWidth="45dp"
+                app:itemRadius="16dp"
+                app:itemSpacing="12dp"
+                app:lineColor="@android:color/transparent"
+                app:lineWidth="2dp"
+                app:viewType="rectangle" />
+
+
+            <com.ids.mercury.custom.CustomTextViewMedium
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:textSize="@dimen/big_font"
+                android:textColor="@color/white_holder"
+                android:text="@string/enter_code_sms"/>
+
+
+            <LinearLayout
+                android:id="@+id/btResend"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/button_blue"
+                android:orientation="horizontal"
+                >
+                <com.ids.mercury.custom.CustomTextViewMedium
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/white"
+                    android:id="@+id/tvTimer"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    />
+
+                <com.ids.mercury.custom.CustomTextViewMedium
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/white"
+                    android:id="@+id/tvResend"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/resend"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+      <include layout="@layout/loading_trans"/>
+    </RelativeLayout>
+
+</LinearLayout>
