@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName
 class FirebaseBaseUrlsArray {
     @SerializedName("android")
     @Expose
-    var android: ArrayList<FirebaseUrlItems>? = null
+    var android: ArrayList<FirebaseUrlItems>? = arrayListOf()
 
     @SerializedName("ios")
     @Expose
-    var ios: List<FirebaseUrlItems>? = null
+    var ios: List<FirebaseUrlItems>? = arrayListOf()
 }

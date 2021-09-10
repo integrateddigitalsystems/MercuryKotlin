@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingStart="@dimen/margin_start_end"
+    android:paddingEnd="@dimen/margin_start_end"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/normal_margin"
+    android:background="@drawable/notification_rounded"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal">
+        <com.ids.mercury.custom.CustomTextViewMedium
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:id="@+id/tvTitle"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/big_font"
+            android:textColor="@color/white"
+
+            android:paddingEnd="@dimen/margin_start_end"/>
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:src="@drawable/arrow_down" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearExpanded"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_start_end"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/ivNotification"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_academy"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,7 +1,6 @@
 package com.ids.mercury.utils
 
-import com.ids.mercury.model.response.ResponseMenus
-import com.ids.mercury.model.response.ResponseMessage
+import com.ids.mercury.model.response.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -71,4 +70,27 @@ interface RetrofitInterface {
     ): Call<ResponseMessage>
 
 
+    @GET("UpdateMember")
+    fun updateMember(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.DATE_OF_BIRTH) dob: String,
+        @Query(ApiParameters.MOBILE) mobile: String,
+        @Query(ApiParameters.EMAIL) email: String
+    ): Call<ResponseMessage>
+
+    @GET("GetMemberDetails")
+    fun getMemberDetails(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseMemberDetails>
+
+    @GET("GetMemberLoyaltyPointsHistory")
+    fun getLoyalityHistory(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseHistory>
+
+
+    @GET("GetMemberLoyaltyPointsTotal")
+    fun getLoyalityPointsTotal(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseLoyalityPointsTotal>
 }

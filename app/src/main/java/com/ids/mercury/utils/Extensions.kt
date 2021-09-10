@@ -13,6 +13,9 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.ids.mercury.controller.MyApplication
@@ -50,6 +53,12 @@ fun Any.wtf(message: String) {
         Log.wtf(this::class.java.simpleName, message)
 }
 
+fun ImageView.setTint(color:Int){
+    this.setColorFilter(getColor(this.context, color), android.graphics.PorterDuff.Mode.SRC_IN)
+}
+fun ImageButton.setBackgroundTint(color:Int){
+    this.background.setTint(getColor(context, color))
+}
 
 fun Any.addFragment(
     container: Int,
@@ -160,13 +169,19 @@ fun Activity.hideKeyboard() {
 fun Fragment.toastt(message: CharSequence){
     try{Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()}catch (e:Exception){}
 }
-
+fun Activity.toastt(message: CharSequence){
+    try{Toast.makeText(this, message, Toast.LENGTH_SHORT).show()}catch (e:Exception){}
+}
 fun Fragment.loadJSONFromAssets(fileName: String): String {
     return activity!!.assets.open(fileName).bufferedReader().use { reader ->
         reader.readText()
     }
 }
-
+fun Activity.loadJSONFromAssets(fileName: String): String {
+    return assets.open(fileName).bufferedReader().use { reader ->
+        reader.readText()
+    }
+}
 fun Context.createDialog( message: String) {
 
     val builder = AlertDialog.Builder(this)

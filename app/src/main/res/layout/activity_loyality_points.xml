@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/margin_start_end"
+                android:paddingEnd="@dimen/margin_start_end"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/big_margin">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/points_star"
+                        android:layout_gravity="center_vertical"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/normal_margin"
+                        android:orientation="vertical">
+
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/normal_font"
+                            android:textColor="@color/white"
+                            android:text="@string/current_balance"/>
+
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/big_font"
+                            android:textColor="@color/white"
+                            android:id="@+id/tvMemberTotalPoints"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:text="0"/>
+
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/normal_font"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:text="@string/points"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.ids.mercury.custom.CustomTextViewMedium
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loyalty_points"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_font"
+                    android:layout_marginTop="@dimen/big_margin"/>
+
+                <com.ids.mercury.custom.CustomTextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_font"
+                    android:layout_marginTop="@dimen/normal_margin"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rvLoyality"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        />
+
+                    <com.ids.mercury.custom.CustomTextViewMedium
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvNodata"
+                        android:text="@string/no_data"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/normal_font"
+                        android:textColor="@color/white"/>
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/loading_trans"/>
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

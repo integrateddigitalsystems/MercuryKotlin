@@ -29,9 +29,17 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.ids.mercury.R
+import com.ids.mercury.controller.Activities.ActivitySplash
 
 import com.ids.mercury.controller.MyApplication
+import com.ids.mercury.model.PagerSectionArray
+import com.ids.mercury.model.SectionPagerItem
+import com.ids.mercury.model.response.ResponseMemberDetails
+import com.ids.mercury.model.response.ResponseMessage
 import me.grantland.widget.AutofitHelper
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 import java.io.File
 
@@ -39,7 +47,7 @@ import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
-
+import kotlin.collections.ArrayList
 
 
 /**
@@ -147,23 +155,41 @@ class AppHelper {
         }
 
 
+        fun getMemberDetails () {
+            RetrofitClient.client?.create(RetrofitInterface::class.java)
+                ?.getMemberDetails(MyApplication.memberId.toString())?.enqueue(object :
+                    Callback<ResponseMemberDetails> {
+                    override fun onResponse(
+                        call: Call<ResponseMemberDetails>,
+                        response: Response<ResponseMemberDetails>
+                    ) {
+                        if(response.body()!!.success=="1" && response.body()!!.members!!.size>0){
+                          MyApplication.memberDetails= response.body()!!.members!![0]
+                        }
+
+                    }
+                    override fun onFailure(call: Call<ResponseMemberDetails>, t: Throwable) {
+                    }
+                })
+        }
+
+
+
         fun getTypeFaceLight(context: Context): Typeface {
             return if (Locale.getDefault().language == "ar")
                 Typeface.createFromAsset(
                     context.applicationContext.assets,
-                    "fonts/Anisette-Light-Regular.otf"
+                    "fonts/Anisette-Medium.otf"
                 )
             else
                 Typeface.createFromAsset(
                     context.applicationContext.assets,
-                    "fonts/Anisette-Light-Regular.otf"
+                    "fonts/Anisette-Medium.otf"
                 )
 
         }
 
         fun getIdFromUserId(Id: Int){
-
-
 
         }
 
@@ -348,6 +374,8 @@ class AppHelper {
 
         }
 */
+
+
 
 
         fun setMargins(context: Context, view: View, left: Int, top: Int, right: Int, bottom: Int) {
@@ -586,6 +614,71 @@ class AppHelper {
 
         fun autofitText(vararg texts: TextView?) {
             for (element in texts) AutofitHelper.create(element)
+        }
+
+
+
+        fun setPagerArray(context: Context,pageItemCount:Int):ArrayList<PagerSectionArray>{
+            var arrayPagesSections=java.util.ArrayList<PagerSectionArray>()
+            var arrayAllSections=java.util.ArrayList<SectionPagerItem>()
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_MEMBERSHIP_STATUS_ID,context.getString(R.string.membership_status),"",R.drawable.home_membership,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_FITNESS_ID,context.getString(R.string.fitness_classes),"",R.drawable.home_fitness,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_ACADEMIES_ID,context.getString(R.string.academies),"",R.drawable.home_academy,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RENT_A_COURT_ID,context.getString(R.string.rent_a_court),"",R.drawable.home_rent_a_court,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_PAYMENT_HISTORY_ID,context.getString(R.string.payments_history),"",R.drawable.home_paymenthist,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GIFT_CARD_ID,context.getString(R.string.gift_card),"",R.drawable.home_giftcard,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GUESS_PASSES_ID,context.getString(R.string.guess_passes),"",R.drawable.home_guestpass,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_REFFER_A_FRIEND_ID,context.getString(R.string.refer_a_friend),"",R.drawable.home_refer,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_CSR_ID,context.getString(R.string.csr),"",R.drawable.home_csr,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RULES_AND_REGULATIONS_ID,context.getString(R.string.rules_regulations),"",R.drawable.home_rulesregelations,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivitySplash::class.java)
+            )})
+
+            var tempArray=java.util.ArrayList<SectionPagerItem>()
+            arrayPagesSections.clear()
+            for (i in arrayAllSections.indices){
+                tempArray.add(arrayAllSections[i])
+                if((((i+1) % pageItemCount) == 0 ) && i!=0 || (i == arrayAllSections.size-1)){
+                    arrayPagesSections.add(PagerSectionArray(tempArray))
+                    tempArray= arrayListOf()
+                }
+            }
+
+            return arrayPagesSections
         }
 
     }

@@ -9,6 +9,8 @@ import android.os.Build
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.ids.mercury.model.FirebaseBaseUrlsArray
+import com.ids.mercury.model.response.Member
+import com.ids.mercury.model.response.ResponseMemberDetails
 import com.ids.mercury.utils.AppConstants
 import java.util.*
 
@@ -38,9 +40,9 @@ class MyApplication : Application() {
             }
 
         var isLoggedIn: Boolean
-            get() = sharedPreferences.getBoolean(AppConstants.GENERAL_NOTIFICATION, true)
+            get() = sharedPreferences.getBoolean(AppConstants.IS_LOGGED_IN, true)
             set(value) {
-                sharedPreferencesEditor.putBoolean(AppConstants.GENERAL_NOTIFICATION, value).apply()
+                sharedPreferencesEditor.putBoolean(AppConstants.IS_LOGGED_IN, value).apply()
             }
 
         var cnm : String
@@ -58,6 +60,10 @@ class MyApplication : Application() {
         var android_version=""
         var verificationTitle=""
         var tempMemberId=""
+
+         var pageItemCount=4
+         var gridRecyclerCount=2
+          var memberDetails : Member?=null
     }
 
 

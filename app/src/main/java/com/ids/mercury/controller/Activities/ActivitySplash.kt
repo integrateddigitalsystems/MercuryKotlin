@@ -290,6 +290,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener{
                 ) {
                     if(response.body()!!.success=="1"){
                         MyApplication.memberId=response.body()!!.memberId!!
+                        AppHelper.getMemberDetails()
                         goToHome()
                     }else{
                         resetLoginParams()

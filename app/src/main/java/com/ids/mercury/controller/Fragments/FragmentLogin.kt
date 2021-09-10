@@ -89,7 +89,9 @@ class FragmentLogin : Fragment() , RVOnItemClickListener {
                          MyApplication.isLoggedIn=true
                          MyApplication.cnm=etUsername.text.toString()
                          MyApplication.cps=etPassword.text.toString()
+                         AppHelper.getMemberDetails()
                          goHome()
+
                     }
 
                 }

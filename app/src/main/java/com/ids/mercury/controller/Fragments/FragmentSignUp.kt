@@ -150,7 +150,7 @@ class FragmentSignUp : Fragment() , RVOnItemClickListener {
                 etFirstName.text.toString(),
                 "",
                 etLastName.text.toString(),
-                tvCountryCode.text.toString().replace("+","")+etPhoneNumber.text.toString(),
+                tvCountryCode.text.toString().replace("+","")+" "+etPhoneNumber.text.toString(),
                 tvDob.text.toString(),
                 etEmail.text.toString()
 

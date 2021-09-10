@@ -28,4 +28,6 @@ object ApiParameters {
     const val PHONE = "phone"
     const val DOB = "dob"
     const val EMAIL = "email"
+    const val MOBILE = "mobile"
+    const val DATE_OF_BIRTH = "DateOfBirth"
 }

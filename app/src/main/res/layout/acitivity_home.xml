@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+  <include layout="@layout/toolbar"/>
+
+
+    <ImageView
+        android:layout_width="@dimen/logo_home_width"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mercury_new_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/medium_margin"
+       />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/big_margin"
+        android:id="@+id/vpSections"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tbHome"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_marginBottom="@dimen/mini_margin"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        android:layout_marginTop="@dimen/normal_margin"
+
+        app:tabMaxWidth="12dp"
+        app:tabBackground="@drawable/selector_tab_image"
+        app:tabRippleColor="@null" />
+
 
 </LinearLayout>
