@@ -20,5 +20,10 @@ class History {
     @Expose
     var date: String? = null
 
-
+    constructor(id: Int?, loyaltyPoints: Int?, description: String?, date: String?) {
+        this.id = id
+        this.loyaltyPoints = loyaltyPoints
+        this.description = description
+        this.date = date
+    }
 }

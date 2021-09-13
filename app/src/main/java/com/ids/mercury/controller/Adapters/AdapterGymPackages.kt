@@ -1,6 +1,7 @@
 package com.ids.mercury.controller.Adapters
 
 
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,16 +12,17 @@ import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.CountryCodes
+import com.ids.mercury.model.response.GymPackage
 import com.ids.mercury.utils.AppHelper
 
 
 import java.util.ArrayList
 
-class AdapterCountryCodes(
-    val items: ArrayList<CountryCodes>,
+class AdapterGymPackages(
+    val items: ArrayList<GymPackage>,
     private val itemClickListener: RVOnItemClickListener
 ) :
-    RecyclerView.Adapter<AdapterCountryCodes.VHItem>() {
+    RecyclerView.Adapter<AdapterGymPackages.VHItem>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHItem {
@@ -30,12 +32,12 @@ class AdapterCountryCodes(
     }
 
     override fun onBindViewHolder(holder: VHItem, position: Int) {
-        holder.tvCodeName.text = items[position].code + " "+ items[position].name
+        holder.tvCodeName.text = items[position].name
 
-        if(MyApplication.selectedItemDialog.replace("+","").trim()==items[position].code!!.replace("+","").trim())
+/*        if(MyApplication.selectedItemDialog.replace("+","").trim()==items[position].code!!.replace("+","").trim())
             holder.tvCodeName.typeface= AppHelper.getTypeFaceBold(holder.itemView.context)
         else
-            holder.tvCodeName.typeface= AppHelper.getTypeFace(holder.itemView.context)
+            holder.tvCodeName.typeface= AppHelper.getTypeFace(holder.itemView.context)*/
     }
 
     override fun getItemCount(): Int {

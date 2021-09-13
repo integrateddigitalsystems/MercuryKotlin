@@ -200,4 +200,5 @@
     <string name="set_password">Set Password</string>
 
     <string name="profile_info_sent">Profile information has been saved!</string>
+    <string name="personal_trainer">Personal Trainer</string>
 </resources>

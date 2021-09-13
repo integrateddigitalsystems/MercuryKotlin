@@ -63,6 +63,7 @@ class AdapterItemSections(
 
         override fun onClick(v: View) {
             itemClickListener.onItemClicked(v, layoutPosition)
+            items[layoutPosition].action.invoke()
         }
     }
 }

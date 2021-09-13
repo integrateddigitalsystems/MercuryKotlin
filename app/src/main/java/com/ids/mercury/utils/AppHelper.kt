@@ -29,6 +29,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.ids.mercury.R
+import com.ids.mercury.controller.Activities.ActivityMembershipStatus
 import com.ids.mercury.controller.Activities.ActivitySplash
 
 import com.ids.mercury.controller.MyApplication
@@ -623,7 +624,7 @@ class AppHelper {
             var arrayAllSections=java.util.ArrayList<SectionPagerItem>()
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_MEMBERSHIP_STATUS_ID,context.getString(R.string.membership_status),"",R.drawable.home_membership,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityMembershipStatus::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_FITNESS_ID,context.getString(R.string.fitness_classes),"",R.drawable.home_fitness,"",true,true)

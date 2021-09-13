@@ -64,6 +64,8 @@ class MyApplication : Application() {
          var pageItemCount=4
          var gridRecyclerCount=2
           var memberDetails : Member?=null
+
+        var selectedItemDialog="+961"
     }
 
 

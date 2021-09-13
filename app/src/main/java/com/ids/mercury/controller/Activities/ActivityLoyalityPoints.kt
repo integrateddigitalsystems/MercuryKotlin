@@ -52,12 +52,9 @@ class ActivityLoyalityPoints : AppCompactBase(),RVOnItemClickListener {
         btProfile.setOnClickListener{super.onBackPressed()}
     }
 
-
     override fun onItemClicked(view: View, position: Int) {
 
     }
-
-
 
     fun getLoyalityPoints () {
         loading.show()
@@ -87,6 +84,9 @@ class ActivityLoyalityPoints : AppCompactBase(),RVOnItemClickListener {
    private fun setData(memberLoyaltyPoints: ArrayList<History>?) {
        arrayHistory.clear()
        arrayHistory.addAll(memberLoyaltyPoints!!)
+
+   /*    arrayHistory.add(History(1,1000,"description","10/10/2020"))
+       arrayHistory.add(History(1,2000,"description","10/10/2020"))*/
        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
        rvLoyality.layoutManager = layoutManager
        adapter = AdapterLoyalityPoints(arrayHistory,this)

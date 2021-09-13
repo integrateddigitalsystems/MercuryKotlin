@@ -93,6 +93,11 @@ class FragmentSignUp : Fragment() , RVOnItemClickListener {
         adapter = AdapterCountryCodes(arrayCountries,this)
         rv.adapter = adapter
 
+        try{
+        var item=arrayCountries.find { it.code!!.replace("+","").trim()==MyApplication.selectedItemDialog.replace("+","").trim() }
+        var position=arrayCountries.indexOf(item!!)
+        rv.scrollToPosition(position)}catch (e:Exception){}
+
         dialog.show()
     }
 
@@ -139,6 +144,7 @@ class FragmentSignUp : Fragment() , RVOnItemClickListener {
 
     override fun onItemClicked(view: View, position: Int) {
         dialog.dismiss()
+        MyApplication.selectedItemDialog=adapter.items[position].code!!
         tvCountryCode.text = adapter.items[position].code
     }
 

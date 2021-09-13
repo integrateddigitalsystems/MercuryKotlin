@@ -83,6 +83,8 @@ class ActivityHistory : AppCompactBase(),RVOnItemClickListener {
     private fun setData(memberLoyaltyPoints: ArrayList<History>?) {
         arrayHistory.clear()
         arrayHistory.addAll(memberLoyaltyPoints!!)
+/*        arrayHistory.add(History(1,1000,"description","10/10/2020"))
+        arrayHistory.add(History(1,2000,"description","10/10/2020"))*/
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvLoyality.layoutManager = layoutManager
         adapter = AdapterHistory(arrayHistory,this)

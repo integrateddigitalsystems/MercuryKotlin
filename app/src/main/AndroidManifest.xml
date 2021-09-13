@@ -59,6 +59,17 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".controller.Activities.ActivityRenewMembership"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".controller.Activities.ActivityMembershipStatus"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".controller.Activities.ActivityHistory"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"

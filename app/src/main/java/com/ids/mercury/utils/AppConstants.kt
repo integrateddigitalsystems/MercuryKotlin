@@ -62,4 +62,7 @@ object AppConstants {
     const val MENU_REFFER_A_FRIEND_ID = 8
     const val MENU_CSR_ID = 9
     const val MENU_RULES_AND_REGULATIONS_ID = 10
+
+    const val TYPE_GYM = 1
+    const val TYPE_PT = 2
 }

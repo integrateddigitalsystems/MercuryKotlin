@@ -150,7 +150,10 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
          etEmail.setText(MyApplication.memberDetails!!.email!!)
          if(MyApplication.memberDetails!!.mobile!!.isNotEmpty()) {
             try{etPhoneNumber.setText(MyApplication.memberDetails!!.mobile!!.split(" ")[1])}catch (e:Exception){}
-            try{tvCountryCode.text=MyApplication.memberDetails!!.mobile!!.split(" ")[0]}catch (e:Exception){}
+            try{
+                MyApplication.selectedItemDialog=MyApplication.memberDetails!!.mobile!!.split(" ")[0]
+                tvCountryCode.text=MyApplication.memberDetails!!.mobile!!.split(" ")[0]
+            }catch (e:Exception){}
         }
 
     }
@@ -170,6 +173,7 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
 
     override fun onItemClicked(view: View, position: Int) {
         dialog.dismiss()
+        MyApplication.selectedItemDialog=adapter.items[position].code!!
         tvCountryCode.text = adapter.items[position].code
     }
 
@@ -187,7 +191,10 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
         rv.layoutManager = layoutManager
         adapter = AdapterCountryCodes(arrayCountries,this)
         rv.adapter = adapter
-
+        try{
+            var item=arrayCountries.find { it.code!!.replace("+","").trim()==MyApplication.selectedItemDialog.replace("+","").trim() }
+            var position=arrayCountries.indexOf(item!!)
+            rv.scrollToPosition(position)}catch (e:Exception){}
         dialog.show()
     }
 

@@ -93,4 +93,25 @@ interface RetrofitInterface {
     fun getLoyalityPointsTotal(
         @Query(ApiParameters.MEMBER_ID) memberId: String
     ): Call<ResponseLoyalityPointsTotal>
+
+
+    @GET("GetGymPTs")
+    fun getGymPts(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseMembership>
+
+
+    @GET("GetGymMember")
+    fun getGymMembers(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseMembership>
+
+    @GET("GetGymPackages")
+    fun getGymPackages(
+    ): Call<ResponseGymPackages>
+
+    @GET("GetPTPackages")
+    fun getPTPackages(
+    ): Call<ResponsePtPackages>
+
 }
