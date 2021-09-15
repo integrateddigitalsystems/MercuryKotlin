@@ -6,8 +6,8 @@
     <dimen name="normal_margin">10dp</dimen>
     <dimen name="small_margin">6dp</dimen>
     <dimen name="mini_margin">2dp</dimen>
-    <dimen name="small_font">12sp</dimen>
-    <dimen name="normal_font">14sp</dimen>
+    <dimen name="small_font">11sp</dimen>
+    <dimen name="normal_font">13sp</dimen>
     <dimen name="big_font">16sp</dimen>
     <dimen name="title_font">18sp</dimen>
     <dimen name="margin_start_end">16dp</dimen>
@@ -28,4 +28,6 @@
     <dimen name="icon_profile">35dp</dimen>
     <dimen name="small_edit_text_height">25dp</dimen>
     <dimen name="item_history_height">70dp</dimen>
+    <dimen name="pager_top_height">200dp</dimen>
+    <dimen name="item_class_height">60dp</dimen>
 </resources>

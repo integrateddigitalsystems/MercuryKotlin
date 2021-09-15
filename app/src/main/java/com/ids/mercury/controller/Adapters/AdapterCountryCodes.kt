@@ -1,7 +1,6 @@
 package com.ids.mercury.controller.Adapters
 
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,17 +24,17 @@ class AdapterCountryCodes(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHItem {
         return VHItem(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_country_code, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_popup, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: VHItem, position: Int) {
-        holder.tvCodeName.text = items[position].code + " "+ items[position].name
+        holder.tvName.text = items[position].code + " "+ items[position].name
 
         if(MyApplication.selectedItemDialog.replace("+","").trim()==items[position].code!!.replace("+","").trim())
-            holder.tvCodeName.typeface= AppHelper.getTypeFaceBold(holder.itemView.context)
+            holder.tvName.typeface= AppHelper.getTypeFaceBold(holder.itemView.context)
         else
-            holder.tvCodeName.typeface= AppHelper.getTypeFace(holder.itemView.context)
+            holder.tvName.typeface= AppHelper.getTypeFace(holder.itemView.context)
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +42,7 @@ class AdapterCountryCodes(
     }
 
     inner class VHItem(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var tvCodeName = itemView.findViewById<TextView>(R.id.tvCodeName)
+        var tvName = itemView.findViewById<TextView>(R.id.tvName)
         init {
             itemView.setOnClickListener(this)
         }

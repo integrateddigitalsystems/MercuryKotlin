@@ -9,6 +9,8 @@ import android.os.Build
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.ids.mercury.model.FirebaseBaseUrlsArray
+import com.ids.mercury.model.response.GymClass
+import com.ids.mercury.model.response.MediaFile
 import com.ids.mercury.model.response.Member
 import com.ids.mercury.model.response.ResponseMemberDetails
 import com.ids.mercury.utils.AppConstants
@@ -66,6 +68,10 @@ class MyApplication : Application() {
           var memberDetails : Member?=null
 
         var selectedItemDialog="+961"
+        var selectedGymPackageId=0
+        var selectedPtPackageId=0
+
+        var arraySuggestedClasses=java.util.ArrayList<GymClass>()
     }
 
 

@@ -61,5 +61,50 @@
 
     <color name="gray_border">#5e5e5e</color>
     <color name="black_shadow">#4D000000</color>
+    <string-array name="black_colors">
+    <item>#ff000000</item>
+        <item>#F2000000</item>
+        <item>#E6000000</item>
+        <item>#CC000000</item>
+        <item>#BF000000</item>
+        <item>#B3000000</item>
+        <item>#A6000000</item>
+        <item>#99000000</item>
+        <item>#8C000000</item>
+        <item>#80000000</item>
+        <item>#73000000</item>
+        <item>#66000000</item>
+        <item>#59000000</item>
+        <item>#4D000000</item>
+        <item>#40000000</item>
+        <item>#33000000</item>
+        <item>#26000000</item>
+        <item>#1A000000</item>
+        <item>#0D000000</item>
+        <item>#00000000</item>
+    </string-array>
 
+
+    <string-array name="white_colors">
+        <item>#FFFFFFFF</item>
+        <item>#F2FFFFFF</item>
+        <item>#E6FFFFFF</item>
+        <item>#CCFFFFFF</item>
+        <item>#BFFFFFFF</item>
+        <item>#B3FFFFFF</item>
+        <item>#A6FFFFFF</item>
+        <item>#99FFFFFF</item>
+        <item>#8CFFFFFF</item>
+        <item>#80FFFFFF</item>
+        <item>#73FFFFFF</item>
+        <item>#66FFFFFF</item>
+        <item>#59FFFFFF</item>
+        <item>#4DFFFFFF</item>
+        <item>#40FFFFFF</item>
+        <item>#33FFFFFF</item>
+        <item>#26FFFFFF</item>
+        <item>#1AFFFFFF</item>
+        <item>#0DFFFFFF</item>
+        <item>#00FFFFFF</item>
+    </string-array>
 </resources>

@@ -37,6 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_height"
                         android:orientation="horizontal"
+                        android:id="@+id/linearPackages"
                         android:layout_marginTop="@dimen/medium_margin"
                         android:background="@drawable/white_border_layout"
                         >
@@ -70,6 +71,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_height"
+                        android:id="@+id/linearDate"
                         android:orientation="horizontal"
                         android:layout_marginTop="@dimen/normal_margin"
                         android:background="@drawable/white_border_layout"

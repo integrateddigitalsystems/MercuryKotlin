@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_marginTop="@dimen/normal_margin"
-        android:id="@+id/tvCodeName"
+        android:id="@+id/tvName"
         android:gravity="center"
         android:textColor="@color/black"
         android:layout_width="match_parent"

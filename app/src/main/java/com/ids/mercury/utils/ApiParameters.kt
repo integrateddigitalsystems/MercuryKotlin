@@ -31,5 +31,7 @@ object ApiParameters {
     const val MOBILE = "mobile"
     const val DATE_OF_BIRTH = "DateOfBirth"
 
-
+    const val PACKAGE_ID = "packageId"
+    const val FROM_DATE = "fromDate"
+    const val TO_DATE = "toDate"
 }

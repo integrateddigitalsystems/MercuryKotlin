@@ -38,6 +38,7 @@ class ActivityHome : AppCompactBase() {
        btProfile.show()
        btNotification.show()
        setPager()
+
     }
 
     private fun listeners(){

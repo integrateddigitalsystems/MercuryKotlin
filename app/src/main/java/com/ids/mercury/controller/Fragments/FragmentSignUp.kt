@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,8 +22,6 @@ import com.ids.mercury.model.CountryArray
 import com.ids.mercury.model.CountryCodes
 import com.ids.mercury.model.response.ResponseMessage
 import com.ids.mercury.utils.*
-import kotlinx.android.synthetic.main.fragment_forget.*
-import kotlinx.android.synthetic.main.fragment_set_password.*
 import kotlinx.android.synthetic.main.fragment_signup.*
 import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -84,9 +80,9 @@ class FragmentSignUp : Fragment() , RVOnItemClickListener {
         dialog = Dialog(requireActivity(), R.style.dialogWithoutTitle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.popup_country_codes)
+        dialog.setContentView(R.layout.popup_recycler)
         dialog.setCancelable(true)
-        val rv: RecyclerView = dialog.findViewById(R.id.rvCountryCodes)
+        val rv: RecyclerView = dialog.findViewById(R.id.rvData)
 
         val layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         rv.layoutManager = layoutManager

@@ -27,6 +27,7 @@ import com.ids.mercury.controller.Base.ActivityBase
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.controller.MyApplication.Companion.BASE_URLS
 import com.ids.mercury.model.FirebaseBaseUrlsArray
+import com.ids.mercury.model.response.ResponseGymClasses
 import com.ids.mercury.model.response.ResponseMenus
 import com.ids.mercury.model.response.ResponseMessage
 import com.ids.mercury.utils.*
@@ -38,7 +39,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class ActivitySplash : ActivityBase() ,MenusDataListener{
+class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
     var mFirebaseRemoteConfig: FirebaseRemoteConfig? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,8 +107,6 @@ class ActivitySplash : ActivityBase() ,MenusDataListener{
                 }else
                     next()
 
-
-
                // nextStep()
             }
     }
@@ -154,6 +153,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener{
         }, 2000)
     }
     private fun goToHome(){
+        CallApi.getSuggestedClasses(this,this)
         startActivity(Intent(this,ActivityHome::class.java))
         finish()
     }
@@ -311,4 +311,10 @@ class ActivitySplash : ActivityBase() ,MenusDataListener{
         MyApplication.cnm=""
         MyApplication.cps=""
     }
+
+    override fun onDataRetrieved(success: Boolean, response: Any) {
+
+    }
+
+
 }

@@ -1,6 +1,5 @@
 package com.ids.mercury.controller.Adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.MyApplication
-import com.ids.mercury.model.CountryCodes
 import com.ids.mercury.model.response.GymPackage
+import com.ids.mercury.model.response.PtPackage
 import com.ids.mercury.utils.AppHelper
 
 
 import java.util.ArrayList
 
-class AdapterGymPackages(
-    val items: ArrayList<GymPackage>,
+class AdapterPTPackages(
+    val items: ArrayList<PtPackage>,
     private val itemClickListener: RVOnItemClickListener
 ) :
-    RecyclerView.Adapter<AdapterGymPackages.VHItem>() {
+    RecyclerView.Adapter<AdapterPTPackages.VHItem>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHItem {
@@ -32,7 +31,7 @@ class AdapterGymPackages(
     override fun onBindViewHolder(holder: VHItem, position: Int) {
         holder.tvName.text = items[position].name
 
-        if(MyApplication.selectedGymPackageId==items[position].id)
+        if(MyApplication.selectedPtPackageId==items[position].id)
             holder.tvName.typeface= AppHelper.getTypeFaceBold(holder.itemView.context)
         else
             holder.tvName.typeface= AppHelper.getTypeFace(holder.itemView.context)

@@ -1,4 +1,6 @@
 package com.ids.mercury.custom
+
+
 import android.content.Context
 import androidx.appcompat.widget.AppCompatTextView
 import android.util.AttributeSet
@@ -7,7 +9,7 @@ import com.ids.mercury.utils.AppHelper
 import me.grantland.widget.AutofitHelper
 
 
-class CustomTextViewLight : AppCompatTextView {
+class CustomTextViewWeb : AppCompatTextView {
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
         init()
     }
@@ -23,7 +25,7 @@ class CustomTextViewLight : AppCompatTextView {
 
     private fun init() {
         if (!isInEditMode)
-            typeface = AppHelper.getTypeFaceLight(context)
+            typeface = AppHelper.getTypeFaceWeb(context)
 
         AutofitHelper.create(this)
     }

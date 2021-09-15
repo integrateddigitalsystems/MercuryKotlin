@@ -73,7 +73,7 @@ class ActivityMembershipStatus : AppCompactBase(),RVOnItemClickListener {
         btProfile.setOnClickListener{startActivity(Intent(this,ActivityProfile::class.java))}
         setTabs()
         btRenew.setOnClickListener{
-            startActivity(Intent(this,ActivityRenewMembership::class.java).putExtra("type",AppConstants.TYPE_GYM))
+            startActivity(Intent(this,ActivityRenewMembership::class.java).putExtra("type",selectedTab))
         }
     }
 

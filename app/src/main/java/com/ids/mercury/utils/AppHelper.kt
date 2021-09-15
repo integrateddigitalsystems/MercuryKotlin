@@ -29,6 +29,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.ids.mercury.R
+import com.ids.mercury.controller.Activities.ActivityClasses
 import com.ids.mercury.controller.Activities.ActivityMembershipStatus
 import com.ids.mercury.controller.Activities.ActivitySplash
 
@@ -117,8 +118,11 @@ class AppHelper {
     companion object {
 
         var fragmentAvailable: Int? = null
-        var dateFormat1 = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-
+        var dateFormat1 = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        var dateFormat2 = SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH)
+        var dateFormat3 = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
+        var dateFormat4 = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+        var dateFormat5 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
         fun getAndroidVersion(): String {
 
             val release = Build.VERSION.RELEASE
@@ -155,6 +159,9 @@ class AppHelper {
 
         }
 
+        fun opacity(percenage:Double):String{
+           return Integer.toHexString(percenage.toInt())
+        }
 
         fun getMemberDetails () {
             RetrofitClient.client?.create(RetrofitInterface::class.java)
@@ -189,6 +196,23 @@ class AppHelper {
                 )
 
         }
+
+        fun getTypeFaceWeb(context: Context): Typeface {
+            return if (Locale.getDefault().language == "ar")
+                Typeface.createFromAsset(
+                    context.applicationContext.assets,
+                    "fonts/PTSansNarrow_Regular.ttf"
+                )
+            else
+                Typeface.createFromAsset(
+                    context.applicationContext.assets,
+                    "fonts/PTSansNarrow_Regular.ttf"
+                )
+
+        }
+
+
+
 
         fun getIdFromUserId(Id: Int){
 
@@ -236,13 +260,27 @@ class AppHelper {
 
 
         fun formatDate(c: Context, dateString: String, oldDateFormat: String, newDateFormat: String):String?{
-            var format = SimpleDateFormat(oldDateFormat, Locale.US)
+            var format = SimpleDateFormat(oldDateFormat, Locale.ENGLISH)
             val newDate = format.parse(dateString)
-            format = SimpleDateFormat(newDateFormat, Locale.US)
+            format = SimpleDateFormat(newDateFormat, Locale.ENGLISH)
             val date = format.format(newDate)
             return date
         }
 
+
+        fun formatDateTimestamp(dateFormat:SimpleDateFormat,timeStamp:String,cut:Boolean):String?{
+            try {
+                var myTimeStamp=timeStamp
+                if(cut)
+                    myTimeStamp=timeStamp.substring(6,myTimeStamp.length-2)
+                Log.w("timestamp_1", "formatDateTimestamp: "+myTimeStamp )
+                val netDate = Date(myTimeStamp.toLong())
+                return dateFormat.format(netDate)
+            } catch (e: Exception) {
+                Log.w("timestamp_1", e.toString() )
+                return ""
+            }
+        }
 
 
 
@@ -629,7 +667,7 @@ class AppHelper {
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_FITNESS_ID,context.getString(R.string.fitness_classes),"",R.drawable.home_fitness,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityClasses::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_ACADEMIES_ID,context.getString(R.string.academies),"",R.drawable.home_academy,"",true,true)

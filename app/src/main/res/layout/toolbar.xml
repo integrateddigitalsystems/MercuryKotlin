@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:gravity="center_vertical"
     android:background="@color/black"
+    android:id="@+id/linearToolbar"
     android:paddingStart="@dimen/margin_start_end"
     android:paddingEnd="@dimen/margin_start_end"
+    android:maxHeight="@dimen/toolbar_height"
     android:layout_height="@dimen/toolbar_height">
 
 
@@ -42,7 +44,6 @@
            android:id="@+id/tvToolbarTitle"
            android:layout_gravity="center"
            android:gravity="center"
-           android:textAllCaps="true"
            android:layout_marginStart="@dimen/small_margin"
            android:layout_marginEnd="@dimen/small_margin"
            android:textColor="@color/white"

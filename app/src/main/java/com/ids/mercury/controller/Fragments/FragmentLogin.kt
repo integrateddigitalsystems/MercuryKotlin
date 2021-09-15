@@ -26,7 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class FragmentLogin : Fragment() , RVOnItemClickListener {
+class FragmentLogin : Fragment() , RVOnItemClickListener ,ApiListener{
 
     var canClick=true
     lateinit var  shake: Animation
@@ -108,6 +108,7 @@ class FragmentLogin : Fragment() , RVOnItemClickListener {
     }
 
     private fun goHome(){
+        CallApi.getSuggestedClasses(requireActivity(),this)
         val mIntent = Intent(requireActivity(), ActivityHome::class.java)
         requireActivity().finishAffinity()
         startActivity(mIntent)
@@ -115,6 +116,10 @@ class FragmentLogin : Fragment() , RVOnItemClickListener {
 
 
     override fun onItemClicked(view: View, position: Int) {
+
+    }
+
+    override fun onDataRetrieved(success: Boolean, response: Any) {
 
     }
 

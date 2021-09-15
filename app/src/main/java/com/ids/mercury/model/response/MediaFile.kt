@@ -39,4 +39,27 @@ class MediaFile {
     @SerializedName("IsIcon")
     @Expose
     var isIcon: Boolean? = false
+
+
+    constructor(
+        id: Int?,
+        caption: String?,
+        typeId: Int?,
+        fileName: String?,
+        youTubePath: String?,
+        filePath: String?,
+        croppedImage: Any?,
+        mainImage: Boolean?,
+        isIcon: Boolean?
+    ) {
+        this.id = id
+        this.caption = caption
+        this.typeId = typeId
+        this.fileName = fileName
+        this.youTubePath = youTubePath
+        this.filePath = filePath
+        this.croppedImage = croppedImage
+        this.mainImage = mainImage
+        this.isIcon = isIcon
+    }
 }

@@ -1,23 +1,28 @@
 package com.ids.mercury.utils
 
-import android.R
-import android.annotation.SuppressLint
+
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.res.ColorStateList
-
-import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.appcompat.widget.AppCompatRadioButton
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
+import android.os.Build
+import android.text.Html
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.core.content.ContextCompat
+import androidx.annotation.DimenRes
+import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat.getColor
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
+import com.ids.mercury.R
 import com.ids.mercury.controller.MyApplication
 
 
@@ -59,6 +64,32 @@ fun ImageView.setTint(color:Int){
 fun ImageButton.setBackgroundTint(color:Int){
     this.background.setTint(getColor(context, color))
 }
+
+
+fun ImageView.loadImagesUrlResize(url: String) {
+    val options: RequestOptions = RequestOptions()
+        .centerCrop()
+        .placeholder(R.drawable.rectangular_gray)
+        .error(R.drawable.rectangular_gray)
+        .override(500, 200)
+         Glide.with(this).load(url).apply(options)
+        .into(this)
+
+}
+fun ImageView.loadImagesUrl(url: String) {
+    val options: RequestOptions = RequestOptions()
+        .centerCrop()
+        .placeholder(R.drawable.rectangular_gray)
+        .error(R.drawable.rectangular_gray)
+         Glide.with(this).load(url).apply(options)
+        .into(this)
+
+}
+
+fun Context.px(@DimenRes dimen: Int): Int = resources.getDimension(dimen).toInt()
+
+fun Context.dp(@DimenRes dimen: Int): Float = px(dimen) / resources.displayMetrics.density
+
 
 fun Any.addFragment(
     container: Int,
@@ -123,7 +154,7 @@ fun Context.logw(key:String,value: String){
 }
 
 
-@SuppressLint("RestrictedApi")
+/*@SuppressLint("RestrictedApi")
 fun AppCompatCheckBox.setCheckBoxColor(uncheckedColor: Int, checkedColor: Int) {
     val colorStateList = ColorStateList(
         arrayOf(
@@ -145,7 +176,7 @@ fun AppCompatRadioButton.setRadioButtonColor(uncheckedColor: Int, checkedColor: 
         intArrayOf(uncheckedColor, checkedColor)
     )
     this.supportButtonTintList = colorStateList
-}
+}*/
 
 
 
@@ -159,6 +190,19 @@ fun View.show() {
 fun View.hide() {
     try{visibility = View.GONE}catch (e:Exception){}
 }
+
+fun View.invisible() {
+    try{visibility = View.INVISIBLE}catch (e:Exception){}
+}
+
+fun TextView.setHtmlText(text:String){
+    this.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
+    } else {
+        Html.fromHtml(text)
+    }
+}
+
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
 }

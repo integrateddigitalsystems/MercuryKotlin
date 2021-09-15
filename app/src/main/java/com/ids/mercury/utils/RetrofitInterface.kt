@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import kotlin.coroutines.RestrictsSuspension
 
 interface RetrofitInterface {
 
@@ -113,5 +114,22 @@ interface RetrofitInterface {
     @GET("GetPTPackages")
     fun getPTPackages(
     ): Call<ResponsePtPackages>
+
+    @GET("GetGymMembershipFinalAmount")
+    fun getAmount(
+        @Query(ApiParameters.PACKAGE_ID) packageId: Int,
+        @Query(ApiParameters.REGISTRATION_DATE) regDate: String
+    ): Call<ResponseAmount>
+
+
+    @GET("GetSuggestedGymClasses")
+    fun getSuggestedGymClasses(
+    ): Call<ResponseGymClasses>
+
+    @GET("GetGymSchedule")
+    fun getGymSchedule(
+        @Query(ApiParameters.FROM_DATE) fromDate: Int,
+        @Query(ApiParameters.TO_DATE) toDate: String
+    ): Call<ResponseAmount>
 
 }

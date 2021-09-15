@@ -16,14 +16,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.AdapterCountryCodes
-import com.ids.mercury.controller.Adapters.AdapterNotifcations
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.custom.InputFilterMinMax
 import com.ids.mercury.model.CountryArray
 import com.ids.mercury.model.CountryCodes
-import com.ids.mercury.model.Notifications
 import com.ids.mercury.model.response.ResponseMemberDetails
 import com.ids.mercury.model.response.ResponseMessage
 import com.ids.mercury.utils.*
@@ -32,7 +30,6 @@ import kotlinx.android.synthetic.main.activity_profile.etEmail
 import kotlinx.android.synthetic.main.activity_profile.etPhoneNumber
 import kotlinx.android.synthetic.main.activity_profile.linearPhone
 import kotlinx.android.synthetic.main.activity_profile.tvCountryCode
-import kotlinx.android.synthetic.main.fragment_signup.*
 
 import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -183,9 +180,9 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
         dialog = Dialog(this, R.style.dialogWithoutTitle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.popup_country_codes)
+        dialog.setContentView(R.layout.popup_recycler)
         dialog.setCancelable(true)
-        val rv: RecyclerView = dialog.findViewById(R.id.rvCountryCodes)
+        val rv: RecyclerView = dialog.findViewById(R.id.rvData)
 
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rv.layoutManager = layoutManager

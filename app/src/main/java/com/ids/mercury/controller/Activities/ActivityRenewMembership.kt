@@ -1,49 +1,48 @@
 package com.ids.mercury.controller.Activities
 
 
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.animation.Animation
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.AdapterCountryCodes
-import com.ids.mercury.controller.Adapters.AdapterHistory
-import com.ids.mercury.controller.Adapters.AdapterMembership
+import com.ids.mercury.controller.Adapters.AdapterGymPackages
+import com.ids.mercury.controller.Adapters.AdapterPTPackages
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
 import com.ids.mercury.controller.MyApplication
-import com.ids.mercury.model.CountryArray
 import com.ids.mercury.model.CountryCodes
-import com.ids.mercury.model.response.MemberShip
-import com.ids.mercury.model.response.ResponseMembership
+import com.ids.mercury.model.response.*
 import com.ids.mercury.utils.*
-import kotlinx.android.synthetic.main.activity_loyality_points.*
-import kotlinx.android.synthetic.main.activity_loyality_points.rvLoyality
-import kotlinx.android.synthetic.main.activity_loyality_points.tvNodata
-import kotlinx.android.synthetic.main.activity_membership_status.*
+import kotlinx.android.synthetic.main.activity_renew_membership.*
 
-import kotlinx.android.synthetic.main.loading_trans.*
+
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.collections.ArrayList
+import java.util.*
 
 
 class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
     private var arrayData=java.util.ArrayList<MemberShip>()
     lateinit var adapter : AdapterCountryCodes
     var type=0
-    private var arrayCountries=java.util.ArrayList<CountryCodes>()
-    lateinit var adapterPackages : AdapterCountryCodes
+    private var arrayGymPackages=java.util.ArrayList<GymPackage>()
+    lateinit var adapterGymPackages : AdapterGymPackages
+
+    private var arrayPTPackages=java.util.ArrayList<PtPackage>()
+    lateinit var adapterPTPackages : AdapterPTPackages
+
     lateinit var dialog :Dialog
     lateinit var  shake: Animation
+    var selectedDate=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,85 +53,176 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
     }
 
 
-
-
     private fun init(){
 
         type=intent.getIntExtra("type",0)
-        if(type==AppConstants.TYPE_GYM)
+        if(type==AppConstants.TYPE_GYM){
             tvToolbarTitle.text=getString(R.string.renew_membership)
-        else
+            getGymPackages()
+        }
+        else{
             tvToolbarTitle.text=getString(R.string.renew_pt)
+            getPTPackages()
+        }
+        MyApplication.selectedGymPackageId=0
+        MyApplication.selectedPtPackageId=0
+
+
 
     }
 
     private fun listeners(){
         btBack.setOnClickListener{super.onBackPressed()}
         btProfile.setOnClickListener{startActivity(Intent(this,ActivityProfile::class.java))}
+        setDatesPicker()
     }
 
 
     override fun onItemClicked(view: View, position: Int) {
-
+       if(type==AppConstants.TYPE_GYM) {
+           MyApplication.selectedGymPackageId = adapterGymPackages.items[position].id!!
+           tvSelectedPackage.text=adapterGymPackages.items[position].name!!
+           if(selectedDate.isNotEmpty())
+               getAmount(selectedDate,MyApplication.selectedGymPackageId)
+       }
+        else{
+           MyApplication.selectedPtPackageId=adapterPTPackages.items[position].id!!
+           tvSelectedPackage.text=adapterPTPackages.items[position].name!!
+           tvAmount.show()
+           tvAmount.text=adapterPTPackages.items[position].amount!!.toString()
+        }
+        dialog.dismiss()
     }
 
 
-    fun getPersonalTrainerData () {
-        loading.show()
+    fun getGymPackages () {
         RetrofitClient.client?.create(RetrofitInterface::class.java)
-            ?.getGymPts(MyApplication.memberId.toString())?.enqueue(object :
-                Callback<ResponseMembership> {
+            ?.getGymPackages()?.enqueue(object :
+                Callback<ResponseGymPackages> {
                 override fun onResponse(
-                    call: Call<ResponseMembership>,
-                    response: Response<ResponseMembership>
+                    call: Call<ResponseGymPackages>,
+                    response: Response<ResponseGymPackages>
                 ) {
-                    loading.hide()
-                    //  if(response.body()!!.success=="1" && response.body()!!.gymMembers!!.size>0){
-                    tvNodata.hide()
-                   // setData(response.body()!!.gymMembers)
-                    /*      }else
-                              tvNodata.show()*/
+
+                    if(response.body()!!.success=="1" && response.body()!!.gymPackages!!.size>0){
+                         arrayGymPackages.addAll(response.body()!!.gymPackages!!)
+                        linearPackages.setOnClickListener{showGymPackages()}
+                    }
 
                 }
-                override fun onFailure(call: Call<ResponseMembership>, t: Throwable) {
-                    loading.hide()
-                    tvNodata.show()
+                override fun onFailure(call: Call<ResponseGymPackages>, t: Throwable) {
+
                 }
             })
     }
 
-/*    private fun setData(members: ArrayList<MemberShip>?) {
-        arrayData.clear()
-        arrayData.addAll(members!!)
-        arrayData.add(MemberShip(1,1,1,1,"01/12/2021","01/12/2022","1 Month","Active","1"))
-        arrayData.add(MemberShip(2,2,2,2,"01/12/2021","01/12/2022","2 Month","Expired","2"))
-        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        rvMemberShip.layoutManager = layoutManager
-        adapter = AdapterMembership(arrayData,this)
-        rvMemberShip.adapter = adapter
 
-    }*/
+    fun getPTPackages () {
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.getPTPackages()?.enqueue(object :
+                Callback<ResponsePtPackages> {
+                override fun onResponse(
+                    call: Call<ResponsePtPackages>,
+                    response: Response<ResponsePtPackages>
+                ) {
+
+                    if(response.body()!!.success=="1" && response.body()!!.ptPackages!!.size>0){
+                        arrayPTPackages.addAll(response.body()!!.ptPackages!!)
+                        linearPackages.setOnClickListener{showPTPackages()}
+                    }
+
+                }
+                override fun onFailure(call: Call<ResponsePtPackages>, t: Throwable) {
+                }
+            })
+    }
 
 
-    private fun showPackages(){
-        arrayCountries.clear()
-        arrayCountries.addAll(Gson().fromJson(loadJSONFromAssets("countries.json"), CountryArray::class.java).countries!!)
+    fun getAmount (date:String,packageId:Int) {
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.getAmount(packageId,date)?.enqueue(object :
+                Callback<ResponseAmount> {
+                override fun onResponse(
+                    call: Call<ResponseAmount>,
+                    response: Response<ResponseAmount>
+                ) {
+
+                    if(response.body()!!.success=="1"){
+                        tvAmount.show()
+                        tvAmount.text=response.body()!!.amount!!.amount!!.toString()+" "+response.body()!!.amount!!.symbol!!
+                    }
+                }
+                override fun onFailure(call: Call<ResponseAmount>, t: Throwable) {
+                }
+            })
+    }
+
+
+
+
+    private fun showGymPackages(){
         dialog = Dialog(this, R.style.dialogWithoutTitle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.popup_country_codes)
+        dialog.setContentView(R.layout.popup_recycler)
         dialog.setCancelable(true)
-        val rv: RecyclerView = dialog.findViewById(R.id.rvCountryCodes)
-
+        val rv: RecyclerView = dialog.findViewById(R.id.rvData)
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rv.layoutManager = layoutManager
-        adapter = AdapterCountryCodes(arrayCountries,this)
-        rv.adapter = adapter
+        adapterGymPackages = AdapterGymPackages(arrayGymPackages,this)
+        rv.adapter = adapterGymPackages
         try{
-            var item=arrayCountries.find { it.code!!.replace("+","").trim()==MyApplication.selectedItemDialog.replace("+","").trim() }
-            var position=arrayCountries.indexOf(item!!)
+            var item=arrayGymPackages.find { it.id!! == MyApplication.selectedGymPackageId }
+            var position=arrayGymPackages.indexOf(item!!)
             rv.scrollToPosition(position)}catch (e:Exception){}
         dialog.show()
+    }
+
+
+    private fun showPTPackages(){
+        dialog = Dialog(this, R.style.dialogWithoutTitle)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(R.layout.popup_recycler)
+        dialog.setCancelable(true)
+        val rv: RecyclerView = dialog.findViewById(R.id.rvData)
+        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rv.layoutManager = layoutManager
+        adapterPTPackages = AdapterPTPackages(arrayPTPackages,this)
+        rv.adapter = adapterPTPackages
+        try{
+            var item=arrayPTPackages.find { it.id!! == MyApplication.selectedPtPackageId }
+            var position=arrayPTPackages.indexOf(item!!)
+            rv.scrollToPosition(position)}catch (e:Exception){}
+        dialog.show()
+    }
+
+
+    private fun setDatesPicker(){
+
+        var textDateListener: DatePickerDialog.OnDateSetListener
+        var textDateCalendar: Calendar = Calendar.getInstance()
+        textDateListener =
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                // TODO Auto-generated method stub
+                textDateCalendar.set(Calendar.YEAR, year)
+                textDateCalendar.set(Calendar.MONTH, monthOfYear)
+                textDateCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                tvStartDate.text = AppHelper.dateFormat3.format(textDateCalendar.time)
+                selectedDate=AppHelper.dateFormat2.format(textDateCalendar.time)
+                if(type == AppConstants.TYPE_GYM && tvSelectedPackage.text != getString(R.string.choose_package))
+                  getAmount(selectedDate,MyApplication.selectedGymPackageId)
+
+            }
+        linearDate.setOnClickListener {
+            DatePickerDialog(
+                this,
+                textDateListener,
+                textDateCalendar.get(Calendar.YEAR),
+                textDateCalendar.get(Calendar.MONTH),
+                textDateCalendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
     }
 
 }
