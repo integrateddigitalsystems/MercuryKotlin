@@ -64,7 +64,7 @@
                         android:id="@+id/tbMedia"
                         android:layout_width="match_parent"
                         android:layout_height="18dp"
-                       android:layout_below="@id/rlPagerTop"
+                        android:layout_below="@id/rlPagerTop"
                         android:layout_marginBottom="@dimen/mini_margin"
                         android:visibility="gone"
                         app:tabGravity="center"
@@ -80,8 +80,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="@dimen/margin_start_end"
-                        android:layout_marginEnd="@dimen/margin_start_end"
                         android:layout_below="@id/tbMedia">
 
                         <com.ids.mercury.custom.CustomTextViewWeb
@@ -90,6 +88,8 @@
                             android:textSize="@dimen/normal_font"
                             android:layout_gravity="center"
                             android:gravity="center"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
                             android:id="@+id/tvSummary"
                             android:layout_marginTop="@dimen/medium_margin"
                             android:textColor="@color/white"/>
@@ -102,6 +102,8 @@
                             android:paddingStart="@dimen/normal_margin"
                             android:paddingEnd="@dimen/normal_margin"
                             android:id="@+id/linearSuggestedClasses"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
                             android:layout_marginTop="@dimen/medium_margin"
@@ -113,8 +115,9 @@
                                 android:layout_gravity="center_vertical"
                                 android:gravity="center_vertical"
                                 android:layout_height="wrap_content"
+
                                 android:textSize="@dimen/normal_font"
-                                android:text="@string/suggested_classes"
+                                android:text="@string/full_schedule"
                                 android:textColor="@color/white"/>
 
                             <ImageView
@@ -130,38 +133,41 @@
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
                             android:id="@+id/rvSuggested"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/white"/>
 
                         <com.ids.mercury.custom.CustomTextViewBold
                             android:layout_width="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/big_font"
                             android:layout_marginTop="@dimen/medium_margin"
-                            android:text="@string/not_a_member"
+                            android:text="@string/looking_to_join"
                             android:textColor="@color/white"/>
 
 
-                        <com.ids.mercury.custom.CustomTextViewMedium
-                            android:layout_width="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/small_font"
-                            android:layout_marginTop="@dimen/normal_margin"
-                            android:text="@string/exprience_mercury"
-                            android:textColor="@color/white"/>
+
 
 
                         <Button
                             android:id="@+id/btRegister"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_text_height"
-                            android:layout_marginTop="@dimen/big_margin"
+                            android:layout_marginTop="@dimen/normal_margin"
                             android:layout_marginBottom="@dimen/margin_start_end"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
                             android:background="@color/button_blue"
-                            android:text="@string/register_now"
+                            android:text="@string/submit_request"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="@dimen/normal_font" />
@@ -176,7 +182,7 @@
 
 
 
-                    </RelativeLayout>
+                </RelativeLayout>
 
 
 

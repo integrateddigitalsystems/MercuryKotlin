@@ -128,8 +128,17 @@ interface RetrofitInterface {
 
     @GET("GetGymSchedule")
     fun getGymSchedule(
-        @Query(ApiParameters.FROM_DATE) fromDate: Int,
+        @Query(ApiParameters.FROM_DATE) fromDate: String,
         @Query(ApiParameters.TO_DATE) toDate: String
-    ): Call<ResponseAmount>
+    ): Call<ResponseClassSessions>
+
+    @GET("GetGymClassDetailsBySession")
+    fun getGymClassDetailsBySession(
+        @Query(ApiParameters.CLASS_SESSION_ID) class_session_id: Int
+    ): Call<ResponseGymClasses>
+
+    @GET("GetActivities")
+    fun getActivities(
+    ): Call<ResponseActivities>
 
 }

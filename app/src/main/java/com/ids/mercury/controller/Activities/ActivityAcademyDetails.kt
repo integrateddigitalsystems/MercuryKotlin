@@ -29,14 +29,14 @@ import kotlinx.android.synthetic.main.overlay.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
-class ActivityClasses : AppCompactBase(),RVOnItemClickListener,MenusDataListener,ApiListener {
+class ActivityAcademyDetails : AppCompactBase(),RVOnItemClickListener,MenusDataListener,ApiListener {
 
     private var arrayMediaPager=java.util.ArrayList<MediaFile>()
     private lateinit var adapterPager: AdapterMediaPager
     lateinit var adapterClasses : AdapterClasses
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_classes)
+        setContentView(R.layout.activity_academy_details)
         init()
         GetMenusAPI.getMenus(this,AppConstants.MENU_GYM_CLASSES_LABEL,-1,0,this)
         listeners()
@@ -105,8 +105,8 @@ class ActivityClasses : AppCompactBase(),RVOnItemClickListener,MenusDataListener
     override fun onDataMenuRetrieved(success: Boolean, responseMenus: ResponseMenus) {
         arrayMediaPager.clear()
         if(responseMenus.menus!!.size>0){
-          arrayMediaPager.addAll(responseMenus.menus!![0].mediaFiles!!)
-          setPager()
+            arrayMediaPager.addAll(responseMenus.menus!![0].mediaFiles!!)
+            setPager()
         }else{
             llShading.setBackgroundResource(R.drawable.rectangular_gray)
         }

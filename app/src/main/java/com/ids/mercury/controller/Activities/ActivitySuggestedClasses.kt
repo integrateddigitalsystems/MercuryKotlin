@@ -6,8 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewTreeObserver
@@ -16,35 +14,42 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.ids.mercury.R
-import com.ids.mercury.controller.Adapters.AdapterClasses
-import com.ids.mercury.controller.Adapters.AdapterGymPackages
 import com.ids.mercury.controller.Adapters.AdapterMediaPager
+import com.ids.mercury.controller.Adapters.AdapterSchedules
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
+import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnSubItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
-import com.ids.mercury.controller.MyApplication
-import com.ids.mercury.model.response.MediaFile
-import com.ids.mercury.model.response.ResponseMenus
+import com.ids.mercury.model.response.*
 import com.ids.mercury.utils.*
-import kotlinx.android.synthetic.main.activity_classes.*
+import com.ids.mercury.utils.AppHelper.Companion.dateFormat1
+import kotlinx.android.synthetic.main.activity_classes.myScroll
+import kotlinx.android.synthetic.main.activity_classes.rvSuggested
+import kotlinx.android.synthetic.main.activity_classes.tbMedia
+import kotlinx.android.synthetic.main.activity_classes.tvTitleOver
+import kotlinx.android.synthetic.main.activity_classes.vpMedias
+import kotlinx.android.synthetic.main.activity_loyality_points.*
+import kotlinx.android.synthetic.main.overlay.*
 import kotlinx.android.synthetic.main.toolbar.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class ActivitySuggestedClasses : AppCompactBase(),RVOnItemClickListener,MenusDataListener,ApiListener {
+class ActivitySuggestedClasses : AppCompactBase(),RVOnSubItemClickListener,MenusDataListener,ApiListener {
 
     private var arrayMediaPager=java.util.ArrayList<MediaFile>()
     private lateinit var adapterPager: AdapterMediaPager
-    lateinit var adapterClasses : AdapterClasses
+    lateinit var adapterSchedules: AdapterSchedules
+    var arraySchedule=java.util.ArrayList<ScheduleArray>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_classes)
+        setContentView(R.layout.activity_suggested_classes)
         init()
-        GetMenusAPI.getMenus(this,AppConstants.MENU_GYM_CLASSES_LABEL,-1,0,this)
+        GetMenusAPI.getMenus(this,AppConstants.MENU_CLASS_SCHEDULE_LABEL,-1,0,this)
         listeners()
-        if(MyApplication.arraySuggestedClasses.size>0)
-            setSuggestedData()
-        else
-            CallApi.getSuggestedClasses(this,this)
-
+        getSchedules()
 
     }
 
@@ -52,12 +57,7 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnItemClickListener,MenusDat
     @SuppressLint("ResourceType")
     private fun init(){
         btProfile.show()
-        tvToolbarTitle.text=getString(R.string.fitness_classes)
-        setToolbarScrollAnimation()
-
-
-
-
+        AppHelper.setToolbarScrollAnimation(this, linearToolbar, tvToolbarTitle, myScroll, tvTitleOver)
     }
 
     private fun listeners(){
@@ -66,9 +66,6 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnItemClickListener,MenusDat
     }
 
 
-    override fun onItemClicked(view: View, position: Int) {
-
-    }
 
     private fun setPager(){
         adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle)
@@ -91,48 +88,6 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnItemClickListener,MenusDat
     }
 
 
-
-
-    private fun setToolbarScrollAnimation() {
-        linearToolbar.setBackgroundColor(ContextCompat.getColor(this,R.color.transparent))
-        tvToolbarTitle.setTextColor(ContextCompat.getColor(this,R.color.transparent))
-        var percentage = 0.0
-        val colorsBlack: Array<String> = resources.getStringArray(R.array.black_colors)
-        colorsBlack.reverse()
-        val colorsWhite: Array<String> = resources.getStringArray(R.array.white_colors)
-        val colorsWhiteReverse: Array<String> = resources.getStringArray(R.array.white_colors)
-        colorsWhiteReverse.reverse()
-        myScroll.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
-            try {
-                var scrollY = myScroll.scrollY // For ScrollView
-                var toolbarHeight=dp(R.dimen.toolbar_height)
-                if (convertPixelsToDp(scrollY.toFloat(), this) < toolbarHeight) {
-                    linearToolbar.setBackgroundColor(ContextCompat.getColor(this,R.color.transparent))
-                    tvToolbarTitle.setTextColor(ContextCompat.getColor(this,R.color.transparent))
-                    tvTitleOver.setTextColor(ContextCompat.getColor(this,R.color.white))
-                } else if (convertPixelsToDp(scrollY.toFloat(), this) in toolbarHeight..toolbarHeight*2) {
-                    percentage = (((convertPixelsToDp(scrollY.toFloat(), this) - toolbarHeight).toDouble() * 100) / toolbarHeight) / 100
-                    //linearToolbar.background.alpha = (percentage * 255).toInt()
-                    var position=0
-                    try{position=(percentage*100*colorsBlack.size/100).toInt()}catch (e:Exception){}
-                    linearToolbar.setBackgroundColor(Color.parseColor(colorsBlack[position]))
-                    tvToolbarTitle.setTextColor(Color.parseColor(colorsWhiteReverse[position]))
-                    tvTitleOver.setTextColor(Color.parseColor(colorsWhite[position]))
-                } else {
-                    tvToolbarTitle.show()
-                    linearToolbar.setBackgroundColor(ContextCompat.getColor(this,R.color.black))
-                    tvToolbarTitle.setTextColor(ContextCompat.getColor(this,R.color.white))
-                    tvTitleOver.setTextColor(ContextCompat.getColor(this,R.color.transparent))
-                }
-            } catch (E: Exception) {
-            }
-        })
-    }
-
-    fun convertPixelsToDp(px: Float, context: Context): Float {
-        return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
-    }
-
     override fun onStop() {
         linearToolbar.background.alpha = 255
         super.onStop()
@@ -143,21 +98,67 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnItemClickListener,MenusDat
         if(responseMenus.menus!!.size>0)
             arrayMediaPager.addAll(responseMenus.menus!![0].mediaFiles!!)
 
-        tvTitleOver.text=responseMenus.menus!![0].name!!
-        tvSummary.setHtmlText(responseMenus.menus!![0].summary!!)
-        setPager()
+        tvTitleOver.setHtmlText(responseMenus.menus!![0].summary!!)
+        tvToolbarTitle.setHtmlText(responseMenus.menus!![0].summary!!)
+        if(arrayMediaPager.size>0)
+          setPager()
+        else{
+            llShading.setBackgroundResource(R.drawable.rectangular_gray)
+        }
     }
 
 
-    private fun setSuggestedData(){
+
+    fun getSchedules () {
+        var fromDate = dateFormat1.format(Date())
+        var toDate = dateFormat1.format(Date(Date().time+604800000L) )
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.getGymSchedule(fromDate,toDate)?.enqueue(object :
+                Callback<ResponseClassSessions> {
+                override fun onResponse(
+                    call: Call<ResponseClassSessions>,
+                    response: Response<ResponseClassSessions>
+                ) {
+                    if(response.body()!!.success=="1" && response.body()!!.classSessions!!.size>0){
+                        tvNodata.hide()
+                        setSchedules(response.body()!!.classSessions)
+                    }else
+                        tvNodata.show()
+
+                }
+                override fun onFailure(call: Call<ResponseClassSessions>, t: Throwable) {
+                    tvNodata.show()
+                }
+            })
+    }
+
+
+    private fun setSchedules(classSessions: ArrayList<ClassSession>?) {
+        setArrayDataSchedule(classSessions)
+        setData()
+    }
+
+   private fun setArrayDataSchedule(classSessions: ArrayList<ClassSession>?) {
+       arraySchedule.clear()
+       var grouped =classSessions!!.groupBy { AppHelper.formatDateTimestamp(AppHelper.dateFormat6,it.fromDate!!,true) }
+       for ((key, value) in grouped)
+           arraySchedule.add(ScheduleArray(key,ArrayList(value)))
+   }
+
+    private fun setData(){
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvSuggested.layoutManager = layoutManager
-        adapterClasses = AdapterClasses(MyApplication.arraySuggestedClasses,this)
-        rvSuggested.adapter = adapterClasses
+        adapterSchedules = AdapterSchedules(arraySchedule,this)
+        rvSuggested.adapter = adapterSchedules
     }
 
     override fun onDataRetrieved(success: Boolean, response: Any) {
-        setSuggestedData()
+
+    }
+
+    override fun onSubItemClicked(view: View, position: Int, parentPosition: Int) {
+       startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
+           adapterSchedules.items[parentPosition].arraySchedule!![position].id!!))
     }
 
 }

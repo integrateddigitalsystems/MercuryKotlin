@@ -29,5 +29,7 @@
     <dimen name="small_edit_text_height">25dp</dimen>
     <dimen name="item_history_height">70dp</dimen>
     <dimen name="pager_top_height">200dp</dimen>
+    <dimen name="pager_top_height_acad">150dp</dimen>
     <dimen name="item_class_height">60dp</dimen>
+    <dimen name="shading_height">200dp</dimen>
 </resources>

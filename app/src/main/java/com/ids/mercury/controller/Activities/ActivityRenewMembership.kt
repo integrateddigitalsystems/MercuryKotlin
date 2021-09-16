@@ -182,7 +182,7 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
     private fun showPTPackages(){
         dialog = Dialog(this, R.style.dialogWithoutTitle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCanceledOnTouchOutside(false)
+      //  dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(R.layout.popup_recycler)
         dialog.setCancelable(true)
         val rv: RecyclerView = dialog.findViewById(R.id.rvData)

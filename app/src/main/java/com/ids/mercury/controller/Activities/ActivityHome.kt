@@ -52,6 +52,7 @@ class ActivityHome : AppCompactBase() {
     }
 
     private fun setPager(){
+        arrayPagesSections.clear()
         arrayPagesSections.addAll(AppHelper.setPagerArray(this,pageItemCount))
         adapterPager = AdapterGridPager(this,arrayPagesSections)
         vpSections.adapter = adapterPager

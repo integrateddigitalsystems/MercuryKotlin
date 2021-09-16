@@ -201,4 +201,9 @@
 
     <string name="profile_info_sent">Profile information has been saved!</string>
     <string name="personal_trainer">Personal Trainer</string>
+    <string name="time">Time</string>
+    <string name="level">Level</string>
+    <string name="about">About</string>
+    <string name="no_data_right_now">No data right now</string>
+    <string name="trainer">Trainer</string>
 </resources>

@@ -9,38 +9,34 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
-import com.ids.mercury.controller.MyApplication
-import com.ids.mercury.model.response.GymClass
-import com.ids.mercury.model.response.GymPackage
-import com.ids.mercury.utils.AppHelper
-import com.ids.mercury.utils.hide
-
-
+import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnSubItemClickListener
+import com.ids.mercury.model.response.ClassSession
 import java.util.ArrayList
 
-class AdapterClasses(
-    val items: ArrayList<GymClass>,
-    private val itemClickListener: RVOnItemClickListener
+class AdapterScheduleSection(
+    val items: ArrayList<ClassSession>,
+    private val itemClickListener: RVOnSubItemClickListener,
+    private val parentPosition:Int
 ) :
-    RecyclerView.Adapter<AdapterClasses.VHItem>() {
+    RecyclerView.Adapter<AdapterScheduleSection.VHItem>() {
 
-
+    var itemParentPosition=parentPosition
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHItem {
         return VHItem(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_class, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_schedule_inside, parent, false)
         )
     }
 
 
     override fun onBindViewHolder(holder: VHItem, position: Int) {
-        try{holder.tvTitle.text = items[position].name}catch (e:Exception){}
-        try{holder.tvCoachName.text = items[position].coachName}catch (e:Exception){}
+        try{holder.tvTitle.text = items[position].className}catch (e:Exception){}
+        try{holder.tvCoachName.text = items[position].coach}catch (e:Exception){}
 
         try{
             @SuppressLint("SetTextI18n")
-            holder.tvDate.text = AppHelper.formatDateTimestamp(AppHelper.dateFormat4,items[position].fromDate!!,true)+", "+
-                    AppHelper.formatDateTimestamp(AppHelper.dateFormat5,items[position].fromDate!!,true)+" - "+
-                    AppHelper.formatDateTimestamp(AppHelper.dateFormat5,items[position].toDate!!,true)}catch (e:Exception){}
+            holder.tvDate.text =  items[position].time + " - "+items[position].endTime
+
+        }catch (e:Exception){}
     }
 
     override fun getItemCount(): Int {
@@ -56,7 +52,7 @@ class AdapterClasses(
         }
 
         override fun onClick(v: View) {
-            itemClickListener.onItemClicked(v, layoutPosition)
+            itemClickListener.onSubItemClicked(v, layoutPosition,parentPosition)
         }
     }
 }

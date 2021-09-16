@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.Color
 
 import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
@@ -19,9 +20,12 @@ import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.widget.NestedScrollView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.BitmapImageViewTarget
@@ -29,6 +33,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.ids.mercury.R
+import com.ids.mercury.controller.Activities.ActivityAcademies
 import com.ids.mercury.controller.Activities.ActivityClasses
 import com.ids.mercury.controller.Activities.ActivityMembershipStatus
 import com.ids.mercury.controller.Activities.ActivitySplash
@@ -38,6 +43,8 @@ import com.ids.mercury.model.PagerSectionArray
 import com.ids.mercury.model.SectionPagerItem
 import com.ids.mercury.model.response.ResponseMemberDetails
 import com.ids.mercury.model.response.ResponseMessage
+import kotlinx.android.synthetic.main.activity_classes.*
+import kotlinx.android.synthetic.main.toolbar.*
 import me.grantland.widget.AutofitHelper
 import retrofit2.Call
 import retrofit2.Callback
@@ -123,6 +130,8 @@ class AppHelper {
         var dateFormat3 = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
         var dateFormat4 = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
         var dateFormat5 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+        var dateFormat6 = SimpleDateFormat("EEEE", Locale.ENGLISH)
+        var dateFormat7 = SimpleDateFormat("MMMM d", Locale.ENGLISH)
         fun getAndroidVersion(): String {
 
             val release = Build.VERSION.RELEASE
@@ -672,7 +681,7 @@ class AppHelper {
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_ACADEMIES_ID,context.getString(R.string.academies),"",R.drawable.home_academy,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityAcademies::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RENT_A_COURT_ID,context.getString(R.string.rent_a_court),"",R.drawable.home_rent_a_court,"",true,true)
@@ -719,6 +728,50 @@ class AppHelper {
 
             return arrayPagesSections
         }
+
+
+
+         fun setToolbarScrollAnimation(context: Context,linearToolbar:RelativeLayout,tvToolbarTitle:TextView,myScroll:NestedScrollView,tvTitleOver:TextView) {
+
+            linearToolbar.setBackgroundColor(ContextCompat.getColor(context,R.color.transparent))
+            tvToolbarTitle.setTextColor(ContextCompat.getColor(context,R.color.transparent))
+            var percentage = 0.0
+            val colorsBlack: Array<String> = context.resources.getStringArray(R.array.black_colors)
+            colorsBlack.reverse()
+            val colorsWhite: Array<String> = context.resources.getStringArray(R.array.white_colors)
+            val colorsWhiteReverse: Array<String> = context.resources.getStringArray(R.array.white_colors)
+            colorsWhiteReverse.reverse()
+            myScroll.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
+                try {
+                    var scrollY = myScroll.scrollY // For ScrollView
+                    var toolbarHeight=context.dp(R.dimen.toolbar_height)
+                    if (convertPixelsToDp(scrollY.toFloat(), context) < toolbarHeight) {
+                        linearToolbar.setBackgroundColor(ContextCompat.getColor(context,R.color.transparent))
+                        tvToolbarTitle.setTextColor(ContextCompat.getColor(context,R.color.transparent))
+                        tvTitleOver.setTextColor(ContextCompat.getColor(context,R.color.white))
+                    } else if (convertPixelsToDp(scrollY.toFloat(), context) in toolbarHeight..toolbarHeight*2) {
+                        percentage = (((convertPixelsToDp(scrollY.toFloat(), context) - toolbarHeight).toDouble() * 100) / toolbarHeight) / 100
+                        //linearToolbar.background.alpha = (percentage * 255).toInt()
+                        var position=0
+                        try{position=(percentage*100*colorsBlack.size/100).toInt()}catch (e:Exception){}
+                        linearToolbar.setBackgroundColor(Color.parseColor(colorsBlack[position]))
+                        tvToolbarTitle.setTextColor(Color.parseColor(colorsWhiteReverse[position]))
+                        tvTitleOver.setTextColor(Color.parseColor(colorsWhite[position]))
+                    } else {
+                        tvToolbarTitle.show()
+                        linearToolbar.setBackgroundColor(ContextCompat.getColor(context,R.color.black))
+                        tvToolbarTitle.setTextColor(ContextCompat.getColor(context,R.color.white))
+                        tvTitleOver.setTextColor(ContextCompat.getColor(context,R.color.transparent))
+                    }
+                } catch (E: Exception) {
+                }
+            })
+        }
+
+        fun convertPixelsToDp(px: Float, context: Context): Float {
+            return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+        }
+
 
     }
 

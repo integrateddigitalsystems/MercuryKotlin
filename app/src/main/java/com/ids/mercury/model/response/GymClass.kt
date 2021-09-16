@@ -45,7 +45,20 @@ class GymClass {
     @Expose
     var priceForMembers: Double? = 0.0
 
-    @SerializedName("MediaFiles")
+    @SerializedName("Place")
+    @Expose
+    var place: String? = ""
+
+    @SerializedName("Level")
+    @Expose
+    var level: String? = ""
+
+    @SerializedName("Details")
+    @Expose
+    var details: String? = ""
+
+
+    @SerializedName("MediaFiles", alternate = ["mediaFiles"])
     @Expose
     var mediaFiles: ArrayList<MediaFile>? = arrayListOf()
 }

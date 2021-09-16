@@ -34,6 +34,9 @@ object AppConstants {
     const val CNM = "cnm"
     const val CPS = "cps"
     const val MEMBER_ID = "mid"
+    const val SESSION_ID = "session_id"
+    const val ACTIVITY_ID = "activity_id"
+
 
 
     const val FIREBASE_FORCE_UPDATE = "android_force_update"

@@ -35,13 +35,13 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/pager_top_height"
+                        android:layout_height="@dimen/pager_top_height_acad"
                         android:id="@+id/rlPagerTop"
                         >
 
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/pager_top_height"
+                            android:layout_height="match_parent"
                             android:id="@+id/vpMedias"
                             />
 
@@ -84,25 +84,43 @@
                         android:layout_below="@+id/tbMedia"
                         android:gravity="center"
                         android:visibility="gone"
-                       android:layout_centerInParent="true"
+                        android:layout_centerInParent="true"
                         android:textSize="@dimen/normal_font"
                         android:textColor="@color/white"/>
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginStart="@dimen/margin_start_end"
-                        android:layout_marginEnd="@dimen/margin_start_end"
+                        android:layout_marginStart="@dimen/mini_margin"
+                        android:layout_marginEnd="@dimen/mini_margin"
                         android:layout_below="@id/tbMedia">
 
 
 
-                        <androidx.recyclerview.widget.RecyclerView
+                        <androidx.viewpager.widget.ViewPager
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/rvSuggested"/>
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:id="@+id/vpAcademy"
+                            />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tbAcademy"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginBottom="@dimen/mini_margin"
+                            app:tabGravity="center"
+                            app:tabIndicatorHeight="0dp"
+                            android:layout_marginTop="@dimen/normal_margin"
+                            android:visibility="gone"
+
+                            app:tabMaxWidth="12dp"
+                            app:tabBackground="@drawable/selector_tab_image"
+                            app:tabRippleColor="@null" />
+
+
 
 
                     </LinearLayout>

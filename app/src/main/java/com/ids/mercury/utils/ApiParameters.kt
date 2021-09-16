@@ -34,4 +34,6 @@ object ApiParameters {
     const val PACKAGE_ID = "packageId"
     const val FROM_DATE = "fromDate"
     const val TO_DATE = "toDate"
+    const val CLASS_SESSION_ID = "classSessionId"
+
 }

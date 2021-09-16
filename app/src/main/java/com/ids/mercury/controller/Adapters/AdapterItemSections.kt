@@ -14,6 +14,7 @@ import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.SectionPagerItem
+import com.ids.mercury.utils.loadImagesUrlResize
 import com.ids.mercury.utils.show
 
 import java.util.*
@@ -41,7 +42,10 @@ class AdapterItemSections(
         if(item.localImage!!)
            holder.ivItem.setImageResource(item.imageLocal!!)
         else{
-            //Load url
+            if(item.imageUrl!=null && !item.imageUrl!!.isNullOrEmpty())
+               holder.ivItem.loadImagesUrlResize(item.imageUrl!!)
+            else
+                holder.ivItem.setImageResource(item.imageLocal!!)
         }
 
 
