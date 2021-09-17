@@ -67,7 +67,7 @@ class MyApplication : Application() {
         var selectedItemDialog="+961"
         var selectedGymPackageId=0
         var selectedPtPackageId=0
-
+        var selectedActivityId=0
         var arraySuggestedClasses=java.util.ArrayList<GymClass>()
         var selectedAcademy : Activity?=null
     }

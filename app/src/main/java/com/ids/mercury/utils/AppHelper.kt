@@ -3,18 +3,18 @@ package com.ids.mercury.utils
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Color
-
 import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
-
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
@@ -33,25 +33,18 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.ids.mercury.R
-import com.ids.mercury.controller.Activities.ActivityAcademies
-import com.ids.mercury.controller.Activities.ActivityClasses
-import com.ids.mercury.controller.Activities.ActivityMembershipStatus
-import com.ids.mercury.controller.Activities.ActivitySplash
-
+import com.ids.mercury.controller.Activities.*
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.PagerSectionArray
 import com.ids.mercury.model.SectionPagerItem
 import com.ids.mercury.model.response.ResponseMemberDetails
-import com.ids.mercury.model.response.ResponseMessage
 import kotlinx.android.synthetic.main.activity_classes.*
 import kotlinx.android.synthetic.main.toolbar.*
 import me.grantland.widget.AutofitHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 import java.io.File
-
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
@@ -132,6 +125,7 @@ class AppHelper {
         var dateFormat5 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
         var dateFormat6 = SimpleDateFormat("EEEE", Locale.ENGLISH)
         var dateFormat7 = SimpleDateFormat("MMMM d", Locale.ENGLISH)
+        var dateFormat8 = SimpleDateFormat("HH:mm a", Locale.ENGLISH)
         fun getAndroidVersion(): String {
 
             val release = Build.VERSION.RELEASE
@@ -291,7 +285,27 @@ class AppHelper {
             }
         }
 
+         fun setTimePickerInterval(timePicker: TimePickerDialog) {
+            var TIME_PICKER_INTERVAL=15
+            try {
+                val minutePicker = timePicker.findViewById(
+                    Resources.getSystem().getIdentifier(
+                        "minute", "id", "android"
+                    )
+                ) as NumberPicker
+                minutePicker.minValue = 0
+                minutePicker.maxValue = 60 / TIME_PICKER_INTERVAL - 1
+                val displayedValues: MutableList<String> = ArrayList()
+                var i = 0
+                while (i < 60) {
+                    displayedValues.add(String.format("%02d", i))
+                    i += TIME_PICKER_INTERVAL
+                }
+                minutePicker.displayedValues = displayedValues.toTypedArray()
+            } catch (e: java.lang.Exception) {
 
+            }
+        }
 
         fun changeLanguage(context: Context, language: String) {
 
@@ -686,7 +700,7 @@ class AppHelper {
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RENT_A_COURT_ID,context.getString(R.string.rent_a_court),"",R.drawable.home_rent_a_court,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityRentCourt::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_PAYMENT_HISTORY_ID,context.getString(R.string.payments_history),"",R.drawable.home_paymenthist,"",true,true)

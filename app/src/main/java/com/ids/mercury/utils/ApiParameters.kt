@@ -36,4 +36,7 @@ object ApiParameters {
     const val TO_DATE = "toDate"
     const val CLASS_SESSION_ID = "classSessionId"
     const val ACTIVITY_ID = "activityId"
+
+    const val FROM = "from"
+    const val TO = "to"
 }

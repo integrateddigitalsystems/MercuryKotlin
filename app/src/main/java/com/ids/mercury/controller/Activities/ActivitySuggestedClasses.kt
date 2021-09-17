@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewTreeObserver
@@ -19,9 +21,11 @@ import com.ids.mercury.controller.Adapters.AdapterSchedules
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnSubItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
+import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.*
 import com.ids.mercury.utils.*
 import com.ids.mercury.utils.AppHelper.Companion.dateFormat1
+import kotlinx.android.synthetic.main.activity_academy_details.*
 import kotlinx.android.synthetic.main.activity_classes.myScroll
 import kotlinx.android.synthetic.main.activity_classes.rvSuggested
 import kotlinx.android.synthetic.main.activity_classes.tbMedia
@@ -43,21 +47,35 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnSubItemClickListener,Menus
     private lateinit var adapterPager: AdapterMediaPager
     lateinit var adapterSchedules: AdapterSchedules
     var arraySchedule=java.util.ArrayList<ScheduleArray>()
+    var fromClasses=true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_suggested_classes)
         init()
-        GetMenusAPI.getMenus(this,AppConstants.MENU_CLASS_SCHEDULE_LABEL,-1,0,this)
         listeners()
-        getSchedules()
+
+
 
     }
 
 
     @SuppressLint("ResourceType")
     private fun init(){
+        if(intent.getIntExtra(AppConstants.FROM_PAGE,AppConstants.PAGE_CLASSES) == AppConstants.PAGE_ACADEMY)
+            fromClasses=false
         btProfile.show()
         AppHelper.setToolbarScrollAnimation(this, linearToolbar, tvToolbarTitle, myScroll, tvTitleOver)
+        listeners()
+        if(fromClasses){
+            getSchedules()
+            GetMenusAPI.getMenus(this,AppConstants.MENU_CLASS_SCHEDULE_LABEL,-1,0,this)
+        }
+        else{
+            getAcademySchedule()
+            Handler(Looper.getMainLooper()).postDelayed({
+                setPagerTopData()
+            }, 300)
+        }
     }
 
     private fun listeners(){
@@ -157,8 +175,47 @@ class ActivitySuggestedClasses : AppCompactBase(),RVOnSubItemClickListener,Menus
     }
 
     override fun onSubItemClicked(view: View, position: Int, parentPosition: Int) {
-       startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
+        if(fromClasses){
+           startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
            adapterSchedules.items[parentPosition].arraySchedule!![position].id!!))
+        }
+    }
+
+
+    fun getAcademySchedule () {
+        var fromDate = dateFormat1.format(Date())
+        var toDate = dateFormat1.format(Date(Date().time+604800000L) )
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.getAcademySchedule(MyApplication.selectedAcademy!!.id!!,fromDate,toDate)?.enqueue(object :
+                Callback<ResponseClassSessions> {
+                override fun onResponse(
+                    call: Call<ResponseClassSessions>,
+                    response: Response<ResponseClassSessions>
+                ) {
+                    if(response.body()!!.success=="1" && response.body()!!.classSessions!!.size>0){
+                        tvNodata.hide()
+                        setSchedules(response.body()!!.classSessions)
+                    }else
+                        tvNodata.show()
+
+                }
+                override fun onFailure(call: Call<ResponseClassSessions>, t: Throwable) {
+                    tvNodata.show()
+                }
+            })
+    }
+
+
+    private fun setPagerTopData(){
+        arrayMediaPager.clear()
+        if(MyApplication.selectedAcademy!!.imageURL!=null && !MyApplication.selectedAcademy!!.imageURL.isNullOrEmpty()){
+            arrayMediaPager.add(MediaFile(1,"",1,"","",MyApplication.selectedAcademy!!.imageURL!!,"",false,false))
+            setPager()
+        }else{
+            llShading.setBackgroundResource(R.drawable.rectangular_gray)
+        }
+        try{tvTitleOver.text=getString(R.string.our_classes_this_week)}catch (e:Exception){}
+        try{tvToolbarTitle.text=getString(R.string.our_classes_this_week)}catch (e:Exception){}
     }
 
 }

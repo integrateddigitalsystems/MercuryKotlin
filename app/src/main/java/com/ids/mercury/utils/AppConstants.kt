@@ -53,7 +53,7 @@ object AppConstants {
     const val MENU_GYM_CLASSES_LABEL = "gymClasses"
     const val MENU_CLASS_SCHEDULE_LABEL = "classSchedule"
     const val MENU_CSR_LABEL = "csr"
-
+    const val FROM_PAGE = "from_page"
 
     const val MENU_MEMBERSHIP_STATUS_ID = 1
     const val MENU_FITNESS_ID = 2
@@ -68,4 +68,7 @@ object AppConstants {
 
     const val TYPE_GYM = 1
     const val TYPE_PT = 2
+
+    const val PAGE_CLASSES = 1
+    const val PAGE_ACADEMY = 2
 }

@@ -208,4 +208,10 @@
     <string name="trainer">Trainer</string>
     <string name="coaches">Coaches</string>
     <string name="your_request_success">Your request has been successfully sent</string>
+    <string name="our_classes_this_week">Our classes this week</string>
+    <string name="select_a_court">Select a court</string>
+
+    <string name="half">Half</string>
+    <string name="full">Full</string>
+    <string name="choose_act">Choose an activity</string>
 </resources>

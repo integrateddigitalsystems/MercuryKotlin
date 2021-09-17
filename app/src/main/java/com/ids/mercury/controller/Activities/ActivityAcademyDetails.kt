@@ -60,7 +60,7 @@ class ActivityAcademyDetails : AppCompactBase(),RVOnItemClickListener{
         btBack.setOnClickListener{super.onBackPressed()}
         btProfile.setOnClickListener{startActivity(Intent(this,ActivityProfile::class.java))}
         linearFullSchedule.setOnClickListener{
-            startActivity(Intent(this,ActivitySuggestedClasses::class.java))
+            startActivity(Intent(this,ActivitySuggestedClasses::class.java).putExtra(AppConstants.FROM_PAGE,AppConstants.PAGE_ACADEMY))
         }
 
         btSubmit.setOnClickListener{

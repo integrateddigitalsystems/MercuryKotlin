@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/margin_start_end"
+                android:paddingEnd="@dimen/margin_start_end"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/normal_margin"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/linearSelection">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:id="@+id/linearDate"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/medium_margin"
+                       android:background="@drawable/white_border_layout"
+                        >
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:src="@drawable/icon_calendar"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:id="@+id/tvSelectedDate"/>
+
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/arrow_down"
+                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/normal_margin">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:id="@+id/linearStartTime"
+                            android:layout_marginEnd="@dimen/small_margin"
+                            android:orientation="horizontal"
+                            android:background="@drawable/white_border_layout"
+                            >
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size"
+                                android:layout_height="@dimen/icon_size"
+                                android:src="@drawable/icon_time_return"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/normal_margin"
+                                android:layout_marginEnd="@dimen/normal_margin"/>
+
+                            <com.ids.mercury.custom.CustomTextViewMedium
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/normal_font"
+                                android:layout_marginEnd="@dimen/normal_margin"
+                                android:id="@+id/tvStartTime"/>
+
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/arrow_down"
+                                android:layout_marginEnd="@dimen/normal_margin"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:id="@+id/linearEndTime"
+                            android:layout_marginStart="@dimen/small_margin"
+                            android:orientation="horizontal"
+                            android:background="@drawable/white_border_layout"
+                            >
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size"
+                                android:layout_height="@dimen/icon_size"
+                                android:src="@drawable/icon_time_return"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/normal_margin"
+                                android:layout_marginEnd="@dimen/normal_margin"/>
+
+                            <com.ids.mercury.custom.CustomTextViewMedium
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/normal_font"
+                                android:layout_marginEnd="@dimen/normal_margin"
+                                android:id="@+id/tvEndTime"/>
+
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_small"
+                                android:layout_height="@dimen/icon_small"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/arrow_down"
+                                android:layout_marginEnd="@dimen/normal_margin"/>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:orientation="horizontal"
+                        android:id="@+id/linearActivities"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:background="@drawable/white_border_layout"
+                        >
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:src="@drawable/icon_court"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/normal_margin"
+                            android:maxLines="1"
+                            android:textSize="@dimen/normal_font"
+                            android:paddingStart="@dimen/normal_margin"
+                            android:text="@string/choose_act"
+                            android:paddingEnd="@dimen/normal_margin"
+                            android:textColor="@color/white"
+                            android:id="@+id/tvSelectedActivity"/>
+
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/arrow_down"
+                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/linearData"
+                        android:visibility="gone"
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small_margin"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+
+                                android:background="@drawable/white_border_layout"
+                                android:id="@+id/linearSelectedData">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/edit_text_height_small"
+                                    android:id="@+id/linearDateToEdit"
+                                    android:orientation="horizontal"
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_size"
+                                        android:layout_height="@dimen/icon_size"
+                                        android:src="@drawable/icon_calendar"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginStart="@dimen/normal_margin"
+                                        android:layout_marginEnd="@dimen/normal_margin"/>
+
+                                    <com.ids.mercury.custom.CustomTextViewMedium
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/normal_font"
+                                        android:layout_marginEnd="@dimen/normal_margin"
+                                        android:id="@+id/tvSelectedDateToEdit"/>
+
+
+
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginStart="@dimen/normal_margin"
+                                    android:layout_marginEnd="@dimen/normal_margin"
+                                    android:background="@color/gray_button"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/edit_text_height_small"
+                                    android:orientation="horizontal"
+
+
+                                    >
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/linearStartTimeToEdit"
+                                        android:layout_marginEnd="@dimen/small_margin"
+                                        android:orientation="horizontal"
+                                        >
+
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_size"
+                                            android:layout_height="@dimen/icon_size"
+                                            android:src="@drawable/icon_time_return"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginStart="@dimen/normal_margin"
+                                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+                                        <com.ids.mercury.custom.CustomTextViewMedium
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="center_vertical"
+                                            android:gravity="center_vertical"
+                                            android:maxLines="1"
+                                            android:textColor="@color/white"
+                                            android:textSize="@dimen/normal_font"
+                                            android:layout_marginEnd="@dimen/normal_margin"
+                                            android:id="@+id/tvStartTimeToEdit"/>
+
+
+
+
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/linearEndTimeToEdit"
+                                        android:layout_marginStart="@dimen/small_margin"
+                                        android:orientation="horizontal"
+                                        >
+
+                                        <ImageView
+                                            android:layout_width="@dimen/icon_size"
+                                            android:layout_height="@dimen/icon_size"
+                                            android:src="@drawable/icon_time_return"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginStart="@dimen/normal_margin"
+                                            android:layout_marginEnd="@dimen/normal_margin"/>
+
+                                        <com.ids.mercury.custom.CustomTextViewMedium
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="center_vertical"
+                                            android:gravity="center_vertical"
+                                            android:maxLines="1"
+                                            android:textColor="@color/white"
+                                            android:textSize="@dimen/normal_font"
+                                            android:layout_marginEnd="@dimen/normal_margin"
+                                            android:id="@+id/tvEndTimeToEdit"/>
+
+
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginStart="@dimen/normal_margin"
+                                    android:layout_marginEnd="@dimen/normal_margin"
+                                    android:background="@color/gray_button"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/edit_text_height_small"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/linearActivitiesToEdit"
+
+                                    >
+                                    <ImageView
+                                        android:layout_width="@dimen/icon_size"
+                                        android:layout_height="@dimen/icon_size"
+                                        android:src="@drawable/icon_court"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginStart="@dimen/normal_margin"
+                                        android:layout_marginEnd="@dimen/normal_margin"/>
+
+                                    <com.ids.mercury.custom.CustomTextViewMedium
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical"
+                                        android:gravity="center_vertical"
+                                        android:layout_marginEnd="@dimen/normal_margin"
+                                        android:maxLines="1"
+                                        android:textSize="@dimen/normal_font"
+                                        android:paddingStart="@dimen/normal_margin"
+                                        android:paddingEnd="@dimen/normal_margin"
+                                        android:textColor="@color/white"
+                                        android:id="@+id/tvSelectedActivityToEdit"/>
+
+
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <com.ids.mercury.custom.CustomTextViewMedium
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/select_a_court"
+                                android:textSize="@dimen/large_font"
+                                android:textColor="@color/white"
+                                android:layout_marginTop="@dimen/medium_margin"
+                                />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/normal_margin"
+                                android:id="@+id/rvCourts"/>
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/edit_icon"
+                            android:background="@color/gray_button"
+                            />
+
+
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_font"
+                    android:text="@string/proceed"
+                    android:id="@+id/btProceed"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:background="@color/button_blue"
+                    android:layout_marginBottom="@dimen/margin_start_end"/>
+
+
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/loading_trans"/>
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -10,10 +10,12 @@
     <dimen name="normal_font">13sp</dimen>
     <dimen name="big_font">16sp</dimen>
     <dimen name="title_font">18sp</dimen>
+    <dimen name="large_font">26sp</dimen>
     <dimen name="margin_start_end">16dp</dimen>
     <dimen name="login_logo_margin">110dp</dimen>
     <dimen name="login_logo_height">44dp</dimen>
     <dimen name="edit_text_height">44dp</dimen>
+    <dimen name="edit_text_height_small">38dp</dimen>
     <dimen name="toolbar_height">60dp</dimen>
     <dimen name="icon_size">25dp</dimen>
     <dimen name="icon_small">20dp</dimen>

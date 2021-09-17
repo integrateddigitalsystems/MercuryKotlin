@@ -148,10 +148,15 @@ interface RetrofitInterface {
 
     @GET("GetAcademySChedule")
     fun getAcademySchedule(
-        @Query(ApiParameters.ACTIVITY_ID) class_session_id: Int,
+        @Query(ApiParameters.ACTIVITY_ID) activity_id: Int,
         @Query(ApiParameters.FROM_DATE) fromDate: String,
         @Query(ApiParameters.TO_DATE) toDate: String
     ): Call<ResponseClassSessions>
 
-
+    @GET("CheckAvailability")
+    fun checkAvailability(
+        @Query(ApiParameters.ACTIVITY_ID) activity_id: Int,
+        @Query(ApiParameters.FROM) fromDate: String,
+        @Query(ApiParameters.TO) toDate: String
+    ): Call<ResponseCourts>
 }
