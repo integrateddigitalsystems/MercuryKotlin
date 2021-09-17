@@ -32,4 +32,5 @@
     <dimen name="pager_top_height_acad">150dp</dimen>
     <dimen name="item_class_height">60dp</dimen>
     <dimen name="shading_height">200dp</dimen>
+    <dimen name="success_icon">50dp</dimen>
 </resources>

@@ -101,7 +101,7 @@
                             android:background="@color/gray_button"
                             android:paddingStart="@dimen/normal_margin"
                             android:paddingEnd="@dimen/normal_margin"
-                            android:id="@+id/linearSuggestedClasses"
+                            android:id="@+id/linearFullSchedule"
                             android:layout_marginStart="@dimen/margin_start_end"
                             android:layout_marginEnd="@dimen/margin_start_end"
                             android:layout_gravity="center_vertical"
@@ -130,16 +130,68 @@
                         </LinearLayout>
 
 
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:text="@string/coaches"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font"
+                            />
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_start_end"
                             android:layout_marginEnd="@dimen/margin_start_end"
-                            android:id="@+id/rvSuggested"/>
+                            android:id="@+id/rvCoaches"/>
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/small_font"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/gray_text"
+                            android:text="-"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:id="@+id/tvNoCoachData"
+                            android:visibility="gone"
+                            />
+
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:text="@string/assistant_coaches"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font"
+                            />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:id="@+id/rvAssistants"/>
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/small_font"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/gray_text"
+                            android:text="-"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:id="@+id/tvNoAssistantData"
+                            android:visibility="gone"
+                            />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/medium_margin"
                             android:background="@color/white"/>
 
                         <com.ids.mercury.custom.CustomTextViewBold
@@ -159,7 +211,7 @@
 
 
                         <Button
-                            android:id="@+id/btRegister"
+                            android:id="@+id/btSubmit"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_text_height"
                             android:layout_marginTop="@dimen/normal_margin"

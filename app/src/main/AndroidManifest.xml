@@ -112,6 +112,13 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".controller.Activities.ActivitySuccess"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name="com.ids.mercury.controller.Activities.ActivitySplash"
             android:screenOrientation="portrait" >

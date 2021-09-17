@@ -12,6 +12,7 @@ import com.ids.mercury.controller.Adapters.AdapterGridPager
 import com.ids.mercury.controller.Adapters.AdapterMediaPager
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
+import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.PagerSectionArray
 import com.ids.mercury.model.SectionPagerItem
 import com.ids.mercury.model.response.*
@@ -141,7 +142,8 @@ class ActivityAcademies : AppCompactBase(),RVOnItemClickListener,MenusDataListen
 
     private fun setPagerAcademies(activities: ArrayList<Activity>) {
         arrayPagesSections.clear()
-        arrayPagesSections.addAll(setAcademyData(this,activities))
+        var arraySorted=activities.sortedBy { it.name }
+        arrayPagesSections.addAll(setAcademyData(this,ArrayList(arraySorted)))
         adapterPagerAcadmies = AdapterGridPager(this,arrayPagesSections)
         vpAcademy.adapter = adapterPagerAcadmies
         tbAcademy.setupWithViewPager(vpAcademy)
@@ -174,8 +176,10 @@ class ActivityAcademies : AppCompactBase(),RVOnItemClickListener,MenusDataListen
             true,
             false
         )
-        {context.startActivity(
-            Intent(context, ActivityAcademyDetails::class.java).putExtra(AppConstants.ACTIVITY_ID,activities[i].id)
+        {
+            MyApplication.selectedAcademy=activities[i]
+            context.startActivity(
+            Intent(context, ActivityAcademyDetails::class.java)
         )})
        }
 

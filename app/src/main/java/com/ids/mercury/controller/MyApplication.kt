@@ -9,10 +9,7 @@ import android.os.Build
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.ids.mercury.model.FirebaseBaseUrlsArray
-import com.ids.mercury.model.response.GymClass
-import com.ids.mercury.model.response.MediaFile
-import com.ids.mercury.model.response.Member
-import com.ids.mercury.model.response.ResponseMemberDetails
+import com.ids.mercury.model.response.*
 import com.ids.mercury.utils.AppConstants
 import java.util.*
 
@@ -72,6 +69,7 @@ class MyApplication : Application() {
         var selectedPtPackageId=0
 
         var arraySuggestedClasses=java.util.ArrayList<GymClass>()
+        var selectedAcademy : Activity?=null
     }
 
 

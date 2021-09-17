@@ -141,4 +141,17 @@ interface RetrofitInterface {
     fun getActivities(
     ): Call<ResponseActivities>
 
+    @GET("GetAcademyCoaches")
+    fun getAcademyCoaches(
+        @Query(ApiParameters.ACTIVITY_ID) class_session_id: Int
+    ): Call<ResponseCoaches>
+
+    @GET("GetAcademySChedule")
+    fun getAcademySchedule(
+        @Query(ApiParameters.ACTIVITY_ID) class_session_id: Int,
+        @Query(ApiParameters.FROM_DATE) fromDate: String,
+        @Query(ApiParameters.TO_DATE) toDate: String
+    ): Call<ResponseClassSessions>
+
+
 }

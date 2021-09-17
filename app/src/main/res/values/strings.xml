@@ -206,4 +206,6 @@
     <string name="about">About</string>
     <string name="no_data_right_now">No data right now</string>
     <string name="trainer">Trainer</string>
+    <string name="coaches">Coaches</string>
+    <string name="your_request_success">Your request has been successfully sent</string>
 </resources>
