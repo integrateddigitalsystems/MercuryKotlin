@@ -28,10 +28,19 @@ class AdapterCourts(
 
     override fun onBindViewHolder(holder: VHItem, position: Int) {
         holder.tvCourt.text = items[position].name
+
+        if(items[position].selected!!){
+            holder.tvInfo.text=items[position].price.toString() + "$"
+            holder.itemView.setBackgroundResource(R.drawable.gray_white_border)
+        }else{
+            holder.itemView.setBackgroundResource(R.color.black_place_holder)
         if(items[position].isHalf!!)
            holder.tvInfo.text=holder.itemView.context.getString(R.string.half)
         else
             holder.tvInfo.text=holder.itemView.context.getString(R.string.full)
+        }
+
+
     }
 
     override fun getItemCount(): Int {

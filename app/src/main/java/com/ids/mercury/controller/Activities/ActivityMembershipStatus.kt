@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
-import com.ids.mercury.controller.Adapters.AdapterHistory
 import com.ids.mercury.controller.Adapters.AdapterMembership
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Base.AppCompactBase
@@ -16,8 +15,6 @@ import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.MemberShip
 import com.ids.mercury.model.response.ResponseMembership
 import com.ids.mercury.utils.*
-import kotlinx.android.synthetic.main.activity_loyality_points.*
-import kotlinx.android.synthetic.main.activity_loyality_points.rvLoyality
 import kotlinx.android.synthetic.main.activity_loyality_points.tvNodata
 import kotlinx.android.synthetic.main.activity_membership_status.*
 

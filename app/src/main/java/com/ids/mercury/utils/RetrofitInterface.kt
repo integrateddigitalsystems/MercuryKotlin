@@ -159,4 +159,11 @@ interface RetrofitInterface {
         @Query(ApiParameters.FROM) fromDate: String,
         @Query(ApiParameters.TO) toDate: String
     ): Call<ResponseCourts>
+
+
+    @GET("GetMemberPayments")
+    fun getMemberPayments(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponsePaymentHistory>
+
 }

@@ -27,4 +27,6 @@ class Court {
     @SerializedName("AcceptReservation")
     @Expose
     var acceptReservation: Boolean? = false
+
+    var selected: Boolean? = false
 }

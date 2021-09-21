@@ -1,9 +1,7 @@
 package com.ids.mercury.controller.Activities
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
@@ -16,14 +14,12 @@ import com.ids.mercury.model.response.ResponseHistory
 import com.ids.mercury.model.response.ResponseLoyalityPointsTotal
 import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.activity_loyality_points.*
-import kotlinx.android.synthetic.main.activity_profile.*
 
 import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -88,9 +84,9 @@ class ActivityLoyalityPoints : AppCompactBase(),RVOnItemClickListener {
    /*    arrayHistory.add(History(1,1000,"description","10/10/2020"))
        arrayHistory.add(History(1,2000,"description","10/10/2020"))*/
        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-       rvLoyality.layoutManager = layoutManager
+       rvHistory.layoutManager = layoutManager
        adapter = AdapterLoyalityPoints(arrayHistory,this)
-       rvLoyality.adapter = adapter
+       rvHistory.adapter = adapter
 
    }
 

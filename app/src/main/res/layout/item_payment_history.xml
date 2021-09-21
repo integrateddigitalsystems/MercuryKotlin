@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_border_layout"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/normal_margin"
+    android:padding="@dimen/normal_margin">
+
+
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="@string/amount"
+        android:textColor="@color/white"
+        android:textSize="@dimen/big_font" />
+
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:id="@+id/tvAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/small_margin"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_font" />
+
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="@string/payment_date"
+        android:textColor="@color/white"
+        android:textSize="@dimen/big_font" />
+
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/small_margin"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:id="@+id/tvDate"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_font" />
+
+
+</LinearLayout>

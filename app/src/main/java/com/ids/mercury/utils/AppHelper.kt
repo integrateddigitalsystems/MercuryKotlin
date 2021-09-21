@@ -125,7 +125,10 @@ class AppHelper {
         var dateFormat5 = SimpleDateFormat("HH:mm", Locale.ENGLISH)
         var dateFormat6 = SimpleDateFormat("EEEE", Locale.ENGLISH)
         var dateFormat7 = SimpleDateFormat("MMMM d", Locale.ENGLISH)
-        var dateFormat8 = SimpleDateFormat("HH:mm a", Locale.ENGLISH)
+        var dateFormat8 = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
+        var dateFormat9 = SimpleDateFormat("hh:00 a", Locale.ENGLISH)
+        var dateFormat10 = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH)
+        var dateFormat11 = SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH)
         fun getAndroidVersion(): String {
 
             val release = Build.VERSION.RELEASE
@@ -705,7 +708,7 @@ class AppHelper {
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_PAYMENT_HISTORY_ID,context.getString(R.string.payments_history),"",R.drawable.home_paymenthist,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityPaymentHistory::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GIFT_CARD_ID,context.getString(R.string.gift_card),"",R.drawable.home_giftcard,"",true,true)

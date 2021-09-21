@@ -6,7 +6,7 @@
     android:paddingStart="@dimen/normal_margin"
     android:paddingEnd="@dimen/normal_margin"
     android:layout_marginTop="@dimen/normal_margin"
-    android:background="@color/gray_button"
+    android:background="@color/black_place_holder"
     >
 
     <com.ids.mercury.custom.CustomTextViewMedium
