@@ -22,7 +22,6 @@
     <dimen name="icon_small_2">15dp</dimen>
     <dimen name="logo_margin_top_reset">50dp</dimen>
     <dimen name="verification_img">100dp</dimen>
-    <dimen name="item_pager_inside_hieght">250dp</dimen>
     <dimen name="logo_home_width">250dp</dimen>
     <dimen name="normal_radius">8dp</dimen>
     <dimen name="small_radius">2dp</dimen>
@@ -33,6 +32,5 @@
     <dimen name="pager_top_height">200dp</dimen>
     <dimen name="pager_top_height_acad">150dp</dimen>
     <dimen name="item_class_height">60dp</dimen>
-    <dimen name="shading_height">200dp</dimen>
     <dimen name="success_icon">50dp</dimen>
 </resources>

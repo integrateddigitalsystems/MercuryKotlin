@@ -70,6 +70,7 @@ class MyApplication : Application() {
         var selectedActivityId=0
         var arraySuggestedClasses=java.util.ArrayList<GymClass>()
         var selectedAcademy : Activity?=null
+        var selectedCsr : Child?=null
     }
 
 

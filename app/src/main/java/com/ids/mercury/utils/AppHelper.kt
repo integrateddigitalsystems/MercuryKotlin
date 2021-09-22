@@ -726,7 +726,7 @@ class AppHelper {
             )})
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_CSR_ID,context.getString(R.string.csr),"",R.drawable.home_csr,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityCsr::class.java)
             )})
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RULES_AND_REGULATIONS_ID,context.getString(R.string.rules_regulations),"",R.drawable.home_rulesregelations,"",true,true)
             {context.startActivity(

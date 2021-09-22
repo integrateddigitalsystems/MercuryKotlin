@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Html
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -90,6 +91,7 @@ fun Context.px(@DimenRes dimen: Int): Int = resources.getDimension(dimen).toInt(
 
 fun Context.dp(@DimenRes dimen: Int): Float = px(dimen) / resources.displayMetrics.density
 
+fun Int.toPx(context: Context) = this * context.resources.displayMetrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT
 
 fun Any.addFragment(
     container: Int,

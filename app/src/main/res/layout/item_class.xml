@@ -14,7 +14,6 @@
         android:layout_width="50dp"
         android:layout_height="match_parent"
         android:src="@drawable/img_placeholder"
-        android:id="@+id/ivClass"
         android:background="@color/gray_button"/>
 
     <LinearLayout

@@ -59,7 +59,6 @@
                     <com.ids.mercury.custom.CustomTextViewMedium
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tvPhone"
                         android:textColor="@color/white"
                         android:textSize="@dimen/normal_font"
                         android:layout_gravity="center_horizontal"
@@ -70,7 +69,6 @@
                     <com.ids.mercury.custom.CustomTextViewMedium
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tvEmail"
                         android:textColor="@color/white"
                         android:textSize="@dimen/normal_font"
                         android:layout_gravity="center_horizontal"

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.updateLayoutParams
 import androidx.viewpager.widget.ViewPager
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.AdapterClasses
@@ -42,9 +43,9 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_academy)
         init()
-        GetMenusAPI.getMenus(this,AppConstants.MENU_ACADEMIES_LABEL,-1,0,this)
+        GetMenusAPI.getMenus(this,AppConstants.MENU_CSR_LABEL,-1,0,this)
         listeners()
-        getActivities()
+
 
     }
 
@@ -52,9 +53,11 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
     @SuppressLint("ResourceType")
     private fun init(){
         btProfile.show()
-        tvToolbarTitle.text=getString(R.string.fitness_classes)
+       // tvToolbarTitle.text=getString(R.string.fitness_classes)
         AppHelper.setToolbarScrollAnimation(this, linearToolbar, tvToolbarTitle, myScroll, tvTitleOver)
-
+        rlPagerTop.updateLayoutParams {
+            height = 200.toPx(this@ActivityCsr)
+        }
 
     }
 
@@ -65,8 +68,8 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
 
 
     override fun onItemClicked(view: View, position: Int) {
-        startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
-            adapterClasses.items[position].id!!))
+     /*   startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
+            adapterClasses.items[position].id!!))*/
     }
 
     private fun setPager(){
@@ -110,30 +113,15 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
 
             tvTitleOver.text=responseMenus.menus!![0].name!!
             setPager()
+
+            if(responseMenus.menus!![0].children!!.size>0){
+                setPagerAcademies(responseMenus.menus!![0].children!!)
+            }
         }
     }
 
 
-    fun getActivities () {
-        RetrofitClient.client?.create(RetrofitInterface::class.java)
-            ?.getActivities()?.enqueue(object :
-                Callback<ResponseActivities> {
-                override fun onResponse(
-                    call: Call<ResponseActivities>,
-                    response: Response<ResponseActivities>
-                ) {
-                    if(response.body()!!.success=="1" && response.body()!!.activities!!.size>0){
-                        tvNodata.hide()
-                        setPagerAcademies(response.body()!!.activities!!)
-                    }else
-                        tvNodata.show()
 
-                }
-                override fun onFailure(call: Call<ResponseActivities>, t: Throwable) {
-                    tvNodata.show()
-                }
-            })
-    }
 
     override fun onDataRetrieved(success: Boolean, response: Any) {
 
@@ -141,10 +129,10 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
 
 
 
-    private fun setPagerAcademies(activities: ArrayList<Activity>) {
+    private fun setPagerAcademies(activities: ArrayList<Child>) {
         arrayPagesSections.clear()
-        var arraySorted=activities.sortedBy { it.name }
-        arrayPagesSections.addAll(setAcademyData(this,ArrayList(arraySorted)))
+        var arraySorted=activities //.sortedBy { it.name }
+        arrayPagesSections.addAll(setCsrData(this,ArrayList(arraySorted)))
         adapterPagerAcadmies = AdapterGridPager(this,arrayPagesSections)
         vpAcademy.adapter = adapterPagerAcadmies
         tbAcademy.setupWithViewPager(vpAcademy)
@@ -163,25 +151,26 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
 
     }
 
-    private fun setAcademyData(context:Context,activities: ArrayList<Activity>):ArrayList<PagerSectionArray> {
+    private fun setCsrData(context:Context,csrs: ArrayList<Child>):ArrayList<PagerSectionArray> {
         var arrayPagesSections=java.util.ArrayList<PagerSectionArray>()
         var arrayAllSections=java.util.ArrayList<SectionPagerItem>()
 
-        for (i in activities.indices){
+        for (i in csrs.indices){
             arrayAllSections.add(SectionPagerItem(
                 AppConstants.MENU_ACADEMIES_ID,
-                activities[i].name,
+                csrs[i].name,
                 "",
                 R.drawable.rectangular_gray,
-                activities[i].imageURL,
+                if(csrs[i].mediaFiles!!.size>0) csrs[i].mediaFiles!![0].filePath!! else "",
                 true,
                 false
             )
             {
-                MyApplication.selectedAcademy=activities[i]
+                MyApplication.selectedCsr=csrs[i]
                 context.startActivity(
-                    Intent(context, ActivityAcademyDetails::class.java)
-                )})
+                    Intent(context, ActivityHome::class.java)
+                )}
+            )
         }
 
 

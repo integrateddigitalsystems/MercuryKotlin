@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.updateLayoutParams
 import androidx.viewpager.widget.ViewPager
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.AdapterClasses

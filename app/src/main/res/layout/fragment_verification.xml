@@ -44,7 +44,6 @@
                 android:layout_height="@dimen/verification_img"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/big_margin"
-                android:id="@+id/ivCode"
                 android:src="@drawable/verification"/>
 
 
@@ -112,7 +111,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/normal_font"
                     android:textColor="@color/white"
-                    android:id="@+id/tvResend"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/resend"
