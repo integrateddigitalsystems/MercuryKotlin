@@ -148,7 +148,7 @@
     <string name="expired">Expired</string>
     <string name="guest_name">Guest Name</string>
     <string name="guest_phone_number">Guest Phone Number</string>
-    <string name="one_day_text">Send a friend this pass and show us what we have to offer</string>
+    <string name="one_day_text">Send a friend this pass and show us what we have to offer.</string>
     <string name="send_guest_pass">Send Guest Pass</string>
     <string name="buy_guest_pass">Buy Extra Pass</string>
     <string name="invite_n_a_friend">Invite Friend</string>
@@ -163,7 +163,7 @@
     <string name="beirut_landmars">Beirut Landmarks</string>
     <string name="viaEmail">via Email</string>
     <string name="viaText">via Text</string>
-    <string name="guest_passes_available">Guest Passes Available:</string>
+    <string name="guest_passes_available">Guest Passes Available :</string>
     <string name="register_now">Register Now</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
@@ -217,4 +217,12 @@
     <string name="payment_date">Payment Date</string>
     <string name="send_a_mercury">Send a Mercury Gift Card usable for all services at the club</string>
     <string name="select_amount">Select Amount</string>
+    <string name="guest_email">Guest Email</string>
+    <string name="number_of_guest_pass">Number of Guest Pass</string>
+    <string name="must_choose_package">You must choose a Package</string>
+
+    <string name="no_data_to_display">No data to display</string>
+    <string name="you_show_us">You Show Us Love, We Show You Love</string>
+    <string name="when_they_join">When they join,you will receive a LBP 100,000 Mercury Gift Card.</string>
+    <string name="friends_invited">Friends Invited</string>
 </resources>

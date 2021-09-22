@@ -1,9 +1,11 @@
 package com.ids.mercury.model.response
 
+
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.ids.mercury.model.GiftCards
 
-class ResponseMemberDetails {
+class ResponseGiftCard {
     @SerializedName("Success")
     @Expose
     var success: String? = ""
@@ -14,9 +16,9 @@ class ResponseMemberDetails {
 
     @SerializedName("Count")
     @Expose
-    var count: Int? = null
+    var count: Int? = 0
 
-    @SerializedName("members")
+    @SerializedName("referrals")
     @Expose
-    var members: ArrayList<Member>? = null
+    var referrals: ArrayList<GiftCards>? = arrayListOf()
 }

@@ -306,17 +306,16 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
         //check if start time less than end time
         if(AppHelper.dateFormat10.parse(endFullTime).compareTo(AppHelper.dateFormat10.parse(startFullTime)) < 0)
             valid=false
-        if(AppHelper.dateFormat10.parse(startFullTime).compareTo(AppHelper.dateFormat10.parse(AppHelper.dateFormat10.format(cal.time))) < 0)
+        else if(AppHelper.dateFormat10.parse(startFullTime).compareTo(AppHelper.dateFormat10.parse(AppHelper.dateFormat10.format(cal.time))) < 0)
             valid=false
-        //check if start time is betweem 11 P< and 6:00 AM
+        //check if start time is betweem 12 AM and 6:00 AM
         else if(AppHelper.dateFormat8.parse(startTime)  > AppHelper.dateFormat8.parse("12:00 AM") && AppHelper.dateFormat8.parse(startTime) < AppHelper.dateFormat8.parse("06:00 AM"))
             valid=false
-        //check if end time is betweem 0:00 AM and 6:00 :AM
+        //check if end time is betweem 12:00 AM and 6:00 :AM
         else if(AppHelper.dateFormat8.parse(endTime)  > AppHelper.dateFormat8.parse("12:00 AM") && AppHelper.dateFormat8.parse(endTime) < AppHelper.dateFormat8.parse("06:00 AM"))
             valid=false
         else if(((AppHelper.dateFormat8.parse(endTime).time  - AppHelper.dateFormat8.parse(startTime) .time)/(1000*60)) < 60 )
             valid=false
-        logw("diff_1",((AppHelper.dateFormat8.parse(endTime).time  - AppHelper.dateFormat8.parse(startTime) .time)/(1000*60)).toString() )
         return valid
     }
 

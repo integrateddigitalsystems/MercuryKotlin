@@ -3,7 +3,7 @@ package com.ids.mercury.model.response
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class ResponseMemberDetails {
+class ResponseGuestPasses {
     @SerializedName("Success")
     @Expose
     var success: String? = ""
@@ -12,11 +12,11 @@ class ResponseMemberDetails {
     @Expose
     var message: String? = ""
 
+    @SerializedName("totalPasses")
+    @Expose
+    var totalPasses: Int? = 0
+
     @SerializedName("Count")
     @Expose
-    var count: Int? = null
-
-    @SerializedName("members")
-    @Expose
-    var members: ArrayList<Member>? = null
+    var count: Int? = 0
 }

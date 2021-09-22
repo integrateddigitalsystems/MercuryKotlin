@@ -3,8 +3,8 @@ package com.ids.sampleapp.model
 import com.google.gson.annotations.SerializedName
 class ItemSpinner {
     var id: Int? = null
-    var name: String? = null
-    var icon: String? = null
+    var name: String? = ""
+    var icon: String? = ""
     var selected:Boolean=false
 
 

@@ -108,7 +108,7 @@ class ActivityClasses : AppCompactBase(),RVOnItemClickListener,MenusDataListener
           arrayMediaPager.addAll(responseMenus.menus!![0].mediaFiles!!)
           setPager()
         }else{
-            llShading.setBackgroundResource(R.drawable.rectangular_gray)
+           llShading.setBackgroundResource(R.drawable.rectangular_gray)
         }
 
 

@@ -713,16 +713,16 @@ class AppHelper {
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GIFT_CARD_ID,context.getString(R.string.gift_card),"",R.drawable.home_giftcard,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityGiftCard::class.java)
             )})
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GUESS_PASSES_ID,context.getString(R.string.guess_passes),"",R.drawable.home_guestpass,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityGuestPass::class.java)
             )})
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_REFFER_A_FRIEND_ID,context.getString(R.string.refer_a_friend),"",R.drawable.home_refer,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityReferFriends::class.java)
             )})
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_CSR_ID,context.getString(R.string.csr),"",R.drawable.home_csr,"",true,true)
             {context.startActivity(

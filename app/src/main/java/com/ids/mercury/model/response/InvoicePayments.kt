@@ -24,7 +24,7 @@ class InvoicePayments {
 
     @SerializedName("Description")
     @Expose
-    var description: String? = null
+    var description: String? = ""
 
 
     constructor(

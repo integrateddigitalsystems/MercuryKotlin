@@ -39,4 +39,7 @@ object ApiParameters {
 
     const val FROM = "from"
     const val TO = "to"
+
+    const val TYPE_ID = "TypeId"
+    const val NAME = "name"
 }

@@ -14,11 +14,11 @@ class History {
 
     @SerializedName("Description")
     @Expose
-    var description: String? = null
+    var description: String? = ""
 
     @SerializedName("Date")
     @Expose
-    var date: String? = null
+    var date: String? = ""
 
     constructor(id: Int?, loyaltyPoints: Int?, description: String?, date: String?) {
         this.id = id

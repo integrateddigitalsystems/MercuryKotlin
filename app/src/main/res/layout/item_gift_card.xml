@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="@dimen/edit_text_height"
+    android:paddingStart="@dimen/normal_margin"
+    android:paddingEnd="@dimen/normal_margin"
+    android:layout_marginTop="@dimen/small_margin"
+    android:background="@drawable/gray_border_layout"
+    >
+
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvAmount"
+        android:textColor="@color/white"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/normal_font"/>
+
+   <ImageView
+       android:layout_width="@dimen/icon_small"
+       android:layout_height="@dimen/icon_small"
+       android:src="@drawable/arrow_down"
+       android:layout_gravity="center_vertical"
+       android:rotation="-90"
+       />
+
+</LinearLayout>

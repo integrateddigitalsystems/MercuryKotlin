@@ -71,4 +71,7 @@ object AppConstants {
 
     const val PAGE_CLASSES = 1
     const val PAGE_ACADEMY = 2
+
+    const val TYPE_EMAIL = 1
+    const val TYPE_SMS = 2
 }

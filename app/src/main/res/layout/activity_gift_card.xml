@@ -57,14 +57,19 @@
                                 android:text="@string/select_amount"
                                 android:textColor="@color/white"
                                 android:layout_gravity="center_horizontal"
-                                android:textSize="@dimen/normal_font"/>
+                                android:textSize="@dimen/big_font"/>
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/rvHistory"
+                                android:id="@+id/rvCards"
                                 android:layout_marginTop="@dimen/medium_margin"
                                 />
+
+
+
+
+
                         </LinearLayout>
 
 
@@ -73,7 +78,106 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
+                            android:visibility="gone"
                             android:id="@+id/linearStep2">
+
+
+                            <EditText
+                                android:background="@drawable/gray_border_layout"
+                                android:id="@+id/etFullName"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_height"
+                                android:gravity="center_vertical"
+                                android:hint="@string/full_name"
+                                android:layout_marginTop="@dimen/normal_margin"
+                                android:textSize="@dimen/normal_font"
+                                android:paddingStart="@dimen/normal_margin"
+                                android:paddingEnd="@dimen/normal_margin"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/dark_gray" />
+
+                            <EditText
+                                android:background="@drawable/gray_border_layout"
+                                android:id="@+id/etEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_height"
+                                android:gravity="center_vertical"
+                                android:hint="@string/email"
+                                android:layout_marginTop="@dimen/normal_margin"
+                                android:textSize="@dimen/normal_font"
+                                android:paddingStart="@dimen/normal_margin"
+                                android:paddingEnd="@dimen/normal_margin"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/dark_gray" />
+
+                            <EditText
+                                android:background="@drawable/gray_border_layout"
+                                android:id="@+id/etPhoneNumber"
+                                android:inputType="phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_height"
+                                android:gravity="center_vertical"
+                                android:hint="@string/phone_number"
+                                android:layout_marginTop="@dimen/normal_margin"
+                                android:textSize="@dimen/normal_font"
+                                android:paddingStart="@dimen/normal_margin"
+                                android:paddingEnd="@dimen/normal_margin"
+                                android:maxLines="1"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/dark_gray" />
+
+
+
+
+                            <LinearLayout
+                                android:background="@drawable/gray_border_layout"
+                                android:id="@+id/llDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_height"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingEnd="@dimen/normal_margin"
+                                android:layout_marginTop="@dimen/normal_margin"
+
+                             >
+
+                                <com.ids.mercury.custom.CustomTextViewMedium
+
+                                    android:id="@+id/tvDate"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:hint="@string/date"
+
+                                    android:textSize="@dimen/normal_font"
+                                    android:paddingStart="@dimen/normal_margin"
+                                    android:paddingEnd="@dimen/normal_margin"
+                                    android:maxLines="1"
+                                    android:textColor="@color/white"
+                                    android:textColorHint="@color/dark_gray" />
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/icon_small"
+                                    android:layout_height="@dimen/icon_small"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/arrow_down"
+                                    />
+                            </LinearLayout>
+                            <Button
+                                android:id="@+id/btSubmit"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_height"
+                                android:layout_marginTop="@dimen/big_margin"
+                                android:layout_marginBottom="@dimen/margin_start_end"
+                                android:background="@color/button_blue"
+                                android:text="@string/request_gift_card"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/normal_font" />
 
                         </LinearLayout>
 

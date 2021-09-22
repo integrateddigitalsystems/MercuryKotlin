@@ -166,4 +166,37 @@ interface RetrofitInterface {
         @Query(ApiParameters.MEMBER_ID) memberId: String
     ): Call<ResponsePaymentHistory>
 
+    @GET("GetGiftCards")
+    fun getGiftCards(
+    ): Call<ResponseGiftCard>
+
+    @GET("SendRequestEmail")
+    fun sendrequestEmail(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.TYPE_ID) password: String
+    ): Call<ResponseMessage>
+
+    @GET("GetMemberGuestPasses")
+    fun getMemberGuestPasses(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseGuestPasses>
+
+    @GET("SendGuestPass")
+    fun sendGuestPass(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.NAME) name: String,
+        @Query(ApiParameters.EMAIL) email: String,
+        @Query(ApiParameters.MOBILE) mobile: String
+    ): Call<ResponseMessage>
+
+
+    @GET("GetGuestPassPackages")
+    fun getGuestPassPackages(
+    ): Call<ResponseGymPackages>
+
+
+    @GET("GetReferrals")
+    fun getReferrals(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseFriends>
 }
