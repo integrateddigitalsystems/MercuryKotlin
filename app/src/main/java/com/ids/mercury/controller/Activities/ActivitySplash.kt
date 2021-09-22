@@ -150,7 +150,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this,ActivityLogin::class.java))
             finish()
-        }, 2000)
+        }, 500)
     }
     private fun goToHome(){
         CallApi.getSuggestedClasses(this,this)

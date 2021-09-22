@@ -38,9 +38,9 @@ object RetrofitClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);*//* .addInterceptor(interceptor)*/ val requestHeader: OkHttpClient
         get() = OkHttpClient.Builder()
            // .addNetworkInterceptor()
-            .connectTimeout(5, TimeUnit.MINUTES) // connect timeout
-            .writeTimeout(5, TimeUnit.MINUTES) // write timeout
-            .readTimeout(5, TimeUnit.MINUTES)
+            .connectTimeout(45, TimeUnit.SECONDS) // connect timeout
+            .writeTimeout(45, TimeUnit.SECONDS) // write timeout
+            .readTimeout(45, TimeUnit.SECONDS)
             .build()
     private fun cancelRequest() {}
 

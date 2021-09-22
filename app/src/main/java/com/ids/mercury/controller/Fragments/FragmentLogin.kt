@@ -97,6 +97,14 @@ class FragmentLogin : Fragment() , RVOnItemClickListener ,ApiListener{
                 }
                 override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
                     loading.hide()
+                    toastt(getString(R.string.try_again))
+                    //testing
+             /*       MyApplication.memberId=1
+                    MyApplication.isLoggedIn=true
+                    MyApplication.cnm=etUsername.text.toString()
+                    MyApplication.cps=etPassword.text.toString()
+                    AppHelper.getMemberDetails()
+                    goHome()*/
                 }
             })
     }

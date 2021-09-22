@@ -83,6 +83,13 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".controller.Activities.ActivityCsr"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity
             android:name=".controller.Activities.ActivityProfile"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"

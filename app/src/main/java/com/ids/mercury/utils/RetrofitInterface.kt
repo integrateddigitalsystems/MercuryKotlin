@@ -199,4 +199,15 @@ interface RetrofitInterface {
     fun getReferrals(
         @Query(ApiParameters.MEMBER_ID) memberId: String
     ): Call<ResponseFriends>
+
+
+    @GET("InviteFriend")
+    fun inviteFriend(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.TYPE_ID) typeId: String,
+        @Query(ApiParameters.EMAIL) email: String,
+        @Query(ApiParameters.MOBILE) mobile: String,
+        @Query(ApiParameters.FIRST_NAME) fname: String,
+        @Query(ApiParameters.LAST_NAME) lname: String
+    ): Call<ResponseMessage>
 }
