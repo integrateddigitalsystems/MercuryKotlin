@@ -62,7 +62,10 @@ class ActivityGuestPass : AppCompactBase() , RVOnItemClickListener {
     }
 
     private fun listeners(){
-        btBack.setOnClickListener{super.onBackPressed()}
+        btBack.setOnClickListener{
+            hideKeyboard()
+            super.onBackPressed()
+        }
         btProfile.setOnClickListener{
             startActivity(Intent(this,ActivityProfile::class.java))
         }

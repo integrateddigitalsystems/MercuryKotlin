@@ -68,7 +68,9 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
     }
 
     private fun listeners(){
-        btBack.setOnClickListener{super.onBackPressed()}
+        btBack.setOnClickListener{
+            hideKeyboard()
+            super.onBackPressed()}
         btProfile.setOnClickListener{
             startActivity(Intent(this,ActivityProfile::class.java))
         }
@@ -109,11 +111,17 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
 
     fun inviteFriend () {
         loading.show()
+        logw("param_member_id",MyApplication.memberId.toString())
+        logw("param_type",type.toString())
+        logw("param_member_email",if(type == AppConstants.TYPE_EMAIL) etEmail.text.toString() else "")
+        logw("param_member_phone",if(type == AppConstants.TYPE_SMS) tvCountryCode.text.toString().replace("+","")+" "+etPhoneNumber.text.toString() else "")
+        logw("param_fname",etFirstName.text.toString())
+        logw("param_lname",etLastName.text.toString())
         RetrofitClient.client?.create(RetrofitInterface::class.java)
             ?.inviteFriend(
                 MyApplication.memberId.toString(),
                 type.toString(),
-                if(type == AppConstants.TYPE_EMAIL) etEmail.text.toString() else "",
+                if(type == AppConstants.TYPE_EMAIL) etEmail.text.toString() else " ",
                 if(type == AppConstants.TYPE_SMS) tvCountryCode.text.toString().replace("+","")+" "+etPhoneNumber.text.toString() else "",
                 etFirstName.text.toString(),
                 etLastName.text.toString()
@@ -133,6 +141,7 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
                 override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
                     loading.hide()
                     toastt(getString(R.string.try_again))
+                    hideKeyboard()
                 }
             })
     }
