@@ -59,8 +59,9 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (task.isSuccessful) {
                 val token = task.result
+                Log.wtf("token1", "token is " + token)
             }
-            Log.wtf("token1", "token is " + token)
+
 
             RetrofitClient.client?.create(RetrofitInterface::class.java)
                 ?.addDevice(
@@ -264,6 +265,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
 
     private fun next(){
         getMenus()
+        addDevice()
         if(MyApplication.isLoggedIn)
             checkLogin()
         else

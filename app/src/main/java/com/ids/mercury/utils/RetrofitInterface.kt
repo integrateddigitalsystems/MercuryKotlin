@@ -1,9 +1,11 @@
 package com.ids.mercury.utils
 
+import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 import kotlin.coroutines.RestrictsSuspension
 
@@ -173,7 +175,7 @@ interface RetrofitInterface {
     @GET("SendRequestEmail")
     fun sendrequestEmail(
         @Query(ApiParameters.MEMBER_ID) memberId: String,
-        @Query(ApiParameters.TYPE_ID) password: String
+        @Query(ApiParameters.TYPE_ID) type: String
     ): Call<ResponseMessage>
 
     @GET("GetMemberGuestPasses")
@@ -210,4 +212,12 @@ interface RetrofitInterface {
         @Query(ApiParameters.FIRST_NAME) fname: String,
         @Query(ApiParameters.LAST_NAME) lname: String
     ): Call<ResponseMessage>
+
+
+    @GET("{sname}")
+    fun createCheckoutSession(
+        @Path(value = "sname", encoded = true) serviceName: String,
+        @Query(ApiParameters.ID) id: Long,
+        @Query(ApiParameters.AMOUNT) amount:String
+    ):Call<ResponseCheckout>
 }

@@ -70,7 +70,7 @@ class ActivityAcademies : AppCompactBase(),RVOnItemClickListener,MenusDataListen
     }
 
     private fun setPager(){
-        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle)
+        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle,supportFragmentManager)
         vpMedias.adapter = adapterPager
         tbMedia.setupWithViewPager(vpMedias)
         vpMedias?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {

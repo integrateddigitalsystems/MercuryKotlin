@@ -730,7 +730,7 @@ class AppHelper {
             )})
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RULES_AND_REGULATIONS_ID,context.getString(R.string.rules_regulations),"",R.drawable.home_rulesregelations,"",true,true)
             {context.startActivity(
-                Intent(context, ActivitySplash::class.java)
+                Intent(context, ActivityInsideCsrRules::class.java).putExtra("type",AppConstants.TYPE_RULES)
             )})
 
             var tempArray=java.util.ArrayList<SectionPagerItem>()

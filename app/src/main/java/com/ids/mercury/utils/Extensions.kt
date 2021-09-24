@@ -218,6 +218,11 @@ fun Fragment.toastt(message: CharSequence){
 fun Activity.toastt(message: CharSequence){
     try{Toast.makeText(this, message, Toast.LENGTH_SHORT).show()}catch (e:Exception){}
 }
+
+fun Context.toastt(message: CharSequence){
+    try{Toast.makeText(this, message, Toast.LENGTH_SHORT).show()}catch (e:Exception){}
+}
+
 fun Fragment.loadJSONFromAssets(fileName: String): String {
     return activity!!.assets.open(fileName).bufferedReader().use { reader ->
         reader.readText()

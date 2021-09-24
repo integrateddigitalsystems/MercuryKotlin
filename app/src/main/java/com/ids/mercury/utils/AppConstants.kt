@@ -1,5 +1,7 @@
 package com.ids.mercury.utils
 
+import com.ids.mercury.controller.MyApplication
+
 /**
  * Created by Ibrahim on 8/23/2017.
  */
@@ -54,7 +56,7 @@ object AppConstants {
     const val MENU_CLASS_SCHEDULE_LABEL = "classSchedule"
     const val MENU_CSR_LABEL = "csr"
     const val FROM_PAGE = "from_page"
-
+    const val IMAGE_URL = "image_url"
     const val MENU_MEMBERSHIP_STATUS_ID = 1
     const val MENU_FITNESS_ID = 2
     const val MENU_ACADEMIES_ID = 3
@@ -74,4 +76,51 @@ object AppConstants {
 
     const val TYPE_EMAIL = 1
     const val TYPE_SMS = 2
+
+    const val TYPE_CSR = 1
+    const val TYPE_RULES = 2
+
+    var htmlText = """<html>
+    <head>
+        <script src=myUrl
+                data-error="errorCallback"
+                data-cancel="cancelCallback"
+        data-complete="http://um.ids.com.lb/receiptPage">
+            </script>
+
+        <script type="text/javascript">
+            function errorCallback(error) {
+                  console.log(JSON.stringify(error));
+            }
+            function cancelCallback() {
+                  console.log('Payment cancelled');
+            }
+            
+            Checkout.configure({
+                merchant:'<your_merchant_id>',
+                order: {
+                    amount: <amount>,
+                    currency: 'USD',
+                    description: 'Ordered goods',
+                   id: '<unique_order_id>'
+                    },
+                    session: {
+                      id: '<checkout_session_id>'
+                    },
+                interaction: {
+                  operation: 'PURCHASE',
+                    merchant: {
+                        name: 'Your merchant name',
+                        address: {
+                            line1: '200 Sample St',
+                            line2: '1234 Example Town'     
+                        }    
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body onload="Checkout.showPaymentPage();">
+    </body>
+</html>"""
 }

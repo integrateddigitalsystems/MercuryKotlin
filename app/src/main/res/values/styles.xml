@@ -20,6 +20,16 @@
         <item name="android:fitsSystemWindows">true</item>
     </style>
 
+    <style name="DialogThemePayment" parent="android:Theme.Dialog">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <!-- No backgrounds, titles or window float -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -31,5 +41,18 @@
     <style name="SpinnerTimePicker" parent="android:Widget.Material.Light.TimePicker">
         <item name="android:timePickerMode">spinner</item>
     </style>
+
+
+    <style name="MyBottomSheetDialog"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_white_frame</item>
+        <item name="enableEdgeToEdge">true</item>
+    </style>
+
 
 </resources>

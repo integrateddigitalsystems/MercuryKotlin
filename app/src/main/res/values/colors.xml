@@ -13,8 +13,8 @@
     <color name="black_70">#B3000000</color>
 
     <color name="gray_button">#313236</color>
-
-
+    <dimen name="card_corner_radius">12dp</dimen>
+    <color name="gray_block">#fbfbfb</color>
     <!--<color name="colorAccent">#CF0A2C</color>-->
 
     <color name="white_holder">#FFFFFF</color>

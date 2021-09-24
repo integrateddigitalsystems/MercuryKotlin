@@ -18,8 +18,10 @@ import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.Coach
 import com.ids.mercury.model.response.MediaFile
 import com.ids.mercury.model.response.ResponseCoaches
+import com.ids.mercury.model.response.ResponseMessage
 import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.activity_academy_details.*
+import kotlinx.android.synthetic.main.loading_trans.*
 
 import kotlinx.android.synthetic.main.overlay.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -64,7 +66,7 @@ class ActivityAcademyDetails : AppCompactBase(),RVOnItemClickListener{
         }
 
         btSubmit.setOnClickListener{
-            startActivity(Intent(this,ActivitySuccess::class.java))
+            sendRequestEmail()
         }
     }
 
@@ -75,7 +77,7 @@ class ActivityAcademyDetails : AppCompactBase(),RVOnItemClickListener{
     }
 
     private fun setPager(){
-        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle)
+        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle,supportFragmentManager)
         vpMedias.adapter = adapterPager
         tbMedia.setupWithViewPager(vpMedias)
         vpMedias?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -178,5 +180,30 @@ class ActivityAcademyDetails : AppCompactBase(),RVOnItemClickListener{
         adapterAssistants = AdapterCoaches(arrayAssistants,this)
         rvAssistants.adapter = adapterAssistants
     }
+
+
+    fun sendRequestEmail () {
+        loading.show()
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.sendrequestEmail(MyApplication.memberId.toString(),"1")?.enqueue(object :
+                Callback<ResponseMessage> {
+                override fun onResponse(
+                    call: Call<ResponseMessage>,
+                    response: Response<ResponseMessage>
+                ) {
+                    loading.hide()
+                    if(response.body()!!.success=="1"){
+                        startActivity(Intent(this@ActivityAcademyDetails,ActivitySuccess::class.java))
+                    }else
+                        toastt(response.body()!!.message!!)
+
+                }
+                override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                    loading.hide()
+                    toastt(getString(R.string.try_again))
+                }
+            })
+    }
+
 
 }

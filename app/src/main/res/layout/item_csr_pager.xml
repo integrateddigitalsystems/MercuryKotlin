@@ -1,125 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:id="@+id/rlPagerTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pager_top_height">
 
-
-
-        <androidx.core.widget.NestedScrollView
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpMedias"
             android:layout_width="match_parent"
-            android:fillViewport="true"
-            android:id="@+id/myScroll"
-            android:layout_height="match_parent">
-            <LinearLayout
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/overlay" />
+
+
+        <com.ids.mercury.custom.CustomTextViewLight
+            android:id="@+id/tvTitleOver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big_font" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tbMedia"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_below="@id/rlPagerTop"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_marginBottom="@dimen/mini_margin"
+            app:tabBackground="@drawable/selector_tab_image"
+            app:tabGravity="center"
+
+            app:tabIndicatorHeight="0dp"
+            app:tabMaxWidth="12dp"
+            app:tabRippleColor="@null" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/myScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mini_margin"
+            android:layout_marginEnd="@dimen/mini_margin"
+            android:orientation="vertical">
+
+            <com.ids.mercury.custom.CustomTextViewWeb
+                android:id="@+id/tvSummary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
-                android:orientation="vertical">
-
-
-
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                android:layout_marginStart="@dimen/margin_start_end"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/margin_start_end"
+                android:textColor="@color/white"
+                android:textSize="@dimen/big_font" />
 
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/pager_top_height_acad"
-                        android:id="@+id/rlPagerTop"
-                        >
-
-                        <androidx.viewpager.widget.ViewPager
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/vpMedias"
-                            />
-
-                        <include layout="@layout/overlay"/>
-
-
-                        <com.ids.mercury.custom.CustomTextViewLight
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/big_margin"
-                            android:layout_marginEnd="@dimen/big_margin"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/big_font"
-                            android:id="@+id/tvTitleOver"
-                            android:layout_centerInParent="true"
-                            />
-                    </RelativeLayout>
-
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tbMedia"
-                        android:layout_width="match_parent"
-                        android:layout_height="18dp"
-                        android:layout_below="@id/rlPagerTop"
-                        android:layout_marginBottom="@dimen/mini_margin"
-                        android:visibility="gone"
-                        app:tabGravity="center"
-                        app:tabIndicatorHeight="0dp"
-                        android:layout_marginTop="@dimen/normal_margin"
-
-                        app:tabMaxWidth="12dp"
-                        app:tabBackground="@drawable/selector_tab_image"
-                        app:tabRippleColor="@null" />
-
-                    <com.ids.mercury.custom.CustomTextViewMedium
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/tvNodata"
-                        android:text="@string/no_data"
-                        android:background="@color/black"
-                        android:layout_below="@+id/tbMedia"
-                        android:gravity="center"
-                        android:visibility="gone"
-                        android:layout_centerInParent="true"
-                        android:textSize="@dimen/normal_font"
-                        android:textColor="@color/white"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="@dimen/mini_margin"
-                        android:layout_marginEnd="@dimen/mini_margin"
-                        android:layout_below="@id/tbMedia">
-
-                        <com.ids.mercury.custom.CustomTextViewWeb
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/tvSummary"
-                            android:textSize="@dimen/normal_font"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="@dimen/normal_margin"
-                            />
-
-
-
-                    </LinearLayout>
-
-
-
-                </RelativeLayout>
-
-
-
-
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-
-
-
-
-
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

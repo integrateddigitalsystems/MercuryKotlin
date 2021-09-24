@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -29,7 +30,10 @@ import com.ids.mercury.model.response.*
 import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.activity_academy.*
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_renew_membership.*
 import kotlinx.android.synthetic.main.activity_rent_court.*
+import kotlinx.android.synthetic.main.activity_rent_court.btProceed
+import kotlinx.android.synthetic.main.activity_rent_court.linearDate
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -42,7 +46,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 
-class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
+class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener {
     private lateinit var fragmentManager: FragmentManager
     private var arrayCourts=java.util.ArrayList<Court>()
     private var arrayActivities=java.util.ArrayList<Activity>()
@@ -54,6 +58,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
     lateinit var calDate: Calendar
     lateinit var calEnd:Calendar
     lateinit var calStart:Calendar
+    var selectedCourt=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,6 +98,14 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
                 setDataEdit()
                 getCourts()
             }
+            }else{
+                if(selectedCourt==0){
+                    createDialog(getString(R.string.must_select_court))
+                }else{
+                    var price=arrayCourts.find { it.id==selectedCourt }!!.price!!.toInt()
+                    PaymentApiDialog.showPaymentDialog(this, this,price.toString())
+                }
+
             }
         }
 
@@ -154,6 +167,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
                     response: Response<ResponseActivities>
                 ) {
                     try{
+                        selectedCourt=0
                     if(response.body()!!.success=="1" && response.body()!!.activities!!.size>0){
                         arrayActivities.clear()
                         arrayActivities.addAll(response.body()!!.activities!!)
@@ -166,6 +180,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
 
                 }
                 override fun onFailure(call: Call<ResponseActivities>, t: Throwable) {
+                    selectedCourt=0
                 }
             })
     }
@@ -196,6 +211,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
         }else{
             resetAllSelection()
             arrayCourts[position].selected=true
+            selectedCourt=arrayCourts[position].id!!
             adapterCourts.notifyDataSetChanged()
         }
     }
@@ -317,6 +333,11 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener {
         else if(((AppHelper.dateFormat8.parse(endTime).time  - AppHelper.dateFormat8.parse(startTime) .time)/(1000*60)) < 60 )
             valid=false
         return valid
+    }
+
+    override fun onFinishPayment(success: Boolean) {
+        if(success)
+            startActivity(Intent(this,ActivitySuccess::class.java))
     }
 
 }

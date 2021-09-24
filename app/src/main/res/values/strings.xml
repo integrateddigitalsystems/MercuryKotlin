@@ -117,4 +117,8 @@
     <string name="you_show_us">You Show Us Love, We Show You Love</string>
     <string name="when_they_join">When they join,you will receive a LBP 100,000 Mercury Gift Card.</string>
     <string name="friends_invited">Friends Invited</string>
+    <string name="close">Close</string>
+
+    <string name="notification_error_ssl_cert_invalid">Invalid certificate</string>
+    <string name="must_select_court">you must select a court!</string>
 </resources>

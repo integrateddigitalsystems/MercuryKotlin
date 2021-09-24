@@ -77,6 +77,13 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".controller.Activities.ActivityInsideCsrRules"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity
             android:name=".controller.Activities.ActivitySendSmsEmail"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"

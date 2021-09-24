@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
+import com.ids.mercury.controller.Fragments.FragmentBottomSheetNotification
+import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.MediaFile
 import com.ids.mercury.utils.AppHelper
 import com.ids.mercury.utils.hide
@@ -22,9 +25,10 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 
-internal class AdapterMediaPager(private val context: Context, private val arrayList: ArrayList<MediaFile>,lifecycle: Lifecycle) :
+internal class AdapterMediaPager(private val context: Context, private val arrayList: ArrayList<MediaFile>,lifecycle: Lifecycle,private var sfm: FragmentManager) :
     PagerAdapter(),RVOnItemClickListener {
     var lifecycle=lifecycle
+    var supportFragmentManager=sfm
     lateinit var myYouTubePlayer:YouTubePlayer
     private val layoutInflater: LayoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -59,6 +63,13 @@ internal class AdapterMediaPager(private val context: Context, private val array
            youTubePlayerView.hide()
            ivFile.show()
            ivFile.loadImagesUrl(arrayList[position].filePath!!)
+          if(arrayList[position].filePath!=null && arrayList[position].filePath!!.isNotEmpty()){
+              ivFile.setOnClickListener {
+                  MyApplication.selectedImage=arrayList[position].filePath!!
+                  val bottom_fragment = FragmentBottomSheetNotification()
+                  bottom_fragment.show(supportFragmentManager,"frag_image")
+              }
+          }
        }
 
         container.addView(view)

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
@@ -30,7 +31,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
+class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener ,PaymentListener {
     private var arrayData=java.util.ArrayList<MemberShip>()
     lateinit var adapter : AdapterCountryCodes
     var type=0
@@ -54,7 +55,7 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
 
 
     private fun init(){
-
+        shake =  AnimationUtils.loadAnimation(this, R.anim.shake)
         type=intent.getIntExtra("type",0)
         if(type==AppConstants.TYPE_GYM){
             tvToolbarTitle.text=getString(R.string.renew_membership)
@@ -75,6 +76,16 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
         btBack.setOnClickListener{super.onBackPressed()}
         btProfile.setOnClickListener{startActivity(Intent(this,ActivityProfile::class.java))}
         setDatesPicker()
+        btProceed.setOnClickListener{
+            if(tvSelectedPackage.text == getString(R.string.choose_package))
+                linearPackages.startAnimation(shake)
+             else if(selectedDate.isEmpty())
+                linearDate.startAnimation(shake)
+             else if(tvAmount.text.toString().isNotEmpty()) {
+                PaymentApiDialog.showPaymentDialog(this, this, tvAmount.text.toString().lowercase().replace("usd","").replace(" ",""))
+            }
+
+        }
     }
 
 
@@ -106,7 +117,7 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
 
                     if(response.body()!!.success=="1" && response.body()!!.gymPackages!!.size>0){
                          arrayGymPackages.addAll(response.body()!!.gymPackages!!)
-                        linearPackages.setOnClickListener{showGymPackages()}
+                         linearPackages.setOnClickListener{showGymPackages()}
                     }
 
                 }
@@ -223,6 +234,11 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener {
                 textDateCalendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+    }
+
+    override fun onFinishPayment(success: Boolean) {
+       if(success)
+           startActivity(Intent(this,ActivitySuccess::class.java))
     }
 
 }

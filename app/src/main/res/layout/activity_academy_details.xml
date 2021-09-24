@@ -85,7 +85,7 @@
                         <com.ids.mercury.custom.CustomTextViewWeb
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/normal_font"
+                            android:textSize="@dimen/big_font"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:layout_marginStart="@dimen/margin_start_end"

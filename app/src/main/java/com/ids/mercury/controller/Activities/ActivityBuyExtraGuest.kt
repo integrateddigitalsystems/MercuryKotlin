@@ -37,7 +37,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class ActivityBuyExtraGuest : AppCompactBase(),RVOnItemClickListener {
+class ActivityBuyExtraGuest : AppCompactBase(),RVOnItemClickListener ,PaymentListener{
     lateinit var adapter : AdapterGiftCards
     lateinit var  shake: Animation
     lateinit var dialog :Dialog
@@ -66,8 +66,10 @@ class ActivityBuyExtraGuest : AppCompactBase(),RVOnItemClickListener {
             startActivity(Intent(this,ActivityProfile::class.java))
         }
         btProceed.setOnClickListener{
-            if(MyApplication.selectedGymPackageId!=0)
-                toastt("go to paymeny")
+            if(MyApplication.selectedGymPackageId!=0){
+                var price=arrayGymPackages.find { it.id==MyApplication.selectedGymPackageId }!!.amount!!.toInt()
+                PaymentApiDialog.showPaymentDialog(this, this,price.toString())
+            }
             else
                 createDialog(getString(R.string.must_choose_package))
         }
@@ -130,6 +132,10 @@ class ActivityBuyExtraGuest : AppCompactBase(),RVOnItemClickListener {
         dialog.show()
     }
 
+    override fun onFinishPayment(success: Boolean) {
+        if(success)
+            startActivity(Intent(this,ActivitySuccess::class.java))
+    }
 
 
 }

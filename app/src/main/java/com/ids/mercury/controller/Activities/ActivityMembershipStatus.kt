@@ -114,11 +114,11 @@ class ActivityMembershipStatus : AppCompactBase(),RVOnItemClickListener {
                     response: Response<ResponseMembership>
                 ) {
                     loading.hide()
-                  //  if(response.body()!!.success=="1" && response.body()!!.gymMembers!!.size>0){
+                   if(response.body()!!.success=="1" && response.body()!!.gymMembers!!.size>0){
                         tvNodata.hide()
                         setData(response.body()!!.gymMembers)
-              /*      }else
-                        tvNodata.show()*/
+                   }else
+                        tvNodata.show()
 
                 }
                 override fun onFailure(call: Call<ResponseMembership>, t: Throwable) {
@@ -131,8 +131,9 @@ class ActivityMembershipStatus : AppCompactBase(),RVOnItemClickListener {
     private fun setData(members: ArrayList<MemberShip>?) {
         arrayData.clear()
         arrayData.addAll(members!!)
-        arrayData.add(MemberShip(1,1,1,1,"01/12/2021","01/12/2022","1 Month","Active","1"))
+       /* arrayData.add(MemberShip(1,1,1,1,"01/12/2021","01/12/2022","1 Month","Active","1"))
         arrayData.add(MemberShip(2,2,2,2,"01/12/2021","01/12/2022","2 Month","Expired","2"))
+      */
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvMemberShip.layoutManager = layoutManager
         adapter = AdapterMembership(arrayData,this)

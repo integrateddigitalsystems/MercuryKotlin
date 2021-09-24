@@ -63,7 +63,7 @@ class MyApplication : Application() {
          var pageItemCount=4
          var gridRecyclerCount=2
           var memberDetails : Member?=null
-
+        var selectedImage=""
         var selectedItemDialog="+961"
         var selectedGymPackageId=0
         var selectedPtPackageId=0
@@ -71,6 +71,8 @@ class MyApplication : Application() {
         var arraySuggestedClasses=java.util.ArrayList<GymClass>()
         var selectedAcademy : Activity?=null
         var selectedCsr : Child?=null
+
+
     }
 
 

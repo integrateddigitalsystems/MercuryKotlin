@@ -23,9 +23,6 @@ import kotlinx.android.synthetic.main.activity_academy.*
 import kotlinx.android.synthetic.main.overlay.*
 
 import kotlinx.android.synthetic.main.toolbar.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import kotlin.collections.ArrayList
 
 
@@ -73,7 +70,7 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
     }
 
     private fun setPager(){
-        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle)
+        adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle,supportFragmentManager)
         vpMedias.adapter = adapterPager
         tbMedia.setupWithViewPager(vpMedias)
         vpMedias?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -168,7 +165,7 @@ class ActivityCsr : AppCompactBase(),RVOnItemClickListener,MenusDataListener,Api
             {
                 MyApplication.selectedCsr=csrs[i]
                 context.startActivity(
-                    Intent(context, ActivityHome::class.java)
+                    Intent(context, ActivityInsideCsrRules::class.java).putExtra("type",AppConstants.MENU_RULES_LABEL)
                 )}
             )
         }
