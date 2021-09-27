@@ -220,4 +220,28 @@ interface RetrofitInterface {
         @Query(ApiParameters.ID) id: Long,
         @Query(ApiParameters.AMOUNT) amount:String
     ):Call<ResponseCheckout>
+
+
+    @GET("SaveReservation")
+    fun saveReservation(
+        @Query(ApiParameters.SUBJECT) subject: String,
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.STATUS_ID) statusid: String,
+        @Query(ApiParameters.COURT_ID) cid: String,
+        @Query(ApiParameters.TOTAL) tot: String,
+        @Query(ApiParameters.HOURS) hrs: String,
+        @Query(ApiParameters.IS_HALF_COURT) isHalf: String,
+        @Query(ApiParameters.FROM_DATE_TIME) fromdt: String,
+        @Query(ApiParameters.AMOUNT) amount: String,
+        @Query(ApiParameters.EVENT_TYPE) event_type: String,
+        @Query(ApiParameters.IS_RECURRING) isRecurring: String,
+        @Query(ApiParameters.REFERENCE) reference: String,
+        @Query(ApiParameters.DISCOUNT) discount: String,
+        @Query(ApiParameters.TO_DATE_TIME) toDateTime: String,
+        @Query(ApiParameters.RECURRENCE_RULE) recurrendRule: String,
+        @Query(ApiParameters.ACTIVITY_ID) activityId: String,
+        @Query(ApiParameters.CONTRACT_ID) contractId: String
+
+    ): Call<ResponseMessage>
+
 }

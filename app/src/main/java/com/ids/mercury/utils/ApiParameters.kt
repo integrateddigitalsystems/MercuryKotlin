@@ -45,4 +45,20 @@ object ApiParameters {
 
     const val ID = "id"
     const val AMOUNT = "amount"
+
+    const val SUBJECT = "subject"
+    const val STATUS_ID = "statusId"
+    const val COURT_ID = "courtId"
+    const val TOTAL = "total"
+    const val HOURS = "hours"
+
+    const val IS_HALF_COURT = "isHalfCourt"
+    const val FROM_DATE_TIME = "fromDateTime"
+    const val EVENT_TYPE = "eventType"
+    const val IS_RECURRING = "isRecurring"
+    const val REFERENCE = "reference"
+    const val DISCOUNT = "discount"
+    const val TO_DATE_TIME = "toDateTime"
+    const val RECURRENCE_RULE = "recurrenceRule"
+    const val CONTRACT_ID = "contractId"
 }

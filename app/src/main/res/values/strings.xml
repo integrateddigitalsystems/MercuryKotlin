@@ -121,4 +121,6 @@
 
     <string name="notification_error_ssl_cert_invalid">Invalid certificate</string>
     <string name="must_select_court">you must select a court!</string>
+
+    <string name="error">An error has been occurred</string>
 </resources>
