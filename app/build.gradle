@@ -6,6 +6,9 @@ android {
 
     compileSdkVersion 30
     defaultConfig {
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+        }
         applicationId "com.mercury.mobileapp"
         minSdkVersion 21
         targetSdkVersion 30
@@ -91,6 +94,11 @@ dependencies {
 
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
+
+    implementation 'com.github.nedimf:maildroid:v0.0.8-release'
 
 }
 apply plugin: 'com.google.firebase.crashlytics'

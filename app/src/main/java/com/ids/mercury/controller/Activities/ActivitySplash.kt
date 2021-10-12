@@ -105,7 +105,8 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
                 if (task.isSuccessful) {
                     setFirebaseData()
                     checkUpdate()
-                }else
+                }
+                else
                     next()
 
                // nextStep()
