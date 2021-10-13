@@ -194,11 +194,10 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
         }.start()*/
         try{
             loading.show()
-             messageBody = "Id: "+MyApplication.memberId.toString()+"/n" +
-                    "First Name: "+etFirstName.text.toString()+"/n" +
-                    "Last Name: "+etFirstName.text.toString()+"/n" +
-                    "Email: "+etEmail.text.toString()+
-
+             messageBody = "Id: "+MyApplication.memberId.toString()+" \n" +
+                    "First Name: "+etFirstName.text.toString()+" \n" +
+                    "Last Name: "+etFirstName.text.toString()+" \n" +
+                    "Email: "+etEmail.text.toString()
 
             MaildroidX.Builder()
                 .smtp("smtp.gmail.com")
@@ -208,7 +207,7 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
                 .isStartTLSEnabled(true)
                 .type(MaildroidXType.HTML)
                 .to(MyApplication.rEmail)
-              //  .to("i.haydar@ids.com.lb")
+               // .to("i.haydar@ids.com.lb")
                 .from(MyApplication.sEmail)
                 .subject(MyApplication.emailSubject)
                 .body(messageBody)
