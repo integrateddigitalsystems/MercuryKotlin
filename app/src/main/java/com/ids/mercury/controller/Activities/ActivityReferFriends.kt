@@ -56,8 +56,8 @@ class ActivityReferFriends : AppCompactBase(),RVOnItemClickListener {
         }
 
         btEmail.setOnClickListener{
-            //startActivity(Intent(this,ActivitySendSmsEmail::class.java).putExtra("type",AppConstants.TYPE_EMAIL))
-            sendAppEmail()
+            startActivity(Intent(this,ActivitySendSmsEmail::class.java).putExtra("type",AppConstants.TYPE_EMAIL))
+            //sendAppEmail()
         }
 
         btSms.setOnClickListener{
@@ -67,49 +67,6 @@ class ActivityReferFriends : AppCompactBase(),RVOnItemClickListener {
 
     }
 
-    private fun sendAppEmail(){
-/*        toastt("sending email...")
-        val sender = GMailSender(
-            "feedback@mercurybeirut.com",
-            "admin@123"
-        )
-        Thread {
-            try {
-                sender.sendMail("hello", "test body", "ibrahim.h.ahmd@gmail.com", "i.haydar@ids.com.lb")
-            } catch (ex: Exception) {
-                ex.printStackTrace()
-            }
-        }.start()*/
-        try{
-        loading.show()
-        MaildroidX.Builder()
-            .smtp("smtp.gmail.com")
-            .smtpUsername(MyApplication.sEmail)
-            .smtpPassword(MyApplication.sPassword)
-            .port("465")
-            .isStartTLSEnabled(true)
-            .type(MaildroidXType.HTML)
-            .to(MyApplication.rEmail)
-            .from(MyApplication.sEmail)
-            .subject("hello test")
-            .body("test body1")
-            .isJavascriptDisabled(false)
-            .onCompleteCallback(object : MaildroidX.onCompleteCallback{
-                override val timeout: Long = 30000
-                override fun onSuccess() {
-                    loading.hide()
-                    toastt(getString(R.string.email_sent))
-                }
-                override fun onFail(errorMessage: String) {
-                    loading.hide()
-                    toastt(errorMessage)
-                }
-            })
-            .mail()}catch (e:Exception){
-            loading.hide()
-            toastt("error")
-            }
-     }
 
 
     override fun onItemClicked(view: View, position: Int) {

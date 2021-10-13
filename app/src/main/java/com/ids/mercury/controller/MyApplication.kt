@@ -75,7 +75,7 @@ class MyApplication : Application() {
         var sEmail=""
         var rEmail=""
         var sPassword=""
-
+        var emailSubject=""
     }
 
 

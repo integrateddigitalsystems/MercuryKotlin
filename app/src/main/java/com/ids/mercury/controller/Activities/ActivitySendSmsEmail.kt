@@ -9,6 +9,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import co.nedim.maildroidx.MaildroidX
+import co.nedim.maildroidx.MaildroidXType
 import com.google.gson.Gson
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.AdapterCountryCodes
@@ -41,6 +43,7 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
     private var arrayCountries=java.util.ArrayList<CountryCodes>()
     lateinit var adapter : AdapterCountryCodes
     lateinit var dialog :Dialog
+    var messageBody=""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +95,12 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
             type==AppConstants.TYPE_EMAIL && etEmail.text.isNullOrEmpty() -> etEmail.startAnimation(shake)
             type==AppConstants.TYPE_EMAIL && !AppHelper.isValidEmail(etEmail.text.toString()) -> etEmail.startAnimation(shake)
             type==AppConstants.TYPE_SMS && etPhoneNumber.text.isNullOrEmpty() -> linearPhone.startAnimation(shake)
-            else -> inviteFriend()
+            else -> {
+                if(type==AppConstants.TYPE_EMAIL)
+                    sendAppEmail()
+                else
+                    inviteFriend()
+            }
         }
     }
 
@@ -169,5 +177,60 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
 
         dialog.show()
     }
+
+
+    private fun sendAppEmail(){
+/*        toastt("sending email...")
+        val sender = GMailSender(
+            "feedback@mercurybeirut.com",
+            "admin@123"
+        )
+        Thread {
+            try {
+                sender.sendMail("hello", "test body", "ibrahim.h.ahmd@gmail.com", "i.haydar@ids.com.lb")
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+        }.start()*/
+        try{
+            loading.show()
+             messageBody = "Id: "+MyApplication.memberId.toString()+"/n" +
+                    "First Name: "+etFirstName.text.toString()+"/n" +
+                    "Last Name: "+etFirstName.text.toString()+"/n" +
+                    "Email: "+etEmail.text.toString()+
+
+
+            MaildroidX.Builder()
+                .smtp("smtp.gmail.com")
+                .smtpUsername(MyApplication.sEmail)
+                .smtpPassword(MyApplication.sPassword)
+                .port("465")
+                .isStartTLSEnabled(true)
+                .type(MaildroidXType.HTML)
+                .to(MyApplication.rEmail)
+              //  .to("i.haydar@ids.com.lb")
+                .from(MyApplication.sEmail)
+                .subject(MyApplication.emailSubject)
+                .body(messageBody)
+                .isJavascriptDisabled(false)
+                .onCompleteCallback(object : MaildroidX.onCompleteCallback{
+                    override val timeout: Long = 30000
+                    override fun onSuccess() {
+                        loading.hide()
+                        toastt(getString(R.string.email_sent))
+                        submit()
+                    }
+                    override fun onFail(errorMessage: String) {
+                        loading.hide()
+                        toastt(errorMessage)
+                    }
+                })
+                .mail()
+        }catch (e:Exception){
+            loading.hide()
+            toastt("error")
+        }
+    }
+
 
 }

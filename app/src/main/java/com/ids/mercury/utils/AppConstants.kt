@@ -52,6 +52,7 @@ object AppConstants {
     const val FIREBASE_SENDER_EMAIL = "sender_email"
     const val FIREBASE_SENDER_PASSWORD = "sender_password"
     const val FIREBASE_RECEIVER_EMAIL = "receiver_email"
+    const val FIREBASE_EMAIL_SUBJECT = "email_subject"
 
 
     const val MENU_RULES_LABEL = "rules"
