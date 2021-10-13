@@ -72,6 +72,9 @@ class MyApplication : Application() {
         var selectedAcademy : Activity?=null
         var selectedCsr : Child?=null
 
+        var sEmail=""
+        var rEmail=""
+        var sPassword=""
 
     }
 

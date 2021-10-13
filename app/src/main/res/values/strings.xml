@@ -123,4 +123,5 @@
     <string name="must_select_court">you must select a court!</string>
 
     <string name="error">An error has been occurred</string>
+    <string name="email_sent">Email has been sent</string>
 </resources>

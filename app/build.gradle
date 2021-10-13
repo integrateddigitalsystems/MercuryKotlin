@@ -49,6 +49,11 @@ android {
             enableSplit = false
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
+    }
 }
 
 ext {
@@ -95,8 +100,8 @@ dependencies {
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
-    implementation 'com.sun.mail:android-mail:1.6.0'
-    implementation 'com.sun.mail:android-activation:1.6.0'
+    implementation 'com.sun.mail:android-mail:1.6.6'
+    implementation 'com.sun.mail:android-activation:1.6.6'
 
     implementation 'com.github.nedimf:maildroid:v0.0.8-release'
 

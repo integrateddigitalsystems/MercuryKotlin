@@ -49,6 +49,10 @@ object AppConstants {
     const val FIREBASE_PASSWORD = "PASSWORD"
     const val FIREBASE_OPERATOR_ID = "OPERATOR_ID"
     const val FIREBASE_MERCHANT_ID = "MERCHANT_ID"
+    const val FIREBASE_SENDER_EMAIL = "sender_email"
+    const val FIREBASE_SENDER_PASSWORD = "sender_password"
+    const val FIREBASE_RECEIVER_EMAIL = "receiver_email"
+
 
     const val MENU_RULES_LABEL = "rules"
     const val MENU_ACADEMIES_LABEL = "academies"

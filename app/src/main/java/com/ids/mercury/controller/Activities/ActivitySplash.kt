@@ -130,6 +130,11 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
         MyApplication.URL_CREATE_CHECKOUT_SESSION=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_CHECKOUT_SESSION_URL)
         MyApplication.force_update=mFirebaseRemoteConfig!!.getBoolean(AppConstants.FIREBASE_FORCE_UPDATE)
         MyApplication.android_version=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_ANDROID_VERSION)
+
+
+        MyApplication.sEmail=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_SENDER_EMAIL)
+        MyApplication.sPassword=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_SENDER_PASSWORD)
+        MyApplication.rEmail=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_RECEIVER_EMAIL)
         logw("firebase_array_size","..."+BASE_URLS!!.android!!.size)
 
         }

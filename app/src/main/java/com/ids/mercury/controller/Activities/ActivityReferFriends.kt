@@ -19,6 +19,7 @@ import com.ids.mercury.model.response.Friends
 import com.ids.mercury.model.response.ResponseFriends
 import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.activity_refer_friend.*
+import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -79,29 +80,35 @@ class ActivityReferFriends : AppCompactBase(),RVOnItemClickListener {
                 ex.printStackTrace()
             }
         }.start()*/
-
+        try{
+        loading.show()
         MaildroidX.Builder()
             .smtp("smtp.gmail.com")
-            .smtpUsername("bousouhou@gmail.com")
-            .smtpPassword("acerpcPC1234")
+            .smtpUsername(MyApplication.sEmail)
+            .smtpPassword(MyApplication.sPassword)
             .port("465")
             .isStartTLSEnabled(true)
             .type(MaildroidXType.HTML)
-            .to("i.haydar@ids.com.lb")
-            .from("bousouhou@gmail.com")
+            .to(MyApplication.rEmail)
+            .from(MyApplication.sEmail)
             .subject("hello test")
             .body("test body1")
             .isJavascriptDisabled(false)
             .onCompleteCallback(object : MaildroidX.onCompleteCallback{
                 override val timeout: Long = 30000
                 override fun onSuccess() {
-                    Log.d("MaildroidX",  "SUCCESS")
+                    loading.hide()
+                    toastt(getString(R.string.email_sent))
                 }
                 override fun onFail(errorMessage: String) {
-                    Log.d("MaildroidX",  "FAIL")
+                    loading.hide()
+                    toastt(errorMessage)
                 }
             })
-            .mail()
+            .mail()}catch (e:Exception){
+            loading.hide()
+            toastt("error")
+            }
      }
 
 

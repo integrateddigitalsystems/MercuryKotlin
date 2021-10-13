@@ -6,69 +6,74 @@
     android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
-
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="@dimen/margin_start_end"
-        android:paddingEnd="@dimen/margin_start_end">
-
-
-        <com.ids.mercury.custom.CustomTextViewMedium
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:text="@string/you_show_us"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_font" />
+            android:orientation="vertical"
+            android:paddingStart="@dimen/margin_start_end"
+            android:paddingEnd="@dimen/margin_start_end">
 
-        <com.ids.mercury.custom.CustomTextViewMedium
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+            <com.ids.mercury.custom.CustomTextViewMedium
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:text="@string/you_show_us"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+            <com.ids.mercury.custom.CustomTextViewMedium
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/when_they_join"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+            <Button
+                android:id="@+id/btEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:background="@color/gray_button"
+                android:text="@string/email"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+            <Button
+                android:id="@+id/btSms"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:background="@color/gray_button"
+                android:text="@string/sms"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+
+            <com.ids.mercury.custom.CustomTextViewMedium
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/big_margin"
+                android:text="@string/friends_invited"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_font" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_marginTop="@dimen/medium_margin"
-            android:text="@string/when_they_join"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_font" />
-
-        <Button
-            android:id="@+id/btEmail"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_height"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:background="@color/gray_button"
-            android:text="@string/email"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_font" />
-        <Button
-            android:id="@+id/btSms"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edit_text_height"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:background="@color/gray_button"
-            android:text="@string/sms"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_font" />
-
-
-        <com.ids.mercury.custom.CustomTextViewMedium
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/big_margin"
-            android:text="@string/friends_invited"
-            android:textColor="@color/white"
-            android:textSize="@dimen/normal_font" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/medium_margin"
-        android:background="@color/v_dark_gray"/>
+            android:background="@color/v_dark_gray"/>
 
 
 
@@ -79,6 +84,11 @@
             android:layout_marginStart="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/medium_margin"
             />
+
+
+    </LinearLayout>
+    <include layout="@layout/loading_trans"/>
+</RelativeLayout>
 
 
 
