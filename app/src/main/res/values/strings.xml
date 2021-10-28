@@ -124,4 +124,7 @@
 
     <string name="error">An error has been occurred</string>
     <string name="email_sent">Email has been sent</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="send_us_your_feedback">Send us your feedback!</string>
 </resources>

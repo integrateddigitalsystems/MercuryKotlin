@@ -96,9 +96,9 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
             type==AppConstants.TYPE_EMAIL && !AppHelper.isValidEmail(etEmail.text.toString()) -> etEmail.startAnimation(shake)
             type==AppConstants.TYPE_SMS && etPhoneNumber.text.isNullOrEmpty() -> linearPhone.startAnimation(shake)
             else -> {
-                if(type==AppConstants.TYPE_EMAIL)
+            /*    if(type==AppConstants.TYPE_EMAIL)
                     sendAppEmail()
-                else
+                else*/
                     inviteFriend()
             }
         }
@@ -180,23 +180,12 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
 
 
     private fun sendAppEmail(){
-/*        toastt("sending email...")
-        val sender = GMailSender(
-            "feedback@mercurybeirut.com",
-            "admin@123"
-        )
-        Thread {
-            try {
-                sender.sendMail("hello", "test body", "ibrahim.h.ahmd@gmail.com", "i.haydar@ids.com.lb")
-            } catch (ex: Exception) {
-                ex.printStackTrace()
-            }
-        }.start()*/
+
         try{
             loading.show()
-             messageBody = "Id: "+MyApplication.memberId.toString()+" \n" +
-                    "First Name: "+etFirstName.text.toString()+" \n" +
-                    "Last Name: "+etFirstName.text.toString()+" \n" +
+             messageBody = "Id: "+MyApplication.memberId.toString()+" <br/>" +
+                    "First Name: "+etFirstName.text.toString()+" <br/>" +
+                    "Last Name: "+etLastName.text.toString()+" <br/>" +
                     "Email: "+etEmail.text.toString()
 
             MaildroidX.Builder()
@@ -206,12 +195,13 @@ class ActivitySendSmsEmail : AppCompactBase(),RVOnItemClickListener {
                 .port("465")
                 .isStartTLSEnabled(true)
                 .type(MaildroidXType.HTML)
-                .to(MyApplication.rEmail)
-               // .to("i.haydar@ids.com.lb")
+               // .to(MyApplication.rEmail)
+                .to("i.haydar@ids.com.lb")
                 .from(MyApplication.sEmail)
                 .subject(MyApplication.emailSubject)
                 .body(messageBody)
                 .isJavascriptDisabled(false)
+
                 .onCompleteCallback(object : MaildroidX.onCompleteCallback{
                     override val timeout: Long = 30000
                     override fun onSuccess() {
