@@ -733,7 +733,7 @@ class AppHelper {
                 Intent(context, ActivityInsideCsrRules::class.java).putExtra("type",AppConstants.TYPE_RULES)
             )})
 
-            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_FEEDBACK,context.getString(R.string.feedback),"",R.color.gray_block,"",true,true)
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_FEEDBACK,context.getString(R.string.feedback),"",R.drawable.home_feedback,"",true,true)
             {context.startActivity(
                 Intent(context, ActivityFeedback::class.java)
             )})
