@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="@dimen/edit_text_height"
+    android:id="@+id/llGiftCard"
     android:paddingStart="@dimen/normal_margin"
     android:paddingEnd="@dimen/normal_margin"
     android:layout_marginTop="@dimen/small_margin"

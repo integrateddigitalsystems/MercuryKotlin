@@ -220,4 +220,32 @@ interface RetrofitInterface {
         @Query(ApiParameters.ID) id: Long,
         @Query(ApiParameters.AMOUNT) amount:String
     ):Call<ResponseCheckout>
+
+    @GET("GetCoaches")
+    fun getCoaches(
+        @Query(ApiParameters.TYPE_ID) typeId: Int
+    ):Call<ResponseCoaches>
+
+    @GET("SaveGymPT")
+    fun saveGymPt(
+        @Query(ApiParameters.MEMBER_ID) memberId : Int ,
+        @Query(ApiParameters.PACKAGE_ID) packageId: Int ,
+        @Query(ApiParameters.COACH_ID) coachId : Int ,
+        @Query(ApiParameters.REGISTRATION_DATE) regDate : String ,
+        @Query(ApiParameters.COMPANY_ID) companyId : String ,
+        @Query(ApiParameters.AMOUNT) amount : String ,
+        @Query(ApiParameters.REFERENCE) ref : String
+    ):Call<ResponseMessage>
+
+    @GET("SaveGymMembership")
+    fun saveGymMembership
+                (
+        @Query(ApiParameters.MEMBER_ID) memberId : Int ,
+        @Query(ApiParameters.PACKAGE_ID) packageId: Int ,
+        @Query(ApiParameters.REGISTRATION_DATE) regDate : String ,
+        @Query(ApiParameters.COMPANY_ID) companyId : Int ,
+        @Query(ApiParameters.AMOUNT) amount : Double ,
+        @Query(ApiParameters.REFERENCE) ref : String ,
+        @Query(ApiParameters.COACH_ID) coachId : Int ,
+    ):Call<ResponseMessage>
 }

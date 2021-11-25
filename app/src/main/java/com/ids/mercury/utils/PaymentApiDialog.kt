@@ -41,6 +41,7 @@ class PaymentApiDialog {
         private fun createCheckOutSession(webView: WebView,loading:LinearLayout){
             loading.show()
             var orderId=System.currentTimeMillis()/1000
+            MyApplication.lastUsedOrderId = orderId
             var sname=MyApplication.URL_CREATE_CHECKOUT_SESSION.substring(
                 MyApplication.URL_CREATE_CHECKOUT_SESSION.lastIndexOf("/")+1,
                 MyApplication.URL_CREATE_CHECKOUT_SESSION.length
@@ -161,6 +162,7 @@ class PaymentApiDialog {
                         dialog.dismiss()
                         paymentListener.onFinishPayment(true)
                     }
+                    
 
               }
 

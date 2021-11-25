@@ -121,4 +121,6 @@
 
     <string name="notification_error_ssl_cert_invalid">Invalid certificate</string>
     <string name="must_select_court">you must select a court!</string>
+    <string name="please_select_coach">Please select a coach</string>
+    <string name="payment_error">Payment error please try again</string>
 </resources>
