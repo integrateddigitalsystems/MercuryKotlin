@@ -36,7 +36,7 @@ class ActivityHome : AppCompactBase() {
     private fun init(){
        btBack.hide()
        btProfile.show()
-       btNotification.hide()
+       btNotification.show()
        setPager()
 
     }

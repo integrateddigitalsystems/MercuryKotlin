@@ -47,7 +47,16 @@
             android:layout_height="200dp"
             android:id="@+id/ivNotification"
             android:scaleType="centerCrop"
-            android:src="@drawable/home_academy"
+
+            />
+
+        <com.ids.mercury.custom.CustomTextViewMedium
+            android:layout_width="wrap_content"
+            android:id="@+id/tvDate"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_font"
+            android:layout_marginTop="@dimen/mini_margin"
+            android:textColor="@color/white"
             />
 
     </LinearLayout>
