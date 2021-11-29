@@ -49,6 +49,11 @@ object AppConstants {
     const val FIREBASE_PASSWORD = "PASSWORD"
     const val FIREBASE_OPERATOR_ID = "OPERATOR_ID"
     const val FIREBASE_MERCHANT_ID = "MERCHANT_ID"
+    const val FIREBASE_SENDER_EMAIL = "sender_email"
+    const val FIREBASE_SENDER_PASSWORD = "sender_password"
+    const val FIREBASE_RECEIVER_EMAIL = "receiver_email"
+    const val FIREBASE_EMAIL_SUBJECT = "email_subject"
+
 
     const val MENU_RULES_LABEL = "rules"
     const val MENU_ACADEMIES_LABEL = "academies"
@@ -67,6 +72,7 @@ object AppConstants {
     const val MENU_REFFER_A_FRIEND_ID = 8
     const val MENU_CSR_ID = 9
     const val MENU_RULES_AND_REGULATIONS_ID = 10
+    const val MENU_FEEDBACK = 11
 
     const val TYPE_GYM = 1
     const val TYPE_PT = 2

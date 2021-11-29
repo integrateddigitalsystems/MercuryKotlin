@@ -50,6 +50,7 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
         setContentView(R.layout.activity_profile)
         init()
         listeners()
+
     }
 
     private fun init(){

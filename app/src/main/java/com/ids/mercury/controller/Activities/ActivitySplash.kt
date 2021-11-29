@@ -81,7 +81,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
                         response: Response<ResponseMessage>
                     ) {
                         if(response.body()!!.success=="1"){
-                            MyApplication.memberId=response.body()!!.memberId!!
+                           // MyApplication.memberId=response.body()!!.memberId!!
                         }
                     }
                     override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
@@ -105,7 +105,8 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
                 if (task.isSuccessful) {
                     setFirebaseData()
                     checkUpdate()
-                }else
+                }
+                else
                     next()
 
                // nextStep()
@@ -129,6 +130,12 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
         MyApplication.URL_CREATE_CHECKOUT_SESSION=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_CHECKOUT_SESSION_URL)
         MyApplication.force_update=mFirebaseRemoteConfig!!.getBoolean(AppConstants.FIREBASE_FORCE_UPDATE)
         MyApplication.android_version=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_ANDROID_VERSION)
+
+
+        MyApplication.sEmail=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_SENDER_EMAIL)
+        MyApplication.sPassword=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_SENDER_PASSWORD)
+        MyApplication.rEmail=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_RECEIVER_EMAIL)
+        MyApplication.emailSubject=mFirebaseRemoteConfig!!.getString(AppConstants.FIREBASE_EMAIL_SUBJECT)
         logw("firebase_array_size","..."+BASE_URLS!!.android!!.size)
 
         }

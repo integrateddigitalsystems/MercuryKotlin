@@ -55,11 +55,12 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
     lateinit var dialog :Dialog
     lateinit var  shake: Animation
     var selectedDate=""
+    var selectedDateSave=""
     lateinit var calDate: Calendar
     lateinit var calEnd:Calendar
     lateinit var calStart:Calendar
     var selectedCourt=0
-
+    var amount=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rent_court)
@@ -104,6 +105,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
                 }else{
                     var price=arrayCourts.find { it.id==selectedCourt }!!.price!!.toInt()
                     PaymentApiDialog.showPaymentDialog(this, this,price.toString())
+                    //saveReservation()
                 }
 
             }
@@ -212,6 +214,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
             resetAllSelection()
             arrayCourts[position].selected=true
             selectedCourt=arrayCourts[position].id!!
+            amount=arrayCourts[position].price.toString()
             adapterCourts.notifyDataSetChanged()
         }
     }
@@ -267,7 +270,8 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
         linearStartTime.setOnClickListener{
             timePickerStart.show()
         }
-
+        if(calStart.get(Calendar.MINUTE)!= 0)
+            calStart.set(Calendar.MINUTE, 0)
         tvStartTime.text = AppHelper.dateFormat9.format(calStart.time)
 
     }
@@ -289,7 +293,8 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
         linearEndTime.setOnClickListener{
             timePickerEnd.show()
         }
-
+        if(calEnd.get(Calendar.MINUTE)  != 0)
+            calEnd.set(Calendar.MINUTE, 0)
         tvEndTime.text = AppHelper.dateFormat9.format(calEnd.time)
 
     }
@@ -337,7 +342,58 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
 
     override fun onFinishPayment(success: Boolean) {
         if(success)
-            startActivity(Intent(this,ActivitySuccess::class.java))
+           saveReservation()
+    }
+
+
+
+    fun saveReservation () {
+        loading.show()
+        var isHalf="0"
+        var startFullTime=AppHelper.dateFormat1.format(calDate.time)+" "+ AppHelper.dateFormat5.format(calStart.time)
+        var endFullTime=AppHelper.dateFormat1.format(calDate.time)+" "+ AppHelper.dateFormat5.format(calEnd.time)
+        try{isHalf=   if(arrayCourts.find { it.id==selectedCourt }!!.isHalf!!) "1" else "0"}catch (e:Exception){}
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.saveReservation("",
+                MyApplication.memberId.toString(),
+                "0",
+                selectedCourt.toString(),
+                "0.0",
+                "0.0",
+                isHalf,
+                startFullTime,
+                amount,
+                "0",
+                "0",
+                "0",
+
+                "0.0",
+                endFullTime,
+                "",
+                MyApplication.selectedActivityId.toString(),
+                "0")?.enqueue(object :
+                Callback<ResponseMessage> {
+                override fun onResponse(call: Call<ResponseMessage>, response: Response<ResponseMessage>
+                ) {
+                    loading.hide()
+                    try{
+                        if(response.body()!!.success=="1"){
+                            startActivity(Intent(this@ActivityRentCourt,ActivitySuccess::class.java))
+
+                        }else{
+                            toastt(getString(R.string.try_again))
+                        }
+
+                    }catch (e:java.lang.Exception){
+                        toastt(getString(R.string.try_again))
+                    }
+
+                }
+                override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                    loading.hide()
+                    toastt(getString(R.string.try_again))
+                }
+            })
     }
 
 }

@@ -121,4 +121,10 @@
 
     <string name="notification_error_ssl_cert_invalid">Invalid certificate</string>
     <string name="must_select_court">you must select a court!</string>
+
+    <string name="error">An error has been occurred</string>
+    <string name="email_sent">Email has been sent</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="send_us_your_feedback">Send us your feedback!</string>
 </resources>

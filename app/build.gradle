@@ -6,11 +6,14 @@ android {
 
     compileSdkVersion 30
     defaultConfig {
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+        }
         applicationId "com.mercury.mobileapp"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 21
-        versionName "2.9"
+        versionCode 25
+        versionName "3.3"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -45,6 +48,11 @@ android {
             // dynamic feature APK.
             enableSplit = false
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
     }
 }
 
@@ -91,6 +99,11 @@ dependencies {
 
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    implementation 'com.sun.mail:android-mail:1.6.6'
+    implementation 'com.sun.mail:android-activation:1.6.6'
+
+    implementation 'com.github.nedimf:maildroid:v0.0.8-release'
 
 }
 apply plugin: 'com.google.firebase.crashlytics'
