@@ -8,13 +8,30 @@
 
     <include layout="@layout/toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rvNotification"
-        android:layout_marginStart="@dimen/margin_start_end"
-        android:layout_marginEnd="@dimen/margin_start_end"
-/>
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvNotification"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            />
+        <include layout="@layout/loading_trans"/>
+
+
+        <com.ids.mercury.custom.CustomTextViewMedium
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNodata"
+            android:text="@string/no_data"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
 
 
 

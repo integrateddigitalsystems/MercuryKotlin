@@ -19,7 +19,7 @@ class MyApplication : Application() {
         var isDebug: Boolean = true
         var showLogs: Boolean = true
         var BASE_URL = "http://149.3.154.210:5083/generalservices.asmx/"
-        var dateFormat:java.text.DateFormat? = java.text.SimpleDateFormat("yyyy/MM/dd", java.util.Locale.ENGLISH)
+        var dateFormat:java.text.DateFormat? = java.text.SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH)
         lateinit var sharedPreferences : SharedPreferences
         lateinit var sharedPreferencesEditor : SharedPreferences.Editor
         var selectedFragmentTag : String ?=""
@@ -37,6 +37,10 @@ class MyApplication : Application() {
             set(value) {
                 sharedPreferencesEditor.putBoolean(AppConstants.GENERAL_NOTIFICATION, value).apply()
             }
+
+        var addDeviceId : Int
+            get() = sharedPreferences.getInt(AppConstants.DEVICE_ID, 0)!!
+            set(value) { sharedPreferencesEditor.putInt(AppConstants.DEVICE_ID, value).apply() }
 
         var isLoggedIn: Boolean
             get() = sharedPreferences.getBoolean(AppConstants.IS_LOGGED_IN, true)

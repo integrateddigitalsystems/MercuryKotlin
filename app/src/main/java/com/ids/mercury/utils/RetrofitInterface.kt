@@ -113,11 +113,6 @@ interface RetrofitInterface {
     fun getGymPackages(
     ): Call<ResponseGymPackages>
 
-    @GET("GetCoaches")
-    fun getCoaches(
-        @Query(ApiParameters.TYPE_ID) typeId: Int
-    ):Call<ResponseCoaches>
-
     @GET("GetPTPackages")
     fun getPTPackages(
     ): Call<ResponsePtPackages>
@@ -196,6 +191,14 @@ interface RetrofitInterface {
         @Query(ApiParameters.MOBILE) mobile: String
     ): Call<ResponseMessage>
 
+    @GET("SendGiftCard")
+    fun sendGiftCard(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.EMAIL) email: String,
+        @Query(ApiParameters.MOBILE) mobile: String,
+        @Query(ApiParameters.CARD_NAME) cardName: String
+    ): Call<ResponseMessage>
+
 
     @GET("GetGuestPassPackages")
     fun getGuestPassPackages(
@@ -249,27 +252,9 @@ interface RetrofitInterface {
 
     ): Call<ResponseMessage>
 
-
-    @GET("SaveGymPT")
-    fun saveGymPt(
-        @Query(ApiParameters.MEMBER_ID) memberId : Int ,
-        @Query(ApiParameters.PACKAGE_ID) packageId: Int ,
-        @Query(ApiParameters.COACH_ID) coachId : Int ,
-        @Query(ApiParameters.REGISTRATION_DATE) regDate : String ,
-        @Query(ApiParameters.COMPANY_ID) companyId : String ,
-        @Query(ApiParameters.AMOUNT) amount : String ,
-        @Query(ApiParameters.REFERENCE) ref : String
-    ):Call<ResponseMessage>
-    @GET("SaveGymMembership")
-    fun saveGymMembership
-                (
-        @Query(ApiParameters.MEMBER_ID) memberId : Int ,
-        @Query(ApiParameters.PACKAGE_ID) packageId: Int ,
-        @Query(ApiParameters.REGISTRATION_DATE) regDate : String ,
-        @Query(ApiParameters.COMPANY_ID) companyId : Int ,
-        @Query(ApiParameters.AMOUNT) amount : Double ,
-        @Query(ApiParameters.REFERENCE) ref : String ,
-        @Query(ApiParameters.COACH_ID) coachId : Int ,
-    ):Call<ResponseMessage>
+    @GET("GetMemberNotifications")
+    fun getMemberNotifications(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseNotifications>
 
 }
