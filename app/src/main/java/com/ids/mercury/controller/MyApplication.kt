@@ -58,6 +58,7 @@ class MyApplication : Application() {
         var force_update=false
         var android_version=""
         var verificationTitle=""
+        var lastUsedOrderId : Long ?=0
         var tempMemberId=""
 
          var pageItemCount=4

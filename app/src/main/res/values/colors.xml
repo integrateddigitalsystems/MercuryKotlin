@@ -25,6 +25,7 @@
     <color name="button_blue">#30469d</color>
     <color name="white_60">#96ffffff</color>
     <color name="gray">#656565</color>
+    <color name="gray_bg">#222222</color>
     <color name="dark_gray">#929292</color>
     <color name="v_dark_gray">#5e5e5e</color>
 

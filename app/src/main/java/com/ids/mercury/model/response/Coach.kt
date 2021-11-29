@@ -39,4 +39,6 @@ class Coach {
     @SerializedName("CoachType")
     @Expose
     var coachType: Int? = 0
+
+    var selected : Boolean ?= false
 }
