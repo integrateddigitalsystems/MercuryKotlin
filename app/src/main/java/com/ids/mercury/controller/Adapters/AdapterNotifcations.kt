@@ -13,13 +13,15 @@ import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickLi
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.Notifications
 import com.ids.mercury.model.SectionPagerItem
+import com.ids.mercury.model.response.ItemNotification
+import com.ids.mercury.utils.AppHelper
 import com.ids.mercury.utils.hide
 import com.ids.mercury.utils.show
 import java.util.ArrayList
 
 
 class AdapterNotifcations(
-    val items: ArrayList<Notifications>,
+    val items: ArrayList<ItemNotification>,
     private val itemClickListener: RVOnItemClickListener
 ) :
     RecyclerView.Adapter<AdapterNotifcations.VHItem>() {
@@ -33,19 +35,20 @@ class AdapterNotifcations(
 
     override fun onBindViewHolder(holder: VHItem, position: Int) {
         var item=items[position]
-        if(item.expanded!!){
+
+        //show this code if api updated with image
+ /*       if(item.expanded){
             holder.linearExpanded.show()
             holder.ivArrow.rotation=180f
         }
         else{
             holder.linearExpanded.hide()
             holder.ivArrow.rotation=0f
-        }
+        }*/
+        holder.ivArrow.hide()
 
-        holder.tvTitle.text=item.title
-
-
-
+        try{holder.tvTitle.text=item.notificationText}catch (e:Exception){}
+        try{holder.tvDate.text= AppHelper.formatDateTimestamp(AppHelper.dateFormat1, item.sentDate!!,true)}catch (e:Exception){}
 
     }
 
@@ -55,6 +58,7 @@ class AdapterNotifcations(
 
     inner class VHItem(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
+        var tvDate = itemView.findViewById<TextView>(R.id.tvDate)
         var ivNotification = itemView.findViewById<ImageView>(R.id.ivNotification)
         var linearExpanded = itemView.findViewById<LinearLayout>(R.id.linearExpanded)
         var ivArrow = itemView.findViewById<ImageView>(R.id.ivArrow)

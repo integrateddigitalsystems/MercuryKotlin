@@ -51,6 +51,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
 
 
 
+/*
     fun addDevice () {
         var generalNot=1
         if(!MyApplication.notificationGeneral)
@@ -91,6 +92,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
         })
 
     }
+*/
 
 
 
@@ -272,7 +274,8 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
 
     private fun next(){
         getMenus()
-        addDevice()
+        CallApi.addDevice(this,this)
+       // addDevice()
         if(MyApplication.isLoggedIn)
             checkLogin()
         else
@@ -300,6 +303,7 @@ class ActivitySplash : ActivityBase() ,MenusDataListener ,ApiListener{
                     if(response.body()!!.success=="1"){
                         MyApplication.memberId=response.body()!!.memberId!!
                         AppHelper.getMemberDetails()
+
                         goToHome()
                     }else{
                         resetLoginParams()

@@ -42,7 +42,7 @@ object ApiParameters {
 
     const val TYPE_ID = "TypeId"
     const val NAME = "name"
-
+    const val CARD_NAME = "cardName"
     const val ID = "id"
     const val AMOUNT = "amount"
 

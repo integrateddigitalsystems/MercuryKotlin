@@ -25,8 +25,11 @@ import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.activity_gift_card.*
 import kotlinx.android.synthetic.main.activity_gift_card.etEmail
 import kotlinx.android.synthetic.main.activity_gift_card.etPhoneNumber
+import kotlinx.android.synthetic.main.activity_guest_passes.*
 import kotlinx.android.synthetic.main.activity_loyality_points.tvNodata
 import kotlinx.android.synthetic.main.fragment_signup.*
+import kotlinx.android.synthetic.main.fragment_signup.linearPhone
+import kotlinx.android.synthetic.main.fragment_signup.tvCountryCode
 
 import kotlinx.android.synthetic.main.loading_trans.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -41,6 +44,7 @@ class ActivityGiftCard : AppCompactBase(),RVOnItemClickListener {
     private var arrayGiftCards=java.util.ArrayList<GiftCards>()
     lateinit var adapter : AdapterGiftCards
     lateinit var  shake: Animation
+    private var selectedCardName=""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,12 +77,12 @@ class ActivityGiftCard : AppCompactBase(),RVOnItemClickListener {
 
     private fun checkInputs(){
         when {
-            etFullName.text.isNullOrEmpty() -> etFullName.startAnimation(shake)
+            //etFullName.text.isNullOrEmpty() -> etFullName.startAnimation(shake)
             etEmail.text.isNullOrEmpty() -> etEmail.startAnimation(shake)
             !AppHelper.isValidEmail(etEmail.text.toString()) -> etEmail.startAnimation(shake)
             etPhoneNumber.text.isNullOrEmpty() -> linearPhone.startAnimation(shake)
-            tvDate.text.isNullOrEmpty() -> tvDate.startAnimation(shake)
-            else -> sendRequestEmail()
+           // tvDate.text.isNullOrEmpty() -> tvDate.startAnimation(shake)
+            else ->sendGiftCard() //sendRequestEmail()
         }
     }
 
@@ -94,6 +98,7 @@ class ActivityGiftCard : AppCompactBase(),RVOnItemClickListener {
         Handler(Looper.getMainLooper()).postDelayed({
             linearStep2.show()
             linearStep1.hide()
+            selectedCardName=arrayGiftCards[position].name!!
         }, 200)
     }
 
@@ -171,7 +176,7 @@ class ActivityGiftCard : AppCompactBase(),RVOnItemClickListener {
     }
 
 
-    fun sendRequestEmail () {
+    fun sendRequestEmail() {
         loading.show()
         RetrofitClient.client?.create(RetrofitInterface::class.java)
             ?.sendrequestEmail(MyApplication.memberId.toString(),"2")?.enqueue(object :
@@ -199,5 +204,28 @@ class ActivityGiftCard : AppCompactBase(),RVOnItemClickListener {
     }
 
 
+    fun sendGiftCard () {
+        loading.show()
+        RetrofitClient.client?.create(RetrofitInterface::class.java)
+            ?.sendGiftCard(MyApplication.memberId.toString(),etEmail.text.toString(),etPhoneNumber.text.toString(),
+                selectedCardName
+            )?.enqueue(object :
+                Callback<ResponseMessage> {
+                override fun onResponse(
+                    call: Call<ResponseMessage>,
+                    response: Response<ResponseMessage>
+                ) {
+                    loading.hide()
+                    if(response.body()!!.success=="1"){
+                        submit()
+                    }else
+                        toastt(response.body()!!.message!!)
 
+                }
+                override fun onFailure(call: Call<ResponseMessage>, t: Throwable) {
+                    loading.hide()
+                    toastt(getString(R.string.try_again))
+                }
+            })
+    }
 }

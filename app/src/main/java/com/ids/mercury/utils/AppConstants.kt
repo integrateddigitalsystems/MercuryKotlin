@@ -38,7 +38,7 @@ object AppConstants {
     const val MEMBER_ID = "mid"
     const val SESSION_ID = "session_id"
     const val ACTIVITY_ID = "activity_id"
-
+    const val DEVICE_ID = "device_id"
 
 
     const val FIREBASE_FORCE_UPDATE = "android_force_update"

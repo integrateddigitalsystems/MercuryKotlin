@@ -191,6 +191,14 @@ interface RetrofitInterface {
         @Query(ApiParameters.MOBILE) mobile: String
     ): Call<ResponseMessage>
 
+    @GET("SendGiftCard")
+    fun sendGiftCard(
+        @Query(ApiParameters.MEMBER_ID) memberId: String,
+        @Query(ApiParameters.EMAIL) email: String,
+        @Query(ApiParameters.MOBILE) mobile: String,
+        @Query(ApiParameters.CARD_NAME) cardName: String
+    ): Call<ResponseMessage>
+
 
     @GET("GetGuestPassPackages")
     fun getGuestPassPackages(
@@ -243,5 +251,10 @@ interface RetrofitInterface {
         @Query(ApiParameters.CONTRACT_ID) contractId: String
 
     ): Call<ResponseMessage>
+
+    @GET("GetMemberNotifications")
+    fun getMemberNotifications(
+        @Query(ApiParameters.MEMBER_ID) memberId: String
+    ): Call<ResponseNotifications>
 
 }

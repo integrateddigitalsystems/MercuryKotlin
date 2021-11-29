@@ -39,7 +39,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
+class ActivityProfile : AppCompactBase(),RVOnItemClickListener,ApiListener {
     private var arrayCountries=java.util.ArrayList<CountryCodes>()
     lateinit var adapter : AdapterCountryCodes
     lateinit var dialog :Dialog
@@ -109,6 +109,8 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
                     MyApplication.isLoggedIn=false
                     MyApplication.cnm=""
                     MyApplication.cps=""
+                    MyApplication.notificationGeneral=false
+                    CallApi.addDevice(this,this)
                     val mIntent = Intent(this, ActivityLogin::class.java)
                     finishAffinity()
                     startActivity(mIntent)
@@ -244,5 +246,9 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener {
                     toastt(getString(R.string.try_again))
                 }
             })
+    }
+
+    override fun onDataRetrieved(success: Boolean, response: Any) {
+
     }
 }

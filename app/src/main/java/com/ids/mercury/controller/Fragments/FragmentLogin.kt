@@ -90,6 +90,7 @@ class FragmentLogin : Fragment() , RVOnItemClickListener ,ApiListener{
                          MyApplication.cnm=etUsername.text.toString()
                          MyApplication.cps=etPassword.text.toString()
                          AppHelper.getMemberDetails()
+                         CallApi.updateUserDevice()
                          goHome()
 
                     }
