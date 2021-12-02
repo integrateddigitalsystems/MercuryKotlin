@@ -127,7 +127,7 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
     fun getTrainers() {
         loading.show()
         RetrofitClient.client?.create(RetrofitInterface::class.java)
-            ?.getCoaches(1)?.enqueue(object :
+            ?.getCoaches(2)?.enqueue(object :
                 Callback<ResponseCoaches> {
                 override fun onResponse(
                     call: Call<ResponseCoaches>,
@@ -148,10 +148,6 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
                 }
             })
     }
-
-
-
-
 
 
     private fun setPagerCoaches(activities: ArrayList<Coach>) {
