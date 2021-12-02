@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        >
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:id="@+id/myScroll"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical">
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/pager_top_height"
+                        android:id="@+id/rlPagerTop"
+                        >
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/vpMedias"
+                            />
+
+                        <include layout="@layout/overlay"/>
+
+
+                        <com.ids.mercury.custom.CustomTextViewLight
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/big_margin"
+                            android:layout_marginEnd="@dimen/big_margin"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/big_font"
+                            android:id="@+id/tvTitleOver"
+                            android:layout_centerInParent="true"
+                            />
+                    </RelativeLayout>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tbMedia"
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:layout_below="@id/rlPagerTop"
+                        android:layout_marginBottom="@dimen/mini_margin"
+                        android:visibility="gone"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp"
+                        android:layout_marginTop="@dimen/normal_margin"
+
+                        app:tabMaxWidth="12dp"
+                        app:tabBackground="@drawable/selector_tab_image"
+                        app:tabRippleColor="@null" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tbMedia"
+                        android:orientation="vertical">
+
+                        <com.ids.mercury.custom.CustomTextViewWeb
+                            android:id="@+id/tvSummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/big_font" />
+
+
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:text="@string/phone_number"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font" />
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvPhoneValue"
+                            android:text="@string/no_data"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/gray_text"
+                            android:textSize="@dimen/normal_font" />
+
+
+
+
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:text="@string/email"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font" />
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvEmailValue"
+                            android:text="@string/no_data"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/gray_text"
+                            android:textSize="@dimen/normal_font" />
+
+
+
+
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:text="@string/department"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_font" />
+                        <com.ids.mercury.custom.CustomTextViewBold
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvDepartmentValue"
+                            android:text="@string/no_data"
+                            android:layout_marginStart="@dimen/margin_start_end"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:layout_marginEnd="@dimen/margin_start_end"
+                            android:textColor="@color/gray_text"
+                            android:textSize="@dimen/normal_font" />
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <include layout="@layout/toolbar"/>
+        <include layout="@layout/loading_trans"/>
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

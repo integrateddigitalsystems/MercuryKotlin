@@ -12,6 +12,7 @@ object ApiParameters {
     const val DEVICE_TYPE_ID = "deviceTypeId"
     const val IMEI = "imei"
     const val REGISTRATION_DATE = "registrationDate"
+    const val COMPANY_ID = "companyId"
     const val GETNERAL_NOTIFICATION = "generalNotification"
     const val APP_VERSION= "appVersion"
     const val IS_PRODUCTION = "isProduction"
@@ -31,6 +32,7 @@ object ApiParameters {
     const val MOBILE = "mobile"
     const val DATE_OF_BIRTH = "DateOfBirth"
 
+    const val COACH_ID = "coachId"
     const val PACKAGE_ID = "packageId"
     const val FROM_DATE = "fromDate"
     const val TO_DATE = "toDate"

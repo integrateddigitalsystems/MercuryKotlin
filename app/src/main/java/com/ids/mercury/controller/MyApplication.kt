@@ -62,6 +62,7 @@ class MyApplication : Application() {
         var force_update=false
         var android_version=""
         var verificationTitle=""
+        var lastUsedOrderId : Long ?=0
         var tempMemberId=""
 
          var pageItemCount=4
@@ -74,6 +75,7 @@ class MyApplication : Application() {
         var selectedActivityId=0
         var arraySuggestedClasses=java.util.ArrayList<GymClass>()
         var selectedAcademy : Activity?=null
+        var selectedCoach : Coach?=null
         var selectedCsr : Child?=null
 
         var sEmail=""

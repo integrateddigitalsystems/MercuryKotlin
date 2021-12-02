@@ -47,6 +47,7 @@ internal class AdapterMediaPager(private val context: Context, private val array
         val ivFile: ImageView = view.findViewById(R.id.ivFile) as ImageView
         val youTubePlayerView: YouTubePlayerView = view.findViewById(R.id.youtube_player_view) as YouTubePlayerView
 
+        if(arrayList[position].isLocal==null || !arrayList[position].isLocal!!){
        if(arrayList[position].youTubePath!!.isNotEmpty()){
         lifecycle.addObserver(youTubePlayerView);
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
@@ -70,6 +71,10 @@ internal class AdapterMediaPager(private val context: Context, private val array
                   bottom_fragment.show(supportFragmentManager,"frag_image")
               }
           }
+       }}else{
+            youTubePlayerView.hide()
+            ivFile.show()
+            ivFile.setImageResource(arrayList[position].localImage!!)
        }
 
         container.addView(view)

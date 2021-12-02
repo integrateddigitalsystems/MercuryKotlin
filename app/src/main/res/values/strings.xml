@@ -14,7 +14,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="sign_up">Sign Up</string>
-    <string name="id_no">Id Number</string>
+    <string name="id_no">Email or ID Number</string>
     <string name="verification_code">Verification Code</string>
     <string name="enter_code_sms">Enter the verification code sent by sms</string>
     <string name="resend"> RESEND</string>
@@ -125,6 +125,11 @@
     <string name="error">An error has been occurred</string>
     <string name="email_sent">Email has been sent</string>
 
+    <string name="please_select_coach">Please select a coach</string>
     <string name="feedback">Feedback</string>
     <string name="send_us_your_feedback">Send us your feedback!</string>
+    <string name="payment_error">Payment error please try again</string>
+
+    <string name="pts">Personal Trainers</string>
+    <string name="department">Department</string>
 </resources>

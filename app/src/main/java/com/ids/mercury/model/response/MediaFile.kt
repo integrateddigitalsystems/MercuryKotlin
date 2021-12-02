@@ -41,6 +41,11 @@ class MediaFile {
     var isIcon: Boolean? = false
 
 
+
+    var isLocal: Boolean? = false
+
+    var localImage: Int? = 0
+
     constructor(
         id: Int?,
         caption: String?,
@@ -61,5 +66,32 @@ class MediaFile {
         this.croppedImage = croppedImage
         this.mainImage = mainImage
         this.isIcon = isIcon
+    }
+
+
+    constructor(
+        id: Int?,
+        caption: String?,
+        typeId: Int?,
+        fileName: String?,
+        youTubePath: String?,
+        filePath: String?,
+        croppedImage: Any?,
+        mainImage: Boolean?,
+        isIcon: Boolean?,
+        islocal:Boolean?,
+        localImage:Int
+    ) {
+        this.id = id
+        this.caption = caption
+        this.typeId = typeId
+        this.fileName = fileName
+        this.youTubePath = youTubePath
+        this.filePath = filePath
+        this.croppedImage = croppedImage
+        this.mainImage = mainImage
+        this.isIcon = isIcon
+        this.isLocal=islocal
+        this.localImage=localImage
     }
 }
