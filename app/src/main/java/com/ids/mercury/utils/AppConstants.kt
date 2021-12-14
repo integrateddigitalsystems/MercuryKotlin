@@ -73,6 +73,7 @@ object AppConstants {
     const val MENU_CSR_ID = 9
     const val MENU_RULES_AND_REGULATIONS_ID = 10
     const val MENU_FEEDBACK = 11
+    const val MENU_TRAINERS = 12
 
     const val TYPE_GYM = 1
     const val TYPE_PT = 2

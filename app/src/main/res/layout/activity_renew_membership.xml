@@ -109,6 +109,35 @@
 
                     </LinearLayout>
 
+
+                    <LinearLayout
+                        android:id="@+id/llSelectCoach"
+                        android:layout_marginTop="@dimen/normal_margin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.ids.mercury.custom.CustomTextViewMedium
+                            android:id="@+id/tvSelectCoach"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.2"
+                            android:text="Select a coach"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_available_coaches"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/logo_home_width"
+                            android:layout_marginTop="16dp"
+                            />
+
+
+
+
+                    </LinearLayout>
+
                     <com.ids.mercury.custom.CustomTextViewMedium
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/edit_text_height"

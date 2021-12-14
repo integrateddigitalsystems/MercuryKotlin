@@ -20,6 +20,15 @@ class Coach {
     @Expose
     var name: String? = ""
 
+    @SerializedName("Summary")
+    @Expose
+    var summary: String? = ""
+
+    @SerializedName("Description")
+    @Expose
+    var description: String? = ""
+
+
     @SerializedName("Email")
     @Expose
     var email: String? = ""
@@ -39,4 +48,11 @@ class Coach {
     @SerializedName("CoachType")
     @Expose
     var coachType: Int? = 0
+
+    @SerializedName("MediaFiles")
+    @Expose
+    var mediaFiles: ArrayList<MediaFile>? = arrayListOf()
+
+
+    var selected : Boolean ?= false
 }
