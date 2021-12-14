@@ -12,7 +12,7 @@ class ResponseMessage {
 
     @SerializedName("Message")
     @Expose
-    var message: String? = null
+    var message: String? = ""
 
     @SerializedName("MemberId")
     @Expose

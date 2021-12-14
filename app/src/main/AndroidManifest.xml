@@ -53,6 +53,18 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".controller.Activities.ActivityTrainers"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".controller.Activities.ActivityTrainersDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".controller.Activities.ActivityPaymentHistory"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden"

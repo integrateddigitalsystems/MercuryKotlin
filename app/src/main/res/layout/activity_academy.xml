@@ -45,7 +45,7 @@
                             android:id="@+id/vpMedias"
                             />
 
-                        <include layout="@layout/overlay"/>
+                        <include layout="@layout/overlay" />
 
 
                         <com.ids.mercury.custom.CustomTextViewLight

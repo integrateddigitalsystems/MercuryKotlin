@@ -738,6 +738,12 @@ class AppHelper {
                 Intent(context, ActivityFeedback::class.java)
             )})
 
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_TRAINERS,context.getString(R.string.pts),"",R.drawable.home_trainers,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivityTrainers::class.java)
+            )})
+
+
             var tempArray=java.util.ArrayList<SectionPagerItem>()
             arrayPagesSections.clear()
             for (i in arrayAllSections.indices){

@@ -275,14 +275,21 @@ class ActivityRenewMembership : AppCompactBase(),RVOnItemClickListener ,PaymentL
                   getAmount(selectedDate,MyApplication.selectedGymPackageId)
 
             }
+
         linearDate.setOnClickListener {
-            DatePickerDialog(
+            val cal = Calendar.getInstance()
+            var datePickerDialog=DatePickerDialog(
                 this,
                 textDateListener,
                 textDateCalendar.get(Calendar.YEAR),
                 textDateCalendar.get(Calendar.MONTH),
                 textDateCalendar.get(Calendar.DAY_OF_MONTH)
-            ).show()
+            )
+            datePickerDialog.datePicker.maxDate = (cal.timeInMillis)+(1000*60*60*24*7)
+            datePickerDialog.datePicker.minDate = (cal.timeInMillis)
+            datePickerDialog.show()
+
+
         }
     }
     fun saveGymMembership(){
