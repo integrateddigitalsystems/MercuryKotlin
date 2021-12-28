@@ -44,7 +44,7 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_academy)
         init()
-      //  GetMenusAPI.getMenus(this,AppConstants.MENU_ACADEMIES_LABEL,-1,0,this)
+        GetMenusAPI.getMenus(this,AppConstants.MENU_TRAINERS_LABLE,-1,0,this)
         listeners()
         getTrainers()
         setTopData()

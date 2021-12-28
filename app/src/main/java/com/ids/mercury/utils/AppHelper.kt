@@ -701,6 +701,11 @@ class AppHelper {
                 Intent(context, ActivityAcademies::class.java)
             )})
 
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_TRAINERS,context.getString(R.string.pts),"",R.drawable.home_trainers,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivityTrainers::class.java)
+            )})
+
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_RENT_A_COURT_ID,context.getString(R.string.rent_a_court),"",R.drawable.home_rent_a_court,"",true,true)
             {context.startActivity(
                 Intent(context, ActivityRentCourt::class.java)
@@ -738,10 +743,7 @@ class AppHelper {
                 Intent(context, ActivityFeedback::class.java)
             )})
 
-            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_TRAINERS,context.getString(R.string.pts),"",R.drawable.home_trainers,"",true,true)
-            {context.startActivity(
-                Intent(context, ActivityTrainers::class.java)
-            )})
+
 
 
             var tempArray=java.util.ArrayList<SectionPagerItem>()
