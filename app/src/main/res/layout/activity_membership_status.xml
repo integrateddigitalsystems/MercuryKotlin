@@ -6,11 +6,41 @@
     android:orientation="vertical"
     >
 
-    <include layout="@layout/toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pager_top_height_acad">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pager_top_height_acad"
+            android:src="@drawable/trainers_bg"
+            android:scaleType="centerCrop"
+            />
+
+        <include layout="@layout/overlay" />
+
+
+        <com.ids.mercury.custom.CustomTextViewLight
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big_font"
+            android:id="@+id/tvTitleOver"
+            android:text="@string/membership_status"
+            android:layout_centerInParent="true"
+            />
+
+        <include layout="@layout/toolbar_trans"/>
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/normal_margin"
+        >
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:fillViewport="true"
@@ -72,10 +102,9 @@
                     >
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:id="@+id/rvMemberShip"
-                        />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                     <com.ids.mercury.custom.CustomTextViewMedium
                         android:layout_width="match_parent"

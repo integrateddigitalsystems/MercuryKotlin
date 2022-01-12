@@ -130,6 +130,6 @@
     <string name="send_us_your_feedback">Send us your feedback!</string>
     <string name="payment_error">Payment error please try again</string>
 
-    <string name="pts">Personal Trainers</string>
+    <string name="pts">Trainers</string>
     <string name="department">Department</string>
 </resources>

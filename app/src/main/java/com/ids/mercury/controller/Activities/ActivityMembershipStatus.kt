@@ -61,8 +61,13 @@ class ActivityMembershipStatus : AppCompactBase(),RVOnItemClickListener {
 
 
     private fun init(){
-        tvToolbarTitle.text=getString(R.string.membership_status)
+        tvToolbarTitle.text=""
+        tvToolbarTitle.show()
+        btProfile.show()
+    }
 
+    override fun onStop() {
+        super.onStop()
     }
 
     private fun listeners(){

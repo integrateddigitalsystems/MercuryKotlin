@@ -60,6 +60,7 @@ object AppConstants {
     const val MENU_GYM_CLASSES_LABEL = "gymClasses"
     const val MENU_CLASS_SCHEDULE_LABEL = "classSchedule"
     const val MENU_CSR_LABEL = "csr"
+    const val MENU_TRAINERS_LABLE = "trainers"
     const val FROM_PAGE = "from_page"
     const val IMAGE_URL = "image_url"
     const val MENU_MEMBERSHIP_STATUS_ID = 1
