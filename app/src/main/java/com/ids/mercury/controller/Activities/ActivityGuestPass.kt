@@ -93,6 +93,7 @@ class ActivityGuestPass : AppCompactBase() , RVOnItemClickListener {
 
     private fun submit(){
         startActivity(Intent(this,ActivitySuccess::class.java))
+        finish()
     }
 
 

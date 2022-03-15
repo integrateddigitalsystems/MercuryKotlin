@@ -37,6 +37,27 @@
 
 
 
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circle_border_white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/btHome"
+                android:layout_marginTop="@dimen/big_margin"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/home"
+                    android:backgroundTint="@color/white"/>
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
 

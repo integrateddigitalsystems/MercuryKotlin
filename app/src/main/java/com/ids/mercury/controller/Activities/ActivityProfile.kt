@@ -150,6 +150,7 @@ class ActivityProfile : AppCompactBase(),RVOnItemClickListener,ApiListener {
          tvUsername.text=MyApplication.memberDetails!!.getName()
          tvCalendarDob.text=MyApplication.memberDetails!!.dateOfBirth
          etEmail.setText(MyApplication.memberDetails!!.email!!)
+         tvEmail.text=MyApplication.memberDetails!!.email!!
          if(MyApplication.memberDetails!!.mobile!!.isNotEmpty()) {
             try{etPhoneNumber.setText(MyApplication.memberDetails!!.mobile!!.split(" ")[1])}catch (e:Exception){}
             try{

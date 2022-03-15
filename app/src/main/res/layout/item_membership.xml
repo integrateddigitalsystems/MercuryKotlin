@@ -102,7 +102,29 @@
 
 
 
+    <com.ids.mercury.custom.CustomTextViewBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_font"
+        android:maxLines="1"
+        android:id="@+id/tvSessionsLeftTitle"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:text="@string/sessions_left"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"/>
 
+    <com.ids.mercury.custom.CustomTextViewMedium
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSessionsLeftValue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_font"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"/>
 
 
 

@@ -1,5 +1,6 @@
 package com.ids.mercury.controller.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -11,6 +12,7 @@ import com.ids.mercury.controller.Fragments.*
 import com.ids.mercury.utils.AppConstants
 import com.ids.mercury.utils.addFragment
 import com.ids.mercury.utils.replaceFragment
+import kotlinx.android.synthetic.main.activity_success.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -29,6 +31,13 @@ class ActivitySuccess : AppCompactBase() {
        btBack.setOnClickListener{
            super.onBackPressed()
        }
+
+        btHome.setOnClickListener{
+            val mIntent = Intent(this, ActivityHome::class.java)
+            finishAffinity()
+            startActivity(mIntent)
+        }
+
     }
 
 

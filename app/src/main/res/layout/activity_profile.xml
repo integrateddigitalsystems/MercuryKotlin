@@ -71,8 +71,8 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:textSize="@dimen/normal_font"
+                        android:id="@+id/tvEmail"
                         android:layout_gravity="center_horizontal"
-                        android:text="aaa@bbb.ccc"
                         />
                 </LinearLayout>
                 <LinearLayout

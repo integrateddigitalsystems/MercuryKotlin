@@ -11,6 +11,9 @@ import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickLi
 
 import com.ids.mercury.model.response.History
 import com.ids.mercury.model.response.MemberShip
+import com.ids.mercury.utils.AppConstants
+import com.ids.mercury.utils.hide
+import com.ids.mercury.utils.show
 import java.lang.Exception
 
 import java.util.ArrayList
@@ -18,7 +21,8 @@ import java.util.ArrayList
 
 class AdapterMembership(
     val items: ArrayList<MemberShip>,
-    private val itemClickListener: RVOnItemClickListener
+    private val itemClickListener: RVOnItemClickListener,
+    var type:Int
 ) :
     RecyclerView.Adapter<AdapterMembership.VHItem>() {
 
@@ -34,7 +38,15 @@ class AdapterMembership(
         try{holder.tvPackageType.text=item.packageName}catch (e:Exception){}
         try{holder.tvStartDate.text=item.registrationDate}catch (e:Exception){}
         try{holder.tvEndDate.text=item.expiryDate}catch (e:Exception){}
-        try{holder.tvStatus.text=item.entriesNbLeft.toString()}catch (e:Exception){}
+        try{holder.tvStatus.text= item.statusName}catch (e:Exception){}
+            if(type == AppConstants.TYPE_GYM){
+                holder.tvSessionsLeftTitle.hide()
+                holder.tvSessionsLeftValue.hide()
+            }else{
+                holder.tvSessionsLeftTitle.show()
+                holder.tvSessionsLeftValue.show()
+                try{ holder.tvSessionsLeftValue.text=item.entriesNbLeft.toString() }catch (e:Exception){}
+            }
 
     }
 
@@ -48,6 +60,8 @@ class AdapterMembership(
         var tvEndDate = itemView.findViewById<TextView>(R.id.tvEndDate)
         var tvStatus = itemView.findViewById<TextView>(R.id.tvStatus)
 
+        var tvSessionsLeftTitle = itemView.findViewById<TextView>(R.id.tvSessionsLeftTitle)
+        var tvSessionsLeftValue = itemView.findViewById<TextView>(R.id.tvSessionsLeftValue)
         init {
             itemView.setOnClickListener(this)
         }

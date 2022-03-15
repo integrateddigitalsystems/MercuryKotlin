@@ -132,4 +132,5 @@
 
     <string name="pts">Trainers</string>
     <string name="department">Department</string>
+    <string name="sessions_left">Sessions Left</string>
 </resources>

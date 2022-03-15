@@ -141,7 +141,7 @@ class ActivityMembershipStatus : AppCompactBase(),RVOnItemClickListener {
       */
         val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rvMemberShip.layoutManager = layoutManager
-        adapter = AdapterMembership(arrayData,this)
+        adapter = AdapterMembership(arrayData,this,selectedTab)
         rvMemberShip.adapter = adapter
 
     }
