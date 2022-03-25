@@ -63,7 +63,7 @@
     <string name="buy_guest_pass">Buy Extra Pass</string>
     <string name="invite_n_a_friend">Invite Friend</string>
     <string name="submit_request">Submit Request</string>
-
+    <string name="invalid_username_password">Invalid Username Or Password</string>
     <string name="guest_passes_available">Guest Passes Available :</string>
     <string name="register_now">Register Now</string>
     <string name="first_name">First Name</string>

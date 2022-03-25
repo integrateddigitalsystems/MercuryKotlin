@@ -72,6 +72,7 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
     }
 
     private fun setPager(){
+        if(arrayMediaPager.size>0){
         adapterPager = AdapterMediaPager(this,arrayMediaPager,lifecycle,supportFragmentManager)
         vpMedias.adapter = adapterPager
         tbMedia.setupWithViewPager(vpMedias)
@@ -88,6 +89,7 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
             }
 
         })
+        }
 
     }
 
@@ -99,9 +101,11 @@ class ActivityTrainers : AppCompactBase(),RVOnItemClickListener,MenusDataListene
     }
 
     override fun onDataMenuRetrieved(success: Boolean, responseMenus: ResponseMenus) {
-        arrayMediaPager.clear()
+
         if(responseMenus.menus!!.size>0){
+
             if(responseMenus.menus!![0].mediaFiles!!.size>0){
+                arrayMediaPager.clear()
                 arrayMediaPager.addAll(responseMenus.menus!![0].mediaFiles!!)
                 setPager()
             }

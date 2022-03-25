@@ -93,6 +93,10 @@ class FragmentLogin : Fragment() , RVOnItemClickListener ,ApiListener{
                          CallApi.updateUserDevice()
                          goHome()
 
+                    }else{
+                        try{
+                            AppHelper.createDialog(requireActivity(),response.body()!!.message!!)
+                        }catch (e:Exception){}
                     }
 
                 }

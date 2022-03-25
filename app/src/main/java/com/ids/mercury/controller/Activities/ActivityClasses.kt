@@ -60,7 +60,7 @@ class ActivityClasses : AppCompactBase(),RVOnItemClickListener,MenusDataListener
     private fun listeners(){
         btBack.setOnClickListener{super.onBackPressed()}
         btProfile.setOnClickListener{startActivity(Intent(this,ActivityProfile::class.java))}
-        linearSuggestedClasses.setOnClickListener{0
+        linearSuggestedClasses.setOnClickListener{
             startActivity(Intent(this,ActivitySuggestedClasses::class.java).putExtra(AppConstants.FROM_PAGE,AppConstants.PAGE_CLASSES))
         }
 

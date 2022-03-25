@@ -716,10 +716,10 @@ class AppHelper {
                 Intent(context, ActivityPaymentHistory::class.java)
             )})
 
-            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GIFT_CARD_ID,context.getString(R.string.gift_card),"",R.drawable.home_giftcard,"",true,true)
+      /*      arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GIFT_CARD_ID,context.getString(R.string.gift_card),"",R.drawable.home_giftcard,"",true,true)
             {context.startActivity(
                 Intent(context, ActivityGiftCard::class.java)
-            )})
+            )})*/
 
             arrayAllSections.add(SectionPagerItem(AppConstants.MENU_GUESS_PASSES_ID,context.getString(R.string.guess_passes),"",R.drawable.home_guestpass,"",true,true)
             {context.startActivity(
