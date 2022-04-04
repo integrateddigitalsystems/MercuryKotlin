@@ -109,7 +109,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
 
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        val notificationBuilder = NotificationCompat.Builder(this, "CCIAZ_0001")
+        val notificationBuilder = NotificationCompat.Builder(this, "MERCURY_0001")
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle(resources.getString(R.string.app_name))
             .setContentText(messageBody)
