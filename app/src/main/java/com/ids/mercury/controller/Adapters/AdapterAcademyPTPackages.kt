@@ -1,16 +1,20 @@
 package com.ids.mercury.controller.Adapters
 
 import android.app.Dialog
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ids.mercury.R
+import com.ids.mercury.controller.Activities.ActivityInsideClasses
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.model.response.AcademyPtPackage
 import com.ids.mercury.utils.PaymentApiDialog
+import kotlinx.android.synthetic.main.item_academy_pt_package.view.*
 import java.lang.Exception
 
 
@@ -32,21 +36,27 @@ class AdapterAcademyPTPackages(val items: ArrayList<AcademyPtPackage>, private v
         try{holder.tvAmount.text=item.amount.toString()}catch (e: Exception){}
         holder.ivShow.setImageResource(if(isChecked) R.drawable.icon_true else R.drawable.icon_false)
 
+      /* holder.ivShow.setOnClickListener {
+           if(!isChecked) {
+               holder.ivShow.setImageResource(R.drawable.icon_true)
+           }else {
+               holder.ivShow.setImageResource(R.drawable.icon_false)
+           }
+        }*/
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-
     inner class VHItem(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tvName = itemView.findViewById<TextView>(R.id.tvName)
         var tvAmount = itemView.findViewById<TextView>(R.id.tvAmount)
+        var tvIsMultiUser = itemView.findViewById<TextView>(R.id.tvIsMultiUser)
         var ivShow = itemView.findViewById<ImageView>(R.id.ivShow)
-        var linearLayout = itemView.findViewById<LinearLayout>(R.id.ptPackage_item)
-
         init {
             itemView.setOnClickListener(this)
+            ivShow.setOnClickListener(this)
         }
 
         override fun onClick(v: View) {

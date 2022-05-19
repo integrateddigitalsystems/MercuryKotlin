@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -26,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_loyality_points.*
 import kotlinx.android.synthetic.main.activity_rent_court.*
 import kotlinx.android.synthetic.main.item_academy_pt_package.*
 import kotlinx.android.synthetic.main.item_academy_pt_package.tvName
+import kotlinx.android.synthetic.main.item_academy_pt_package.view.*
 import kotlinx.android.synthetic.main.item_popup.*
 import kotlinx.android.synthetic.main.item_popup_academy_pt_packages.*
 import kotlinx.android.synthetic.main.loading_trans.*
@@ -48,6 +50,7 @@ class  ActivityAcademyPTPackages :AppCompactBase(),RVOnItemClickListener,ApiList
         init()
         listeners()
         getAcademyPTPackageData()
+
     }
 
     private fun init(){
@@ -57,6 +60,7 @@ class  ActivityAcademyPTPackages :AppCompactBase(),RVOnItemClickListener,ApiList
         AppHelper.setToolbarScrollAnimation(this, linearToolbar, tvToolbarTitle, myScrollPt, tvTitleOverPt)
         arrayMediaPager.add(MediaFile(13,null,R.drawable.academy_pt_package,true))
         setPager()
+
     }
 
     private fun setPager(){
@@ -90,18 +94,30 @@ class  ActivityAcademyPTPackages :AppCompactBase(),RVOnItemClickListener,ApiList
     }
 
     override fun onItemClicked(view: View, position: Int) {
+        if (view==ivShow){
+            clickImageCheck(position)
+        }else{
+            showItem(position)
+        }
+    }
+
+    fun clickImageCheck(position:Int){
+        val isChecked = adapter.items[position].isMultiUser!!
+       // ivShow.setImageResource(if(!isChecked) R.drawable.icon_true else R.drawable.icon_false)
+    }
+
+    fun showItem(position:Int){
+        val isChecked = adapter.items[position].isMultiUser!!
         dialog = Dialog(this, R.style.dialogAcademyPtPackages)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCanceledOnTouchOutside(true)
         dialog.setContentView(R.layout.item_popup_academy_pt_packages)
         dialog.tvName.text = adapter.items[position].name
         dialog.tvAmountPt.text = adapter.items[position].amount.toString()
-        val isChecked = adapter.items[position].isMultiUser!!
         dialog.ivShowPt.setImageResource(if(isChecked) R.drawable.icon_true else R.drawable.icon_false)
         dialog.setCancelable(true)
         dialog.show()
     }
-
     fun getAcademyPTPackageData () {
         loading.show()
         RetrofitClient.client?.create(RetrofitInterface::class.java)
