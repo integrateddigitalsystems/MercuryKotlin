@@ -94,4 +94,16 @@ class MediaFile {
         this.isLocal=islocal
         this.localImage=localImage
     }
+
+    constructor(
+        id: Int?,
+        filePath: String?,
+        localImage:Int,
+        islocal:Boolean?
+    ) {
+        this.id = id
+        this.filePath=filePath
+        this.localImage=localImage
+        this.isLocal=islocal
+    }
 }

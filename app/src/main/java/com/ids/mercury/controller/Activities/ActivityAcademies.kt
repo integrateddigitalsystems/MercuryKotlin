@@ -65,7 +65,7 @@ class ActivityAcademies : AppCompactBase(),RVOnItemClickListener,MenusDataListen
 
 
     override fun onItemClicked(view: View, position: Int) {
-        startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
+       startActivity(Intent(this,ActivityInsideClasses::class.java).putExtra(AppConstants.SESSION_ID,
             adapterClasses.items[position].id!!))
     }
 
@@ -88,7 +88,6 @@ class ActivityAcademies : AppCompactBase(),RVOnItemClickListener,MenusDataListen
         })
 
     }
-
 
 
     override fun onStop() {

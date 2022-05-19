@@ -65,9 +65,9 @@ class MyApplication : Application() {
         var lastUsedOrderId : Long ?=0
         var tempMemberId=""
 
-         var pageItemCount=4
-         var gridRecyclerCount=2
-          var memberDetails : Member?=null
+        var pageItemCount=4
+        var gridRecyclerCount=2
+        var memberDetails : Member?=null
         var selectedImage=""
         var selectedItemDialog="+961"
         var selectedGymPackageId=0

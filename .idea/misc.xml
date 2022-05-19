@@ -15,10 +15,54 @@
         <entry key="..\:/AndroidStudioProjects/latest/mercury_kot/app/src/main/res/layout/overlay.xml" value="0.24895833333333334" />
         <entry key="..\:/AndroidStudioProjects/latest/mercury_kot/app/src/main/res/layout/toolbar.xml" value="0.20606884057971014" />
         <entry key="..\:/AndroidStudioProjects/latest/mercury_kot/app/src/main/res/layout/toolbar_trans.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable-xhdpi/rounded_gray_frame.xml" value="0.1695" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/icon_false.xml" value="0.2035" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/rectangular_gray.xml" value="0.1695" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/rectangular_gray_border.xml" value="0.1695" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/rectangular_w_black_border.xml" value="0.1695" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/rounded_white_frame.xml" value="0.2" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/drawable/selector_tab_image.xml" value="0.2035" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/acitivity_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/acitivity_inside_csr.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_academy.xml" value="0.2" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_academy_details.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_academy_ptpackages.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_academy_ptpackages_details.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_classes.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_empty.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_feedback.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_gift_card.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_inside_classes.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_loyality_points.xml" value="0.3776041666666667" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_membership_status.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_pop.xml" value="0.15806159420289856" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_refer_friend.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/activity_rent_court.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/bottom_sheet_full_image.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/fragment_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/fragment_signup.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/fragment_verification.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item1.xml" value="0.264" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_academy_pt_package.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_class.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_gift_card.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_home_pager.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_media_file.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_membership.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_pager_recycler_section.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_popup.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_popup_academy_pt_packages.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/item_pt_package.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/loading_trans.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/overlay.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/popup_recycler.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/toolbar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/m.chhadi/AndroidStudioProjects/MercuryKotlin/app/src/main/res/layout/toolbar_trans.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

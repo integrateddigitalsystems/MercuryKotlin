@@ -16,15 +16,14 @@
         android:layout_marginTop="@dimen/medium_margin"
        />
 
-    <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/big_margin"
-        android:id="@+id/vpSections"
-        />
+  <androidx.viewpager.widget.ViewPager
+      android:id="@+id/vpSections"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/big_margin"
+      android:layout_weight="1" />
 
-    <com.google.android.material.tabs.TabLayout
+  <com.google.android.material.tabs.TabLayout
         android:id="@+id/tbHome"
         android:layout_width="match_parent"
         android:layout_height="18dp"
@@ -32,7 +31,6 @@
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
         android:layout_marginTop="@dimen/normal_margin"
-
         app:tabMaxWidth="12dp"
         app:tabBackground="@drawable/selector_tab_image"
         app:tabRippleColor="@null" />

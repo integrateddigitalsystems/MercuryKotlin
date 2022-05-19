@@ -211,7 +211,7 @@ class ActivityRentCourt : AppCompactBase(),RVOnItemClickListener,PaymentListener
          tvSelectedActivity.text=adapterActivityPackages.items[position].name!!
          dialog.dismiss()
         }else{
-            resetAllSelection()
+           resetAllSelection()
             arrayCourts[position].selected=true
             selectedCourt=arrayCourts[position].id!!
             amount=arrayCourts[position].price.toString()

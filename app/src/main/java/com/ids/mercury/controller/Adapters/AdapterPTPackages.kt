@@ -31,6 +31,7 @@ class AdapterPTPackages(
     override fun onBindViewHolder(holder: VHItem, position: Int) {
         holder.tvName.text = items[position].name
 
+
         if(MyApplication.selectedPtPackageId==items[position].id)
             holder.tvName.typeface= AppHelper.getTypeFaceBold(holder.itemView.context)
         else
@@ -43,6 +44,7 @@ class AdapterPTPackages(
 
     inner class VHItem(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tvName = itemView.findViewById<TextView>(R.id.tvName)
+
         init {
             itemView.setOnClickListener(this)
         }

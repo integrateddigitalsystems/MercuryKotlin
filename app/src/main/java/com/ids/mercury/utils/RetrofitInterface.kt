@@ -117,6 +117,10 @@ interface RetrofitInterface {
     fun getPTPackages(
     ): Call<ResponsePtPackages>
 
+    @GET("GetAcademyPTPackages")
+    fun getAcademyPTPackages(
+    ): Call<ResponseAcademyPtPackages>
+
     @GET("GetGymMembershipFinalAmount")
     fun getAmount(
         @Query(ApiParameters.PACKAGE_ID) packageId: Int,

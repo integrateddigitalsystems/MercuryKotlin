@@ -3,8 +3,10 @@
 
     <dimen name="medium_margin">18dp</dimen>
     <dimen name="big_margin">30dp</dimen>
+    <dimen name="reverse_margin">-25dp</dimen>
     <dimen name="normal_margin">10dp</dimen>
     <dimen name="small_margin">6dp</dimen>
+    <dimen name="large_margin_left">100dp</dimen>
     <dimen name="mini_margin">2dp</dimen>
     <dimen name="small_font">11sp</dimen>
     <dimen name="normal_font">13sp</dimen>
@@ -33,4 +35,5 @@
     <dimen name="pager_top_height_acad">150dp</dimen>
     <dimen name="item_class_height">60dp</dimen>
     <dimen name="success_icon">50dp</dimen>
+    <dimen name="item_academy_pt_height">130dp</dimen>
 </resources>

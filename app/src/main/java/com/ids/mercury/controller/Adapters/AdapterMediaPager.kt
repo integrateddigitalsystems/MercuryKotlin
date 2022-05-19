@@ -2,6 +2,7 @@ package com.ids.mercury.controller.Adapters
 
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +10,11 @@ import android.widget.ImageView
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager.widget.PagerAdapter
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.ids.mercury.R
 import com.ids.mercury.controller.Adapters.RVOnItemClickListener.RVOnItemClickListener
 import com.ids.mercury.controller.Fragments.FragmentBottomSheetNotification
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.model.response.MediaFile
-import com.ids.mercury.utils.AppHelper
 import com.ids.mercury.utils.hide
 import com.ids.mercury.utils.loadImagesUrl
 import com.ids.mercury.utils.show
@@ -65,16 +63,25 @@ internal class AdapterMediaPager(private val context: Context, private val array
            ivFile.show()
            ivFile.loadImagesUrl(arrayList[position].filePath!!)
           if(arrayList[position].filePath!=null && arrayList[position].filePath!!.isNotEmpty()){
-              ivFile.setOnClickListener {
-                  MyApplication.selectedImage=arrayList[position].filePath!!
-                  val bottom_fragment = FragmentBottomSheetNotification()
-                  bottom_fragment.show(supportFragmentManager,"frag_image")
-              }
+            ivFile.setOnClickListener {
+                MyApplication.selectedImage = arrayList[position].filePath!!
+                    val bottom_fragment = FragmentBottomSheetNotification()
+                    bottom_fragment.show(supportFragmentManager, "frag_image")
+
+            }
           }
        }}else{
             youTubePlayerView.hide()
             ivFile.show()
             ivFile.setImageResource(arrayList[position].localImage!!)
+            ivFile.setOnClickListener{
+                val bottom_fragment = FragmentBottomSheetNotification()
+                bottom_fragment.show(supportFragmentManager, "frag_image")
+                val bundle = Bundle()
+                bundle.putString("image", "local")
+                bottom_fragment.setArguments(bundle)
+            }
+
        }
 
         container.addView(view)

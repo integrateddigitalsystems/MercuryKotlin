@@ -742,7 +742,10 @@ class AppHelper {
             {context.startActivity(
                 Intent(context, ActivityFeedback::class.java)
             )})
-
+            arrayAllSections.add(SectionPagerItem(AppConstants.MENU_ACADEMIES_PT_PACKAGE_ID,context.getString(R.string.academy_pt_packages),"",R.drawable.academy_pt_package,"",true,true)
+            {context.startActivity(
+                Intent(context, ActivityAcademyPTPackages::class.java)
+            )})
 
 
 

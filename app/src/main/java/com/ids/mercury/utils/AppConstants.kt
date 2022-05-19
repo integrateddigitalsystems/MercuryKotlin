@@ -60,6 +60,7 @@ object AppConstants {
     const val MENU_GYM_CLASSES_LABEL = "gymClasses"
     const val MENU_CLASS_SCHEDULE_LABEL = "classSchedule"
     const val MENU_CSR_LABEL = "csr"
+    const val MENU_ACADEMY_PT_PACKAGES_LABEL  = "academy PT packages"
     const val MENU_TRAINERS_LABLE = "trainers"
     const val FROM_PAGE = "from_page"
     const val IMAGE_URL = "image_url"
@@ -74,6 +75,7 @@ object AppConstants {
     const val MENU_CSR_ID = 9
     const val MENU_RULES_AND_REGULATIONS_ID = 10
     const val MENU_FEEDBACK = 11
+    const val MENU_ACADEMIES_PT_PACKAGE_ID = 13
     const val MENU_TRAINERS = 12
 
     const val TYPE_GYM = 1

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.R
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.DialogFragment
@@ -17,21 +18,24 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.ids.mercury.controller.MyApplication
 import com.ids.mercury.utils.AppConstants
 import com.ids.mercury.utils.loadImagesUrlResize
+import com.ids.mercury.utils.toastt
+import kotlinx.android.synthetic.main.activity_academy_ptpackages.view.*
 import kotlinx.android.synthetic.main.bottom_sheet_full_image.*
+import kotlinx.android.synthetic.main.item_media_file.*
+import kotlinx.android.synthetic.main.item_media_file.view.*
 
 
 class FragmentBottomSheetNotification : BottomSheetDialogFragment(){
-
+    var data = ""
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(com.ids.mercury.R.layout.bottom_sheet_full_image, container, false)
-
 
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL,com.ids.mercury.R.style.MyBottomSheetDialog)
-
+        val args = this.arguments
+        data = args?.get("image").toString()
     }
-
     override fun onStart() {
         super.onStart()
         val dialog = dialog
@@ -56,10 +60,8 @@ class FragmentBottomSheetNotification : BottomSheetDialogFragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadImage()
+        if(data=="local") loadImageLocal() else loadImage()
     }
-
-
 
     private fun loadImage(){
         val options: RequestOptions = RequestOptions()
@@ -69,6 +71,13 @@ class FragmentBottomSheetNotification : BottomSheetDialogFragment(){
              Glide.with(this).load(MyApplication.selectedImage).apply(options)
             .into(ivMedia)
     }
-
+    private fun loadImageLocal(){
+        val options: RequestOptions = RequestOptions()
+            .fitCenter()
+            .placeholder(com.ids.mercury.R.drawable.rectangular_gray)
+            .error(com.ids.mercury.R.drawable.rectangular_gray)
+        Glide.with(this).load(com.ids.mercury.R.drawable.academy_pt_package).apply(options)
+            .into(ivMedia)
+    }
 
 }
