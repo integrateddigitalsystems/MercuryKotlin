@@ -94,16 +94,15 @@ class  ActivityAcademyPTPackages :AppCompactBase(),RVOnItemClickListener,ApiList
     }
 
     override fun onItemClicked(view: View, position: Int) {
-        if (view==ivShow){
+        if (view.id == R.id.ivShow){
             clickImageCheck(position)
         }else{
             showItem(position)
         }
     }
-
     fun clickImageCheck(position:Int){
-        val isChecked = adapter.items[position].isMultiUser!!
-       // ivShow.setImageResource(if(!isChecked) R.drawable.icon_true else R.drawable.icon_false)
+        arrayAcademyPtPackage[position].isMultiUser = !arrayAcademyPtPackage[position].isMultiUser!!
+        adapter.notifyItemChanged(position)
     }
 
     fun showItem(position:Int){

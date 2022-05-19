@@ -27,7 +27,6 @@ class AdapterAcademyPTPackages(val items: ArrayList<AcademyPtPackage>, private v
             LayoutInflater.from(parent.context).inflate(R.layout.item_academy_pt_package, parent, false)
         )
     }
-
     override fun onBindViewHolder(holder: VHItem, position: Int) {
         var item=items[position]
         var isChecked = item.isMultiUser!!
@@ -36,13 +35,6 @@ class AdapterAcademyPTPackages(val items: ArrayList<AcademyPtPackage>, private v
         try{holder.tvAmount.text=item.amount.toString()}catch (e: Exception){}
         holder.ivShow.setImageResource(if(isChecked) R.drawable.icon_true else R.drawable.icon_false)
 
-      /* holder.ivShow.setOnClickListener {
-           if(!isChecked) {
-               holder.ivShow.setImageResource(R.drawable.icon_true)
-           }else {
-               holder.ivShow.setImageResource(R.drawable.icon_false)
-           }
-        }*/
     }
 
     override fun getItemCount(): Int {
@@ -52,11 +44,11 @@ class AdapterAcademyPTPackages(val items: ArrayList<AcademyPtPackage>, private v
     inner class VHItem(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tvName = itemView.findViewById<TextView>(R.id.tvName)
         var tvAmount = itemView.findViewById<TextView>(R.id.tvAmount)
-        var tvIsMultiUser = itemView.findViewById<TextView>(R.id.tvIsMultiUser)
         var ivShow = itemView.findViewById<ImageView>(R.id.ivShow)
+
         init {
             itemView.setOnClickListener(this)
-            ivShow.setOnClickListener(this)
+             ivShow.setOnClickListener(this)
         }
 
         override fun onClick(v: View) {
