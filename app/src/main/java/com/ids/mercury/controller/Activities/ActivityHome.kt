@@ -3,6 +3,7 @@ package com.ids.mercury.controller.Activities
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 
@@ -19,6 +20,7 @@ import com.ids.mercury.model.PagerSectionArray
 import com.ids.mercury.model.SectionPagerItem
 import com.ids.mercury.utils.*
 import kotlinx.android.synthetic.main.acitivity_home.*
+import kotlinx.android.synthetic.main.activity_academy_details.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -35,6 +37,9 @@ class ActivityHome : AppCompactBase() {
 
     private fun init(){
        btBack.hide()
+        llCrash.setOnClickListener {
+            rvAssistants.visibility = View.VISIBLE
+        }
        btProfile.show()
        btNotification.show()
        setPager()
